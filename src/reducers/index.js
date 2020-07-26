@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux'
-import reducer_test from './reducer_test'
+import reducer_nav from './reducer_nav'
 
 export const initialState = {
-  test: {
-    display: false
+  nav: {
+    nav: {}
   }
 }
 
 export const rootReducers = combineReducers({
-  test: reducer_test
+  nav: reducer_nav
 })

@@ -1,4 +1,4 @@
 export default {
-    GET_TEST: 'GET_TEST'
+    GET_NAV: 'GET_NAV'
   }
   

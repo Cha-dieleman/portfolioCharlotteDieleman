@@ -1,6 +1,6 @@
 import { store } from '../store'
 import actionsType from './actionsType'
 
-export const testAction = (bool) => {
-    store.dispatch({ type: actionsType.GET_TEST, payload: bool })
+export const setNav = (value) => {
+    store.dispatch({ type: actionsType.GET_NAV, payload: value })
 }
