@@ -1,5 +1,6 @@
 import React from 'react'
 import Media from 'react-media'
+import { Link } from 'react-router-dom'
 
 import { Typography } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
@@ -60,28 +61,32 @@ class Header extends React.Component {
           {(matches) =>
             matches ? (
                 <div className={classes.mainContainer}>
-                    <div className={classes.flexLogo}>
-                        <EcoIcon className={classes.logoImg}/>
-                        <Typography
-                            variant="h5"
-                            className={classes.logoText}
-                        >
-                            GreenCityKid
-                        </Typography>
-                    </div>
+                    <Link to='/home' style={{ textDecoration: 'none', color:'#B76E22' }}>
+                        <div className={classes.flexLogo}>
+                            <EcoIcon className={classes.logoImg}/>
+                            <Typography
+                                variant="h5"
+                                className={classes.logoText}
+                            >
+                                GreenCityKid
+                            </Typography>
+                        </div>
+                    </Link>
                     <Breadcrumb />
                </div>
             ) : (
                 <div className={classes.mainContainerDesktop}>
-                    <div className={`${classes.flexLogo} ${classes.flexLogoDesktop}`}>
-                        <EcoIcon className={classes.logoImg}/>
-                        <Typography
-                            variant="h5"
-                            className={classes.logoText}
-                        >
-                            GreenCityKid
-                        </Typography>
-                    </div>
+                    <Link to='/home' style={{ textDecoration: 'none', color:'#B76E22' }}>
+                        <div className={`${classes.flexLogo} ${classes.flexLogoDesktop}`}>
+                            <EcoIcon className={classes.logoImg}/>
+                            <Typography
+                                variant="h5"
+                                className={classes.logoText}
+                            >
+                                GreenCityKid
+                            </Typography>
+                        </div>
+                    </Link>
                     <Breadcrumb />
                 </div>
             )

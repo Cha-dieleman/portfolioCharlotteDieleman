@@ -27,7 +27,8 @@ const styles = () => ({
   },
   button: {
     marginTop: 40,
-    color: '#B76E22'
+    color: '#B76E22',
+    border: 'solid 1px white',
   }
 })
 
