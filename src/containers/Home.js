@@ -1,5 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Media from 'react-media'
 import Odometer from 'react-odometerjs'
@@ -331,12 +330,5 @@ class Home extends React.Component {
     }
   }
 
-  const mapStateToProps = (state) => {
-      console.log('state : ', state)
-    return ({
-        test: state.test
-    })
-  }
-
-export default withStyles(styles)(connect(mapStateToProps)(Home))
+export default withStyles(styles)(Home)
 

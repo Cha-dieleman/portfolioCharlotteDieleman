@@ -1,5 +1,6 @@
 import React from 'react'
 // import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 import Media from 'react-media'
 import reactId from 'react-id-generator'
 
@@ -7,6 +8,8 @@ import { withStyles } from '@material-ui/core/styles'
 
 import GardenCard from './GardenCard'
 import { dataMock } from '../back/dataMock'
+import AutoSuggest from './Autocomplete'
+import { getSelectedPark } from '../actions'
 
 const styles = () => ({
   mainContainer: {
@@ -27,35 +30,59 @@ class GardensListContainer extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            inputValueAutoSuggest: null
         }
     }
 
+    componentWillUnmount() {
+        getSelectedPark(null)
+    }
+
     render() {
-        const { classes } = this.props
-        const data = dataMock.features
-        console.log('ici', data)
+        const { classes, selectedParkNameRedux } = this.props
+        const { inputValueAutoSuggest } = this.state
+        let data = dataMock.features
+        const dataChoosenByAutosuggest = []
+        if(selectedParkNameRedux){
+            const parkNameSelected = selectedParkNameRedux.split(' - ')
+            data.map(park => {
+                const name= park.properties.nom
+                if(park.properties.nom === parkNameSelected[0]){
+                    console.log('idem')
+                    data=[park]
+                }
+                return null
+            })
+        }
+        console.log('yes', data)
         return (
             <Media query={{ maxWidth: 1024 }}>
                 {(matches) =>
                     matches ? (
-                        <div className={classes.mainContainer}>
-                            {data.map(data => {
-                                return (
-                                    <div key={reactId()}>
-                                        <GardenCard data={data}/>
-                                    </div>
-                                )
-                            })}
+                        <div>
+                            <AutoSuggest data={data}/>
+                            <div className={classes.mainContainer}>
+                                {data.map(data => {
+                                    return (
+                                        <div key={reactId()}>
+                                            <GardenCard data={data}/>
+                                        </div>
+                                    )
+                                })}
+                            </div>
                         </div>
                     ) : (
-                        <div className={`${classes.mainContainer} ${classes.mainContainerDesktop}`}>
-                            {data.map(data => {
-                                return (
-                                    <div key={reactId()}>
-                                        <GardenCard data={data}/>
-                                    </div>
-                                )
-                            })}
+                        <div>
+                            <AutoSuggest data={data}/>
+                            <div className={`${classes.mainContainer} ${classes.mainContainerDesktop}`}>
+                                {data.map(park => {
+                                    return (
+                                        <div key={reactId()}>
+                                            <GardenCard data={park}/>
+                                        </div>
+                                    )
+                                })}
+                            </div>
                         </div>
                     )
                 }
@@ -64,4 +91,10 @@ class GardensListContainer extends React.Component {
     }
 }
 
-export default withStyles(styles)(GardensListContainer)
+const mapStateToProps = (state) => {
+  return ({
+      selectedParkNameRedux: state.selectedPark.name
+  })
+}
+
+export default withStyles(styles)(connect(mapStateToProps)(GardensListContainer))
