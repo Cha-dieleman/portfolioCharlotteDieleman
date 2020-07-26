@@ -9,7 +9,7 @@ import { MuiThemeProvider, createMuiTheme, withStyles } from '@material-ui/core/
 
 import Header from '../globalComponents/Header'
 import GardensList from '../globalComponents/GardensList'
-import DataParkContainer from '../globalComponents/DataParkContainer'
+import DataParkContainer from '../globalComponents/dataParkContainer'
 import { setNav, getSelectedPark, getDataSelectedPark } from '../actions'
 
 

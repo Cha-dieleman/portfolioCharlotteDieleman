@@ -1,10 +1,10 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
-import mapLyonImg from '../static/images/mapLyonImg.jpg'
+import mapLyonImg from '../../static/images/mapLyonImg.jpg'
 
 const styles = () => ({
     mainContainer: {
-        backgroundColor: 'pink'
+        // backgroundColor: 'pink'
     }
   
 })
@@ -20,11 +20,11 @@ class ParkMap extends React.Component {
     const { classes } = this.props
 
     return (
-        <div className={classes.mainContainer} style={{width: '100%', height: '100%'}}>
+        <div className={classes.mainContainer} style={{width: '100%', height: '100%', padding: 10}}>
         <img 
             src={mapLyonImg}
             alt='télécharger en pdf'
-            style={{ width: '50%', height: 'auto' }}
+            style={{ width: '100%', height: 'auto' }}
         />
         </div>
     )
