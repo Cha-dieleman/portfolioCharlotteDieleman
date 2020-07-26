@@ -2,13 +2,16 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Media from 'react-media'
 import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import { Typography, Tooltip } from '@material-ui/core'
 import { MuiThemeProvider, createMuiTheme, withStyles } from '@material-ui/core/styles'
 
 import Header from '../globalComponents/Header'
 import GardensList from '../globalComponents/GardensList'
-import { setNav } from '../actions'
+import DataParkContainer from '../globalComponents/DataParkContainer'
+import { setNav, getSelectedPark, getDataSelectedPark } from '../actions'
+
 
 const styles = () => ({
   mainContainer: {
@@ -42,23 +45,30 @@ const WhiteTooltip = withStyles({
   }
 })(Tooltip)
 
-class GardensListContainer extends React.Component {
+class ParksContainer extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
         }
     }
+    componentDidMount() {
+        getSelectedPark(null)
+        getDataSelectedPark(null)
+        const { history } = this.props
+        history.push('/parksList')
+    }
 
     handleClick = () => {
-        const { history } = this.props
+        const { history, dataParkSelected } = this.props
         history.push('/home')
     }
 
     render() {
-        const { classes } = this.props
+        const { classes, dataParkSelected } = this.props
+        console.log('zz', dataParkSelected)
         setNav({
             firstLevel: 'home',
-            secondLevel: 'liste'
+            secondLevel: 'parksList'
         })
 
         return (
@@ -67,7 +77,9 @@ class GardensListContainer extends React.Component {
                     matches ? (
                         <div className={classes.mainContainer}>
                             <Header />
-                            <GardensList />
+                            {
+                                dataParkSelected ? <DataParkContainer /> : <GardensList />
+                            }
                             <div className={classes.devByContainer}>
                                 <MuiThemeProvider theme={theme}>
                                 <WhiteTooltip
@@ -90,7 +102,9 @@ class GardensListContainer extends React.Component {
                     ) : (
                         <div className={classes.mainContainer}>
                             <Header />
-                            <GardensList />
+                            {
+                                dataParkSelected ? <DataParkContainer /> : <GardensList />
+                            }
                             <div className={`${classes.devByContainer} ${classes.devByContainerDesktop}`}>
                                 <MuiThemeProvider theme={theme}>
                                 <WhiteTooltip
@@ -117,4 +131,11 @@ class GardensListContainer extends React.Component {
     }
 }
 
-export default withStyles(styles)(withRouter(GardensListContainer))
+const mapStateToProps = (state) => {
+    return ({
+        dataParkSelected: state.dataSelectedPark.data
+    })
+}
+
+export default withStyles(styles)(withRouter(connect(mapStateToProps)(ParksContainer)))
+

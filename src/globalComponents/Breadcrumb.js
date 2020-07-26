@@ -92,7 +92,6 @@ class Breadcrumb extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log('state : ', state.nav)
   return ({
     navStateRedux: state.nav.nav
   })
