@@ -49,7 +49,7 @@ class Breadcrumb extends React.Component {
                 matches ? (
                     <div className={classes.mainContainer}>
                             <CameraEnhanceIcon className={classes.cameraImg}/>
-                            <Link to='/parcours' style={{ textDecoration: 'none', color:'#B76E22' }}>
+                            <Link to='/home' style={{ textDecoration: 'none', color:'#B76E22' }}>
                                 <Typography
                                     variant="body1"
                                     className={classes.text}
@@ -67,7 +67,7 @@ class Breadcrumb extends React.Component {
                 ) : (
                     <div className={`${classes.mainContainer} ${classes.mainContainerMobile}`}>
                         <CameraEnhanceIcon className={classes.cameraImg}/>
-                        <Link to='/parcours' style={{ textDecoration: 'none', color:'#B76E22' }}>
+                        <Link to='/home' style={{ textDecoration: 'none', color:'#B76E22' }}>
                             <Typography
                                 variant="h6"
                                 className={classes.text}

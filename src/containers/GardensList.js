@@ -31,13 +31,13 @@ class GardensList extends React.Component {
 
   handleClick = () => {
     const { history } = this.props
-    history.push('/parcours')
+    history.push('/home')
   }
 
   render() {
     const { classes } = this.props
     setNav({
-        firstLevel: 'parcours',
+        firstLevel: 'home',
         secondLevel: 'liste'
     })
 

@@ -128,7 +128,7 @@ const WhiteTooltip = withStyles({
   }
 })(Tooltip)
 
-class Parcours extends React.Component {
+class Home extends React.Component {
     constructor(props) {
       super(props)
       this.state = {
@@ -340,5 +340,5 @@ class Parcours extends React.Component {
     })
   }
 
-export default withStyles(styles)(connect(mapStateToProps)(Parcours))
+export default withStyles(styles)(connect(mapStateToProps)(Home))
 
