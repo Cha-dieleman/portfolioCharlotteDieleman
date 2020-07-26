@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles'
 
 import DataPark from './DataPark'
 import ParkMap from './ParkMap'
-import EnConstruction from './EnConstruction'
+import EnConstruction from '../EnConstruction'
 
 const styles = () => ({
   mainContainer: {
