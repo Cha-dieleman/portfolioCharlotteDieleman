@@ -9,7 +9,7 @@ import EcoIcon from '@material-ui/icons/Eco'
 import { MuiThemeProvider, createMuiTheme, withStyles } from '@material-ui/core/styles'
 import { Typography, Button, Tooltip } from '@material-ui/core'
 
-import { testAction } from '../actions'
+// import { testAction } from '../actions'
 import imgBreathe from '../static/images/imgBreathe.png'
 
 const styles = () => ({
@@ -141,13 +141,18 @@ class Parcours extends React.Component {
     componentDidMount() {
       this.setState({ odometerValue: 295 })
     }
+
+    goToGardenListView = () => {
+      const { history } = this.props
+      history.push('/liste/parcs')
+    }
   
     render() {
       const { classes } = this.props
       const { odometerValue } = this.state
 
       return (
-        <Media query={{ maxWidth: 850 }}>
+        <Media query={{ maxWidth: 1024 }}>
         {(matches) =>
           matches ? (
             <div className={`${classes.mainContainer} ${classes.mainContainerMobile}`}>
@@ -208,7 +213,7 @@ class Parcours extends React.Component {
                   <Button variant="outlined" className={classes.button}>
                     Accéder la carte
                   </Button>
-                  <Button variant="outlined" className={`${classes.button} ${classes.secondButton}`}>
+                  <Button variant="outlined" className={`${classes.button} ${classes.secondButton}`} onClick={() => this.goToGardenListView()}>
                     Accéder à la liste
                   </Button>
                 </div>
@@ -292,7 +297,7 @@ class Parcours extends React.Component {
                   <Button variant="outlined" className={classes.button}>
                     Accéder la carte
                   </Button>
-                  <Button variant="outlined" className={`${classes.button} ${classes.secondButton}`}>
+                  <Button variant="outlined" className={`${classes.button} ${classes.secondButton}`} onClick={() => this.goToGardenListView()}>
                     Accéder à la liste
                   </Button>
                 </div>
