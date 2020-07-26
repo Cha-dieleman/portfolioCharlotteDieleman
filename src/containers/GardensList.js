@@ -3,18 +3,21 @@ import React from 'react'
 import { Button } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 
+import Header from '../globalComponents/Header'
+import { setNav } from '../actions'
+
 const styles = () => ({
   mainContainer: {
     width: '100vw',
     height: '100vh',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: '#fbfbfb'
   },
   button: {
-    marginTop: 80,
+    marginBottom: 80,
     color: '#B76E22'
   }
 })
@@ -33,13 +36,18 @@ class GardensList extends React.Component {
 
   render() {
     const { classes } = this.props
+    setNav({
+        firstLevel: 'parcours',
+        secondLevel: 'liste'
+    })
 
     return (
-              <div className={classes.mainContainer}>
-                <Button variant="outlined" className={classes.button} onClick={() => this.handleClick()}>
-                    Revenir à la page d'accueil
-                </Button>
-              </div>
+        <div className={classes.mainContainer}>
+        <Header />
+        <Button variant="outlined" className={classes.button} onClick={() => this.handleClick()}>
+            Revenir à la page d'accueil
+        </Button>
+        </div>
     )
   }
 }

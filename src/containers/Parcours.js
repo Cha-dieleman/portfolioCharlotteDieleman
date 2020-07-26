@@ -9,7 +9,6 @@ import EcoIcon from '@material-ui/icons/Eco'
 import { MuiThemeProvider, createMuiTheme, withStyles } from '@material-ui/core/styles'
 import { Typography, Button, Tooltip } from '@material-ui/core'
 
-// import { testAction } from '../actions'
 import imgBreathe from '../static/images/imgBreathe.png'
 
 const styles = () => ({
@@ -146,6 +145,11 @@ class Parcours extends React.Component {
       const { history } = this.props
       history.push('/liste/parcs')
     }
+
+    goToInConstruction = () => {
+      const { history } = this.props
+      history.push('/construction')
+    }
   
     render() {
       const { classes } = this.props
@@ -210,7 +214,7 @@ class Parcours extends React.Component {
                   </Typography>
                 </div>
                 <div className={`${classes.secondSecondContainer} ${classes.firstSecondContainerMobile}`}>
-                  <Button variant="outlined" className={classes.button}>
+                  <Button variant="outlined" className={classes.button} onClick={() => this.goToInConstruction()}>
                     Accéder la carte
                   </Button>
                   <Button variant="outlined" className={`${classes.button} ${classes.secondButton}`} onClick={() => this.goToGardenListView()}>
@@ -294,7 +298,7 @@ class Parcours extends React.Component {
                   </Typography>
                 </div>
                 <div className={classes.secondSecondContainer}>
-                  <Button variant="outlined" className={classes.button}>
+                  <Button variant="outlined" className={classes.button} onClick={() => this.goToInConstruction()}>
                     Accéder la carte
                   </Button>
                   <Button variant="outlined" className={`${classes.button} ${classes.secondButton}`} onClick={() => this.goToGardenListView()}>
