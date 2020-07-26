@@ -90,7 +90,7 @@ const styles = () => ({
   }
 })
 
-class Homepage extends React.Component {
+class Portfolio extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -99,7 +99,7 @@ class Homepage extends React.Component {
 
   handleClick = () => {
     const { history } = this.props
-    history.push('/parcours')
+    history.push('/home')
   }
 
   render() {
@@ -210,6 +210,6 @@ class Homepage extends React.Component {
 }
 
 // export default withRouter(withStyles(styles)(connect(mapStateToProps)(Homepage)))
-export default withStyles(styles)(Homepage)
+export default withStyles(styles)(Portfolio)
 
 

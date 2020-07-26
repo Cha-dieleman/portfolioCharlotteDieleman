@@ -40,7 +40,7 @@ class Error extends React.Component {
 
   handleClick = () => {
     const { history } = this.props
-    history.push('/parcours')
+    history.push('/home')
   }
 
   render() {
