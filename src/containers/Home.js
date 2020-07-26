@@ -225,8 +225,7 @@ class Home extends React.Component {
                   <MuiThemeProvider theme={theme}>
                     <WhiteTooltip
                       title='Revenir au portfolio'
-                      className={classes.tooltipDesign}
-                      placement="top"
+                      placement="top-end"
                     >
                     <Link to='/' style={{ textDecoration: 'none', color:'#B76E22' }}>
                       <Typography
@@ -309,8 +308,7 @@ class Home extends React.Component {
                   <MuiThemeProvider theme={theme}>
                     <WhiteTooltip
                       title='Revenir au portfolio'
-                      className={classes.tooltipDesign}
-                      placement="top"
+                      placement="top-end"
                     >
                     <Link to='/' style={{ textDecoration: 'none', color:'#B76E22' }}>
                       <Typography

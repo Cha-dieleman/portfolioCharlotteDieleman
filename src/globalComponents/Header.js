@@ -17,7 +17,8 @@ const styles = () => ({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'stretch',
-    backgroundColor: '#8FA3B4'
+    backgroundColor: '#8FA3B4',
+    marginBottom: 20
   },
   mainContainerDesktop: {
     width: '100vw',

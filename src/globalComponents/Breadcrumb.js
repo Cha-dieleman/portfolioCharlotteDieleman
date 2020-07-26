@@ -19,16 +19,18 @@ const styles = () => ({
     padding: '0px 20px 0px 0px'
   },
   text: {
-    color: 'white',
-    fontFamily: 'helvetica-regular'
+    color: '#B76E22',
+    fontFamily: 'helvetica-regular',
+    fontStyle: 'italic'
   },
   textSecondNav: {
-    color: 'white',
+    color: '#B76E22',
     fontFamily: 'helvetica-regular',
+    fontStyle: 'italic',
     marginLeft: 5
   },
   cameraImg: {
-      color: 'white',
+      color: '#B76E22',
       marginRight: 5
   }
 })
@@ -48,39 +50,39 @@ class Breadcrumb extends React.Component {
             {(matches) =>
                 matches ? (
                     <div className={classes.mainContainer}>
-                            <CameraEnhanceIcon className={classes.cameraImg}/>
-                            <Link to='/home' style={{ textDecoration: 'none', color:'#B76E22' }}>
-                                <Typography
-                                    variant="body1"
-                                    className={classes.text}
-                                >
-                                    {`${navStateRedux.firstLevel} /`}
-                                </Typography>
-                            </Link>
-                            <Typography
-                                variant="body1"
-                                className={classes.textSecondNav}
-                            >
-                                {`${navStateRedux.secondLevel}`}
-                            </Typography>
+                      <CameraEnhanceIcon className={classes.cameraImg}/>
+                      <Link to='/home' style={{ textDecoration: 'none', color:'#B76E22' }}>
+                          <Typography
+                              variant="body1"
+                              className={classes.text}
+                          >
+                              {`${navStateRedux.firstLevel} /`}
+                          </Typography>
+                      </Link>
+                      <Typography
+                          variant="body1"
+                          className={classes.textSecondNav}
+                      >
+                          {`${navStateRedux.secondLevel}`}
+                      </Typography>
                     </div>
                 ) : (
                     <div className={`${classes.mainContainer} ${classes.mainContainerMobile}`}>
-                        <CameraEnhanceIcon className={classes.cameraImg}/>
-                        <Link to='/home' style={{ textDecoration: 'none', color:'#B76E22' }}>
-                            <Typography
-                                variant="h6"
-                                className={classes.text}
-                            >
-                                {`${navStateRedux.firstLevel} /`}
-                            </Typography>
-                        </Link>
-                        <Typography
-                            variant="h6"
-                            className={classes.textSecondNav}
-                        >
-                            {`${navStateRedux.secondLevel}`}
-                        </Typography>
+                      <CameraEnhanceIcon className={classes.cameraImg}/>
+                      <Link to='/home' style={{ textDecoration: 'none', color:'#B76E22' }}>
+                          <Typography
+                              variant="h6"
+                              className={classes.text}
+                          >
+                              {`${navStateRedux.firstLevel} /`}
+                          </Typography>
+                      </Link>
+                      <Typography
+                          variant="h6"
+                          className={classes.textSecondNav}
+                      >
+                          {`${navStateRedux.secondLevel}`}
+                      </Typography>
                     </div>
                 )
             }
