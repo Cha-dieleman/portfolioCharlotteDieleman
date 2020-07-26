@@ -42,7 +42,7 @@ class GardensListContainer extends React.Component {
                             {data.map(data => {
                                 return (
                                     <div key={reactId()}>
-                                        <GardenCard />
+                                        <GardenCard data={data}/>
                                     </div>
                                 )
                             })}
@@ -52,7 +52,7 @@ class GardensListContainer extends React.Component {
                             {data.map(data => {
                                 return (
                                     <div key={reactId()}>
-                                        <GardenCard />
+                                        <GardenCard data={data}/>
                                     </div>
                                 )
                             })}

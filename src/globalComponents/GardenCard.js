@@ -28,7 +28,8 @@ const useStyles = makeStyles({
   }
 })
 
-export default function ImgMediaCard() {
+export default function GardenCard(props) {
+  const { data } = props
   const classes = useStyles()
 
   return (
@@ -40,10 +41,12 @@ export default function ImgMediaCard() {
       <CardMedia src={test} component="img" title="Some title" className={classes.imgCard} />
         <CardContent style={{padding: 5}}>
           <Typography gutterBottom variant="h5" component="h2">
-            Lizard
+            {data.properties.nom}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate
+            Lorem ipsum dolor sit amet,
+            <br/>
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -59,10 +62,12 @@ export default function ImgMediaCard() {
         <CardMedia src={test} component="img" title="Some title" className={classes.imgCard} />
           <CardContent style={{padding: 5}}>
             <Typography gutterBottom variant="h5" component="h2">
-              Lizard
+            {data.properties.nom}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              Lizards are a widespread group of squamate
+                Lorem ipsum dolor sit amet,
+                <br/>
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </Typography>
           </CardContent>
         </CardActionArea>
