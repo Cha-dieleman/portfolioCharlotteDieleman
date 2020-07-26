@@ -143,7 +143,7 @@ class Home extends React.Component {
 
     goToGardenListView = () => {
       const { history } = this.props
-      history.push('/liste/parcs')
+      history.push('/parksList')
     }
 
     goToInConstruction = () => {
@@ -199,7 +199,7 @@ class Home extends React.Component {
                     variant="h4"
                     className={classes.typo}
                   >
-                    et lieux de balade.
+                    et lieux de balade lyonnais.
                   </Typography>
                   <Typography
                     variant="body1"
@@ -282,7 +282,7 @@ class Home extends React.Component {
                     variant="h4"
                     className={classes.typo}
                   >
-                    et lieux de balade.
+                    et lieux de balade lyonnais.
                   </Typography>
                   <Typography
                     variant="body1"

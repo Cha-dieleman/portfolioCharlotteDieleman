@@ -27,7 +27,7 @@ const styles = () => ({
   },
 })
 
-class GardensListContainer extends React.Component {
+class GardensList extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -49,13 +49,11 @@ class GardensListContainer extends React.Component {
             data.map(park => {
                 const name= park.properties.nom
                 if(park.properties.nom === parkNameSelected[0]){
-                    console.log('idem')
                     data=[park]
                 }
                 return null
             })
         }
-        console.log('yes', data)
         return (
             <div>
                 {
@@ -106,4 +104,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default withStyles(styles)(connect(mapStateToProps)(GardensListContainer))
+export default withStyles(styles)(connect(mapStateToProps)(GardensList))

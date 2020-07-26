@@ -1,6 +1,7 @@
 import React from 'react'
 import Media from 'react-media'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
@@ -10,6 +11,8 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
+
+import { getDataSelectedPark } from '../actions'
 
 import test from './test.jpg'
 
@@ -32,7 +35,13 @@ const useStyles = makeStyles({
 function GardenCard(props) {
   const { data, selectedParkNameRedux } = props
   const classes = useStyles()
-  console.log('data', data)
+
+  const handleClick = (data) => {
+      console.log('ici', data)
+    const { history } = props
+    getDataSelectedPark(data)
+    history.push(`/parksList/${data.properties.uid}`)
+  }
 
   return (
     <Media query={{ maxWidth: 1024 }}>
@@ -53,7 +62,7 @@ function GardenCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions style={{padding: 5, display:'flex', justifyContent:'center', alignItems:'center'}}>
-        <Button variant="outlined" style={{color: '#B76E22', marginBottom: 5}}>
+        <Button variant="outlined" style={{color: '#B76E22', marginBottom: 5}} onClick={() => handleClick(data)}>
           En savoir plus
         </Button>
       </CardActions>
@@ -73,7 +82,7 @@ function GardenCard(props) {
             </Typography>
           </CardContent>
         </CardActionArea>
-        <CardActions style={{padding: 5, display:'flex', justifyContent:'center', alignItems:'center'}}>
+        <CardActions style={{padding: 5, display:'flex', justifyContent:'center', alignItems:'center'}}  onClick={() => handleClick(data)}>
           <Button variant="outlined" style={{color: '#B76E22', marginBottom: 5}}>
             En savoir plus
           </Button>
@@ -86,9 +95,10 @@ function GardenCard(props) {
 }
 
 const mapStateToProps = (state) => {
+    console.log('statedata', state)
     return ({
         selectedParkNameRedux: state.selectedPark.name
     })
 }
 
-export default connect(mapStateToProps)(GardenCard)
+export default withRouter(connect(mapStateToProps)(GardenCard))
