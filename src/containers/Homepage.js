@@ -85,7 +85,7 @@ const styles = () => ({
   },
   constructionText: {
     marginTop: 20,
-    fontSize: 14,
+    fontSize: 18,
     fontStyle: 'italic'
   }
 })
@@ -133,6 +133,13 @@ class Homepage extends React.Component {
                       className={`${classes.text} ${classes.welcomeText}`}
                     >
                     Bienvenue ! Voici mon portfolio.
+                    </Typography>
+                    <Typography
+                      variant="h6"
+                      className={`${classes.text} ${classes.constructionText}`}
+                      align='center'
+                    >
+                    ( En cours de construction )
                     </Typography>
                   </div>
                   <div className={classes.buttonContainerMobile}>
@@ -186,7 +193,7 @@ class Homepage extends React.Component {
                     Bienvenue ! voici mon portfolio.
                     </Typography>
                     <Typography
-                      variant="h4"
+                      variant="h6"
                       className={`${classes.text} ${classes.constructionText}`}
                       align='right'
                     >

@@ -1,5 +1,4 @@
 import React from 'react'
-import Media from 'react-media'
 
 import { Typography, Button } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
@@ -15,8 +14,6 @@ const styles = () => ({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fbfbfb'
-  },
-  mainContainerDesktop: {
   },
   text: {
     fontFamily: 'helvetica-regular',
