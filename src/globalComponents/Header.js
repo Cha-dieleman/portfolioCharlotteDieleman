@@ -26,7 +26,8 @@ const styles = () => ({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    backgroundColor: '#8FA3B4'
+    backgroundColor: '#8FA3B4',
+    marginBottom: 20
   },
   flexLogo: {
     display: 'flex',
