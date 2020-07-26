@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Media from 'react-media'
+import { withRouter } from 'react-router-dom'
 import Odometer from 'react-odometerjs'
 import 'odometer/themes/odometer-theme-default.css'
 
@@ -330,5 +331,6 @@ class Home extends React.Component {
     }
   }
 
-export default withStyles(styles)(Home)
+export default withStyles(styles)(withRouter(Home))
+
 

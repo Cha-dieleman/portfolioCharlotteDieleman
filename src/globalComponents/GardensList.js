@@ -9,6 +9,7 @@ import { withStyles } from '@material-ui/core/styles'
 import GardenCard from './GardenCard'
 import { dataMock } from '../back/dataMock'
 import AutoSuggest from './Autocomplete'
+import EnConstruction from '../globalComponents/EnConstruction'
 import { getSelectedPark } from '../actions'
 
 const styles = () => ({
@@ -56,37 +57,45 @@ class GardensListContainer extends React.Component {
         }
         console.log('yes', data)
         return (
-            <Media query={{ maxWidth: 1024 }}>
-                {(matches) =>
-                    matches ? (
-                        <div>
-                            <AutoSuggest data={data}/>
-                            <div className={classes.mainContainer}>
-                                {data.map(data => {
-                                    return (
-                                        <div key={reactId()}>
-                                            <GardenCard data={data}/>
-                                        </div>
-                                    )
-                                })}
-                            </div>
-                        </div>
+            <div>
+                {
+                    data ? (
+                        <Media query={{ maxWidth: 1024 }}>
+                        {(matches) =>
+                            matches ? (
+                                <div>
+                                    <AutoSuggest data={data}/>
+                                    <div className={classes.mainContainer}>
+                                        {data.map(data => {
+                                            return (
+                                                <div key={reactId()}>
+                                                    <GardenCard data={data}/>
+                                                </div>
+                                            )
+                                        })}
+                                    </div>
+                                </div>
+                            ) : (
+                                <div>
+                                    <AutoSuggest data={data}/>
+                                    <div className={`${classes.mainContainer} ${classes.mainContainerDesktop}`}>
+                                        {data.map(park => {
+                                            return (
+                                                <div key={reactId()}>
+                                                    <GardenCard data={park}/>
+                                                </div>
+                                            )
+                                        })}
+                                    </div>
+                                </div>
+                            )
+                        }
+                    </Media>
                     ) : (
-                        <div>
-                            <AutoSuggest data={data}/>
-                            <div className={`${classes.mainContainer} ${classes.mainContainerDesktop}`}>
-                                {data.map(park => {
-                                    return (
-                                        <div key={reactId()}>
-                                            <GardenCard data={park}/>
-                                        </div>
-                                    )
-                                })}
-                            </div>
-                        </div>
+                        <EnConstruction />
                     )
                 }
-            </Media>
+            </div>
         )
     }
 }

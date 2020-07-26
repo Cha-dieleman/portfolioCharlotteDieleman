@@ -2,6 +2,7 @@ import React from 'react'
 
 import { Typography, Button } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
+import { withRouter } from 'react-router-dom'
 
 import constructionImg from '../static/images/constructionImg.jpg'
 
@@ -64,6 +65,7 @@ class EnConstruction extends React.Component {
   }
 }
 
-export default withStyles(styles)(EnConstruction)
+export default withStyles(styles)(withRouter(EnConstruction))
+
 
 

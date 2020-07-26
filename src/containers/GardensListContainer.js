@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Media from 'react-media'
+import { withRouter } from 'react-router-dom'
 
 import { Typography, Tooltip } from '@material-ui/core'
 import { MuiThemeProvider, createMuiTheme, withStyles } from '@material-ui/core/styles'
@@ -116,4 +117,4 @@ class GardensListContainer extends React.Component {
     }
 }
 
-export default withStyles(styles)(GardensListContainer)
+export default withStyles(styles)(withRouter(GardensListContainer))
