@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Homepage from './containers/Homepage'
-import AppContainer from './containers/AppContainer'
+import Parcours from './containers/Parcours'
 
 const Routes = () => {
   
@@ -10,7 +10,7 @@ const Routes = () => {
         <div>
           <Switch>
             <Route exact path="/" component={Homepage} />
-            <Route exact path="/app" component={AppContainer} />
+            <Route exact path="/parcours" component={Parcours} />
           </Switch>
         </div>
       </BrowserRouter>
