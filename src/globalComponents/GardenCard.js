@@ -1,5 +1,6 @@
 import React from 'react'
 import Media from 'react-media'
+import { connect } from 'react-redux'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
@@ -28,9 +29,10 @@ const useStyles = makeStyles({
   }
 })
 
-export default function GardenCard(props) {
-  const { data } = props
+function GardenCard(props) {
+  const { data, selectedParkNameRedux } = props
   const classes = useStyles()
+  console.log('data', data)
 
   return (
     <Media query={{ maxWidth: 1024 }}>
@@ -57,11 +59,11 @@ export default function GardenCard(props) {
       </CardActions>
     </Card>
     ) : (
-        <Card className={classes.rootDesktop}>
+        <Card style={{maxWidth: 340, marginBottom: selectedParkNameRedux !== null ? 0 : 20, marginRight: selectedParkNameRedux !== null ? 0 : 20}}>
         <CardActionArea>
         <CardMedia src={test} component="img" title="Some title" className={classes.imgCard} />
           <CardContent style={{padding: 5}}>
-            <Typography gutterBottom variant="h5" component="h2">
+            <Typography gutterBottom variant="h5" component="h2" noWrap>
             {data.properties.nom}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
@@ -82,3 +84,11 @@ export default function GardenCard(props) {
 </Media>
 )
 }
+
+const mapStateToProps = (state) => {
+    return ({
+        selectedParkNameRedux: state.selectedPark.name
+    })
+}
+
+export default connect(mapStateToProps)(GardenCard)

@@ -18,7 +18,7 @@ const styles = () => ({
     justifyContent: 'center',
     alignItems: 'stretch',
     backgroundColor: '#8FA3B4',
-    marginBottom: 20
+    marginBottom: 40
   },
   mainContainerDesktop: {
     width: '100vw',
@@ -27,7 +27,7 @@ const styles = () => ({
     flexDirection: 'row',
     justifyContent: 'space-between',
     backgroundColor: '#8FA3B4',
-    marginBottom: 20
+    marginBottom: 60
   },
   flexLogo: {
     display: 'flex',
