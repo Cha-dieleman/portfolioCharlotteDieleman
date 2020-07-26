@@ -12,12 +12,11 @@ import { setNav } from '../actions'
 const styles = () => ({
   mainContainer: {
     width: '100vw',
-    height: '100vh',
+    height: 'auto',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    alignItems: 'stretch',
-    backgroundColor: '#fbfbfb'
+    alignItems: 'stretch'
   },
   devByContainer: {
     height: 'auto',
@@ -28,7 +27,7 @@ const styles = () => ({
   },
   typoDevBy: {
     width: 'auto'
-  },
+  }
 })
 
 const theme = createMuiTheme()

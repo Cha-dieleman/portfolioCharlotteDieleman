@@ -16,8 +16,7 @@ const styles = () => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-start',
-    alignItems: 'center',
-    backgroundColor: '#fbfbfb'
+    alignItems: 'center'
   },
   text: {
     fontFamily: 'helvetica-regular',
