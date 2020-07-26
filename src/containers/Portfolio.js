@@ -2,7 +2,7 @@ import React from 'react'
 // import reactId from 'react-id-generator'
 // import { Link } from 'react-router-dom'
 import Media from 'react-media'
-// import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 // import Odometer from 'react-odometerjs'
 // import 'odometer/themes/odometer-theme-default.css'
 
@@ -209,7 +209,7 @@ class Portfolio extends React.Component {
   }
 }
 
-// export default withRouter(withStyles(styles)(connect(mapStateToProps)(Homepage)))
-export default withStyles(styles)(Portfolio)
+export default withStyles(styles)(withRouter(Portfolio))
+
 
 

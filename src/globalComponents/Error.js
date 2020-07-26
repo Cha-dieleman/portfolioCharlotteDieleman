@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 
 import { Typography, Button } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
@@ -67,6 +68,7 @@ class Error extends React.Component {
   }
 }
 
-export default withStyles(styles)(Error)
+export default withStyles(styles)(withRouter(Error))
+
 
 
