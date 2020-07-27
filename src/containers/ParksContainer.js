@@ -16,7 +16,7 @@ import { setNav, getSelectedPark, getDataSelectedPark } from '../actions'
 const styles = () => ({
   mainContainer: {
     width: '100vw',
-    height: 'auto',
+    height: '100vh',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
@@ -89,7 +89,7 @@ class ParksContainer extends React.Component {
                                 <Link to='/' style={{ textDecoration: 'none', color:'#B76E22' }}>
                                     <Typography
                                     variant="body2"
-                                    className={`${classes.typoDevBy} ${classes.typoDevByMobile}`}
+                                    className={classes.typoDevBy}
                                     align='right'
                                     >
                                     Développé par Charlotte Dieleman
@@ -114,7 +114,7 @@ class ParksContainer extends React.Component {
                                 <Link to='/' style={{ textDecoration: 'none', color:'#B76E22' }}>
                                     <Typography
                                     variant="body2"
-                                    className={`${classes.typoDevBy} ${classes.typoDevByMobile}`}
+                                    className={classes.typoDevBy}
                                     align='right'
                                     >
                                     Développé par Charlotte Dieleman

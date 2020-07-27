@@ -90,7 +90,7 @@ class GardensList extends React.Component {
                         }
                     </Media>
                     ) : (
-                        <EnConstruction />
+                        <EnConstruction message='Section en cours de construction, repassez plus tard...' displayButton/>
                     )
                 }
             </div>

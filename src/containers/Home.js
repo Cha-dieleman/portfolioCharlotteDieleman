@@ -192,14 +192,13 @@ class Home extends React.Component {
                     <Typography
                     variant="h4"
                     className={classes.typo}
+                    align='center'
                   >
                     parcs, jardins
-                  </Typography>
-                  <Typography
-                    variant="h4"
-                    className={classes.typo}
-                  >
-                    et lieux de balade lyonnais.
+                    <br/>
+                    et lieux de balade
+                    <br/>
+                    lyonnais.
                   </Typography>
                   <Typography
                     variant="body1"
