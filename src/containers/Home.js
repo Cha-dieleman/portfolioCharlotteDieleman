@@ -232,7 +232,7 @@ class Home extends React.Component {
                         className={`${classes.typoDevBy} ${classes.typoDevByMobile}`}
                         align='right'
                       >
-                        Développé par Charlotte Dieleman
+                        En cours de développement - Charlotte Dieleman
                       </Typography>
                       </Link>
                     </WhiteTooltip>
@@ -315,7 +315,7 @@ class Home extends React.Component {
                         className={classes.typoDevBy}
                         align='right'
                       >
-                        Développé par Charlotte Dieleman
+                        En cours de développement - Charlotte Dieleman
                       </Typography>
                       </Link>
                     </WhiteTooltip>

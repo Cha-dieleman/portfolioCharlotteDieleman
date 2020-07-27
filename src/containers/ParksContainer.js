@@ -92,7 +92,7 @@ class ParksContainer extends React.Component {
                                     className={classes.typoDevBy}
                                     align='right'
                                     >
-                                    Développé par Charlotte Dieleman
+                                        En cours de développement - Charlotte Dieleman
                                     </Typography>
                                     </Link>
                                 </WhiteTooltip>
@@ -117,7 +117,7 @@ class ParksContainer extends React.Component {
                                     className={classes.typoDevBy}
                                     align='right'
                                     >
-                                    Développé par Charlotte Dieleman
+                                        En cours de développement - Charlotte Dieleman
                                     </Typography>
                                     </Link>
                                 </WhiteTooltip>
