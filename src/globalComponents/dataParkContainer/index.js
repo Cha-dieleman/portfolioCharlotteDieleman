@@ -15,16 +15,15 @@ const styles = () => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   mainContainerDesktop: {
     width: '100vw',
     height: '100%',
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'center',
-    justifyContent: 'stretch',
-    alignItems: 'stretch'
+    justifyContent: 'space-between',
+    alignItems: 'center'
   }
 })
 
@@ -58,7 +57,7 @@ class dataParkContainer extends React.Component {
                         }
                     </Media>
                     ) : (
-                        <EnConstruction />
+                        <EnConstruction message='Section en cours de construction, repassez plus tard...' displayButton/>
                     )
                 }
             </div>

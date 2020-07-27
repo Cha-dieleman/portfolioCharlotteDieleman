@@ -26,7 +26,7 @@ const styles = () => ({
   }
 })
 
-class EnConstruction extends React.Component {
+class EnConstructionRouter extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -39,7 +39,7 @@ class EnConstruction extends React.Component {
   }
 
   render() {
-    const { classes, message, displayButton  } = this.props
+    const { classes  } = this.props
 
     return (
               <div className={classes.mainContainer}>
@@ -53,19 +53,17 @@ class EnConstruction extends React.Component {
                     className={classes.text}
                     align='center'
                 >
-                    {message}
+                    'Section en cours de construction, repassez plus tard ...'
                 </Typography>
-                { displayButton ? (
-                  <Button variant="outlined" className={classes.button} onClick={() => this.handleClick()}>
-                      Revenir à la page d'accueil
-                  </Button>
-                ) : null}
+                <Button variant="outlined" className={classes.button} onClick={() => this.handleClick()}>
+                    Revenir à la page d'accueil
+                </Button>
               </div>
     )
   }
 }
 
-export default withStyles(styles)(withRouter(EnConstruction))
+export default withStyles(styles)(withRouter(EnConstructionRouter))
 
 
 

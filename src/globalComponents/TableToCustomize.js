@@ -14,17 +14,18 @@ import {
 
 const styles = () => ({
   tableContainer: {
+    width: '100%',
+    height: 'auto',
     boxShadow: 'none',
-    margin: '0px 0px 0px 0px',
     borderRadius: 0,
-    fontFamily: 'helvetica-regular'
+    fontFamily: 'helvetica-regular',
+    marginBottom: 40
   },
   withBackgroundColor: {
     backgroundColor: '#f5f5f5',
     padding: '15px 15px 0px'
   },
   table: {
-    minWidth: '100%',
     fontFamily: 'helvetica-regular'
   },
   rowTableHead: {
@@ -58,7 +59,7 @@ const styles = () => ({
     }
   }
 })
-// le design de TableToCustomize est écrit pour que la dernière colonne du tableau soit en textAlign: 'right'
+// le design de TableToCustomize est codé pour que la dernière colonne du tableau soit en textAlign: 'right'
 // et que ses éléments soit alignés sur la fin des bordures de lignes :
 // si on ne souhaite pas que les éléments de la dernière ligne du tableau soient alignés à droite,
 // il faut créer un field de colonne vide et une valeur vide à la fin des datas envoyées à TableToCustomize
