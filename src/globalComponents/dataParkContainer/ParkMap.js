@@ -23,10 +23,10 @@ class ParkMap extends React.Component {
 
   componentDidMount() {
     const L = window.L
-    const mymap = L.map('mapid').setView([45.777935, 4.852853], 13)
+    const mymap = L.map('mapid').setView([45.758520, 4.848700], 20)
     const mainLayer2 = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       attribution: '&copy;<a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      maxZoom: 20,
+      maxZoom: 24,
       tileSize: 512,
       zoomOffset: -1,
     })
@@ -35,49 +35,64 @@ class ParkMap extends React.Component {
     attribution: '&copy;<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(mymap)
 
-    const marker = L.marker([45.777935, 4.852853], {title : "Parc de la tête d'or", draggable : 'true'}).bindPopup("<div>La cancoillotte</div>").addTo(mymap)
-    const circle2 = L.circle([45.777935, 4.852853], 500, {
-      'color': 'orange',
-      'fill': true,
-      'fillColor': 'green',
-      'fillOpacity': 0.5
-  }).addTo(mymap)
+    const marker = L.marker([45.758520, 4.848700], {title : "Parc de la tête d'or", draggable : 'true'}).bindPopup("<div>La cancoillotte</div>").addTo(mymap)
+    const numberTest = Math.round(45.758520968082451 * 10000000)/10000000
+    console.log('numberTest', numberTest)
+  //   const circle2 = L.circle([45.777935, 4.852853], 500, {
+  //     'color': 'orange',
+  //     'fill': true,
+  //     'fillColor': 'green',
+  //     'fillOpacity': 0.5
+  // }).addTo(mymap)
 
-  const groupLayer = L.layerGroup([circle2, marker])
+  // const groupLayer = L.layerGroup([circle2, marker])
   
 
 const polygonePark = L.polyline(
-  [ [ 4.848700268292207, 45.758520968082451 ], [ 4.84871494089085, 45.758443867618183 ], [ 4.84885132558816, 45.758454341620059 ], [ 4.848838150332716, 45.758533937838251 ], [ 4.848700268292207, 45.758520968082451 ] ]
+  [[45.758520968082451,4.848700268292207],[45.758443867618183,4.84871494089085],[45.758454341620059,4.84885132558816],[45.758533937838251,4.848838150332716],[45.758520968082451,4.848700268292207]]
   , {
     color: 'gray',
     fill: true,
     fillColor: 'blue',
     fillOpacity: .1
-})
+}).addTo(mymap)
 
 const polygone = L.polyline([
-  [47.318398, -0.886464],
-  [47.318398, 0.069346],
-  [46.722971, 0.5862335],
-  [46.000000, 0.069346],
-  [46.000000, -0.886464],
-  [46.722971, -1.4137665],
-  [47.318398, -0.886464]
-
+  [45.758520968082451, 4.848700268292207],
+  [45.758443867618183, 4.84871494089085],
+  [45.758454341620059, 4.84885132558816],
+  [45.758533937838251, 4.848838150332716],
+  [45.758520968082451, 4.848700268292207]
 ], {
-  color: 'gray',
+  color: '#098c12',
   fill: true,
   fillColor: 'blue',
   fillOpacity: .1
 }).addTo(mymap)
 
-L.control.layers({
-  'Main' : mainLayer,
-  'Main2'  : mainLayer2
-},{
-  'Houses' : groupLayer,
-  'Polygone' : polygonePark
-}).addTo(mymap)
+// const polygone2 = L.polyline([
+//   [47.318398, 1.886464],
+//   [47.318398, 2.069846],
+//   [46.722971, 3.5862335],
+//   [46.000000, 3.069346],
+//   [46.000000, 2.886464],
+//   [46.722971, 1.4137665],
+//   [47.318398, 1.886464]
+
+// ], {
+//   color: 'gray',
+//   fill: true,
+//   fillColor: 'blue',
+//   fillOpacity: .1
+// }).addTo(mymap)
+
+// L.control.layers({
+//   'Main' : mainLayer,
+//   'Main2'  : mainLayer2
+// },{
+//   'Houses' : groupLayer,
+//   'Polygone' : polygone
+// }).addTo(mymap)
   }
 
   render() {
@@ -85,15 +100,15 @@ L.control.layers({
     const data = true
 
     return (
-      <div style={{display:'flex', justifyContent:'center', alignItems:'center', width:'100%', height:'auto'}}>
+      <div style={{display:'flex', justifyContent:'center', alignItems:'center', width:'90%', height:'auto'}}>
           {
               data ? (
                   <Media query={{ maxWidth: 1024 }}>
                   {(matches) =>
                       matches ? (
-                        <div id="mapid" style={{width: 700, height: 700}}></div>
+                        <div id="mapid" style={{width: '80%', height: 300}}></div>
                       ) : (
-                        <div id="mapid" style={{width: 700, height: 700}}></div>
+                        <div id="mapid" style={{width: '80%', height: 700}}></div>
                       )
                   }
               </Media>

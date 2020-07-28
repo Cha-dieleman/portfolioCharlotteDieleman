@@ -24,13 +24,15 @@ const styles = () => ({
   },
   devByContainer: {
     height: 'auto',
-    padding: '0px 5px 5px 0px',
+    padding: '0px 20px 20px 0px',
+    margin: `30px 0px`
   },
   devByContainerDesktop: {
-    padding: '0px 20px 20px 0px',
+    padding: '0px 40px 40px 0px'
   },
   typoDevBy: {
-    width: 'auto'
+    width: 'auto',
+    margin: 0
   }
 })
 

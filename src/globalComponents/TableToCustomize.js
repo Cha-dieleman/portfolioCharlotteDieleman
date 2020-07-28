@@ -14,16 +14,18 @@ import {
 
 const styles = () => ({
   tableContainer: {
-    width: '100%',
+    width: '40vw',
     height: 'auto',
     boxShadow: 'none',
     borderRadius: 0,
     fontFamily: 'helvetica-regular',
-    marginBottom: 40
+    margin: `40px 0px 40px 0px`,
+    padding: `0px 0px 0px 60px`
   },
-  withBackgroundColor: {
-    backgroundColor: '#f5f5f5',
-    padding: '15px 15px 0px'
+  mobileViewDesign: {
+    width: '90vw',
+    padding: `0px 0px 0px 20px`,
+    margin: `20px 0px 20px 0px`,
   },
   table: {
     fontFamily: 'helvetica-regular'
@@ -33,15 +35,15 @@ const styles = () => ({
   },
   columns: {
     borderBottom: 'solid 1px #d4d5d7',
-    padding: '5px 10px 5px 0',
+    padding: '5px 10px 5px 0px',
     '&:first-child': {
-        width: '30%',
+        width: '40%',
         color: '#8fa3b4'
     },
     '&:last-child': {
         paddingRight: 0,
-        width: '10%',
-        textAlign: 'right'
+        width: '60%',
+        textAlign: 'left'
     }
   },
   columnsTableHead: {
@@ -55,14 +57,10 @@ const styles = () => ({
     '&:last-child': {
         paddingRight: 0,
         width: '10%',
-        textAlign: 'right'
+        textAlign: 'left'
     }
   }
 })
-// le design de TableToCustomize est codé pour que la dernière colonne du tableau soit en textAlign: 'right'
-// et que ses éléments soit alignés sur la fin des bordures de lignes :
-// si on ne souhaite pas que les éléments de la dernière ligne du tableau soient alignés à droite,
-// il faut créer un field de colonne vide et une valeur vide à la fin des datas envoyées à TableToCustomize
 class TableToCustomize extends React.Component {
   constructor(props) {
     super(props)
@@ -70,7 +68,7 @@ class TableToCustomize extends React.Component {
   }
  
   render() {
-    const { classes, data, setBackgroundColor } = this.props
+    const { classes, data, mobileViewDesign } = this.props
 
     // data attendues :
     // autant de colonneFields que de values :
@@ -88,8 +86,7 @@ class TableToCustomize extends React.Component {
     // ]
    
     return (
-      <div>
-        <TableContainer component={Paper} className={setBackgroundColor ? `${classes.tableContainer} ${classes.withBackgroundColor}` : classes.tableContainer}>
+        <TableContainer component={Paper} className={mobileViewDesign ? `${classes.tableContainer} ${classes.mobileViewDesign}` : classes.tableContainer}>
             <Table className={classes.table} aria-label="simple table">
                 <TableHead className={classes.rowTableHead}>
                     <TableRow>
@@ -115,7 +112,6 @@ class TableToCustomize extends React.Component {
                 </TableBody>
             </Table>
         </TableContainer>
-        </div>
     )
   }
 }

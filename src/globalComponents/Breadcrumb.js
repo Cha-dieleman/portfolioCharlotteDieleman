@@ -13,25 +13,29 @@ const styles = () => ({
     display: 'flex',
     justifyContent: 'flex-end',
     alignItems: 'center',
-    padding: '0px 10px 5px 0px'
+    padding: '0px 20px 5px 0px'
   },
-  mainContainerMobile: {
-    padding: '0px 20px 0px 0px'
+  mainContainerDesktop: {
+    padding: '0px 40px 0px 0px'
   },
   text: {
     color: '#B76E22',
     fontFamily: 'helvetica-regular',
-    fontStyle: 'italic'
+    fontStyle: 'italic',
+    fontWeight: 900
   },
   textSecondNav: {
     color: '#B76E22',
     fontFamily: 'helvetica-regular',
     fontStyle: 'italic',
-    marginLeft: 5
+    marginLeft: 5,
+    fontWeight: 900
   },
   cameraImg: {
-      color: '#B76E22',
-      marginRight: 5
+    width: 30,
+    height: 'auto',
+    color: '#B76E22',
+    marginRight: 20
   }
 })
 
@@ -53,24 +57,6 @@ class Breadcrumb extends React.Component {
                       <CameraEnhanceIcon className={classes.cameraImg}/>
                       <Link to='/home' style={{ textDecoration: 'none', color:'#B76E22' }}>
                           <Typography
-                              variant="body1"
-                              className={classes.text}
-                          >
-                              {`${navStateRedux.firstLevel} /`}
-                          </Typography>
-                      </Link>
-                      <Typography
-                          variant="body1"
-                          className={classes.textSecondNav}
-                      >
-                          {`${navStateRedux.secondLevel}`}
-                      </Typography>
-                    </div>
-                ) : (
-                    <div className={`${classes.mainContainer} ${classes.mainContainerMobile}`}>
-                      <CameraEnhanceIcon className={classes.cameraImg}/>
-                      <Link to='/home' style={{ textDecoration: 'none', color:'#B76E22' }}>
-                          <Typography
                               variant="h6"
                               className={classes.text}
                           >
@@ -79,6 +65,24 @@ class Breadcrumb extends React.Component {
                       </Link>
                       <Typography
                           variant="h6"
+                          className={classes.textSecondNav}
+                      >
+                          {`${navStateRedux.secondLevel}`}
+                      </Typography>
+                    </div>
+                ) : (
+                    <div className={`${classes.mainContainer} ${classes.mainContainerDesktop}`}>
+                      <CameraEnhanceIcon className={classes.cameraImg}/>
+                      <Link to='/home' style={{ textDecoration: 'none', color:'#B76E22' }}>
+                          <Typography
+                              variant="h5"
+                              className={classes.text}
+                          >
+                              {`${navStateRedux.firstLevel} /`}
+                          </Typography>
+                      </Link>
+                      <Typography
+                          variant="h5"
                           className={classes.textSecondNav}
                       >
                           {`${navStateRedux.secondLevel}`}
