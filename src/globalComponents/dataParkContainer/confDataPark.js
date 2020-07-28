@@ -1,12 +1,3 @@
-import React from 'react'
-import reactId from 'react-id-generator'
-
-// import { getCorrectDateFormat } from '@config'
-
-import {
-  Typography
-} from '@material-ui/core'
-
     // la data renvoyée par orderData doit être sous ce format :
     // const data = [
     //     [
@@ -105,6 +96,7 @@ export const orderData = (data) => {
                 }
             }
             secondPartOfDataReady.push(value)
+            return null
         })
         dataReady.push(secondPartOfDataReady)
         return dataReady

@@ -24,13 +24,15 @@ const styles = () => ({
   },
   devByContainer: {
     height: 'auto',
-    padding: '0px 5px 5px 0px',
+    padding: '0px 20px 20px 0px',
+    margin: `30px 0px`
   },
   devByContainerDesktop: {
-    padding: '0px 20px 20px 0px',
+    padding: '0px 40px 40px 0px'
   },
   typoDevBy: {
-    width: 'auto'
+    width: 'auto',
+    margin: 0
   }
 })
 
@@ -59,13 +61,12 @@ class ParksContainer extends React.Component {
     }
 
     handleClick = () => {
-        const { history, dataParkSelected } = this.props
+        const { history } = this.props
         history.push('/home')
     }
 
     render() {
         const { classes, dataParkSelected } = this.props
-        console.log('zz', dataParkSelected)
         setNav({
             firstLevel: 'home',
             secondLevel: 'parksList'

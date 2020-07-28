@@ -18,7 +18,7 @@ const styles = () => ({
     justifyContent: 'center',
     alignItems: 'stretch',
     backgroundColor: '#8FA3B4',
-    marginBottom: 40
+    marginBottom: 20
   },
   mainContainerDesktop: {
     width: '100vw',
@@ -32,14 +32,15 @@ const styles = () => ({
   flexLogo: {
     display: 'flex',
     alignItems: 'center',
-    padding: '5px 0px 0px 5px'
+    padding: '10px 0px 0px 10px',
   },
   flexLogoDesktop: {
     padding: '20px 0px 20px 20px'
   },
   logoText: {
     color: 'white',
-    fontFamily: 'helvetica-regular'
+    fontFamily: 'helvetica-regular',
+    fontWeight: 900
   },
   logoImg: {
     width: 50,
@@ -67,7 +68,7 @@ class Header extends React.Component {
                         <div className={classes.flexLogo}>
                             <EcoIcon className={classes.logoImg}/>
                             <Typography
-                                variant="h5"
+                                variant="h4"
                                 className={classes.logoText}
                             >
                                 GreenCityKid
@@ -82,7 +83,7 @@ class Header extends React.Component {
                         <div className={`${classes.flexLogo} ${classes.flexLogoDesktop}`}>
                             <EcoIcon className={classes.logoImg}/>
                             <Typography
-                                variant="h5"
+                                variant="h4"
                                 className={classes.logoText}
                             >
                                 GreenCityKid

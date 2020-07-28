@@ -17,14 +17,17 @@ const styles = () => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center',
-    // backgroundColor: '#8fa3b4'
+    alignItems: 'flex-start',
+    // backgroundColor: '#8fa3b4',
   },
   ParkName: {
     color: '#B76E22',
-    marginBottom: 40,
     fontFamily: 'helvetica-regular',
-    fontStyle: 'italic'
+    fontStyle: 'italic',
+    padding: `0px 0px 0px 20px`
+  },
+  ParkNameDesktop: {
+    padding: `0px 0px 0px 60px`
   }
 })
 
@@ -37,45 +40,59 @@ class DataPark extends React.Component {
 
   render() {
     const { classes, dataParkSelected } = this.props
-    console.log("hh", dataParkSelected.properties)
     
     const dataForTableToCustomize = orderData(dataParkSelected.properties)
-    console.log("dataPark", dataForTableToCustomize)
 
     return (
-      <div>
+      <div style={{width: '100vw', height: 'auto'}}>
           {
             dataParkSelected !== null ? (
                   <Media query={{ maxWidth: 1024 }}>
                   {(matches) =>
                       matches ? (
-                        <div className={classes.mainContainer} style={{width: '100%', height: 'auto', paddingBottom: 10}}>
+                        <div className={classes.mainContainer} style={{width: '100vw', height: 'auto', paddingBottom: 10}}>
                           <Typography
                               variant="h4"
                               className={classes.ParkName}
                           >
                               {`${dataParkSelected.properties.nom} :`}
                           </Typography>
-                          <TableToCustomize data={dataForTableToCustomize}/>
+                          <Typography
+                              variant="h5"
+                              className={classes.ParkName}
+                          >
+                          {`${dataParkSelected.properties.numvoie} ${dataParkSelected.properties.voie}`}
+                          <br/>
+                          {`${dataParkSelected.properties.codepost} ${dataParkSelected.properties.commune}`}
+                          </Typography>
+                          <TableToCustomize data={dataForTableToCustomize} mobileViewDesign/>
                           <img 
                               src={dataParkImg}
                               alt='télécharger en pdf'
-                              style={{ width: '80%', height: 'auto', marginBottom: 20 }}
+                              style={{ width: '90vw', height: 'auto', marginBottom: 20, padding: `0px 0px 0px 20px` }}
                           />
                         </div>
                       ) : (
-                        <div className={classes.mainContainer} style={{width: '50vw', height: '100vh'}}>
+                        <div className={classes.mainContainer} style={{width: '50vw', height: 'auto'}}>
                           <Typography
-                              variant="h4"
-                              className={classes.ParkName}
+                              variant="h3"
+                              className={`${classes.ParkName} ${classes.ParkNameDesktop}`}
                           >
                               {`${dataParkSelected.properties.nom} :`}
+                          </Typography>
+                          <Typography
+                              variant="h4"
+                              className={`${classes.ParkName} ${classes.ParkNameDesktop}`}
+                          >
+                          {`${dataParkSelected.properties.numvoie} ${dataParkSelected.properties.voie}`}
+                          <br/>
+                          {`${dataParkSelected.properties.codepost} ${dataParkSelected.properties.commune}`}
                           </Typography>
                           <TableToCustomize data={dataForTableToCustomize}/>
                           <img 
                               src={dataParkImg}
                               alt='télécharger en pdf'
-                              style={{ width: '80%', height: 'auto', marginBottom: 20 }}
+                              style={{ width: '80%', height: 'auto', padding:`0px 0px 0px 60px`, marginBottom: 20 }}
                           />
                       </div>
                       )
