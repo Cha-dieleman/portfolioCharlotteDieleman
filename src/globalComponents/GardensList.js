@@ -1,5 +1,4 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Media from 'react-media'
 import reactId from 'react-id-generator'
@@ -31,7 +30,6 @@ class GardensList extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            inputValueAutoSuggest: null
         }
     }
 
@@ -41,13 +39,10 @@ class GardensList extends React.Component {
 
     render() {
         const { classes, selectedParkNameRedux } = this.props
-        const { inputValueAutoSuggest } = this.state
         let data = dataMock.features
-        const dataChoosenByAutosuggest = []
         if(selectedParkNameRedux){
             const parkNameSelected = selectedParkNameRedux.split(' - ')
             data.map(park => {
-                const name= park.properties.nom
                 if(park.properties.nom === parkNameSelected[0]){
                     data=[park]
                 }

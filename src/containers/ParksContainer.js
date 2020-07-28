@@ -59,13 +59,12 @@ class ParksContainer extends React.Component {
     }
 
     handleClick = () => {
-        const { history, dataParkSelected } = this.props
+        const { history } = this.props
         history.push('/home')
     }
 
     render() {
         const { classes, dataParkSelected } = this.props
-        console.log('zz', dataParkSelected)
         setNav({
             firstLevel: 'home',
             secondLevel: 'parksList'

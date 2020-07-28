@@ -37,10 +37,8 @@ class DataPark extends React.Component {
 
   render() {
     const { classes, dataParkSelected } = this.props
-    console.log("hh", dataParkSelected.properties)
     
     const dataForTableToCustomize = orderData(dataParkSelected.properties)
-    console.log("dataPark", dataForTableToCustomize)
 
     return (
       <div>

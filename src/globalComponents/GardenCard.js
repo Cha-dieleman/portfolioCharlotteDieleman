@@ -37,7 +37,6 @@ function GardenCard(props) {
   const classes = useStyles()
 
   const handleClick = (data) => {
-      console.log('ici', data)
     const { history } = props
     getDataSelectedPark(data)
     history.push(`/parksList/${data.properties.uid}`)
@@ -95,7 +94,6 @@ function GardenCard(props) {
 }
 
 const mapStateToProps = (state) => {
-    console.log('statedata', state)
     return ({
         selectedParkNameRedux: state.selectedPark.name
     })
