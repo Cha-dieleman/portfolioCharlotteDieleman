@@ -30,28 +30,26 @@ const styles = () => ({
 class dataParkContainer extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-        }
+        this.state = {}
     }
 
     render() {
-        const { classes } = this.props
-        const data = 'coucou'
+        const { classes, dataParkSelected } = this.props
         return (
             <div>
                 {
-                    data ? (
+                    dataParkSelected ? (
                         <Media query={{ maxWidth: 1024 }}>
                         {(matches) =>
                             matches ? (
                                 <div className={classes.mainContainer}>
-                                    <DataPark />
-                                    <ParkMap />
+                                    <DataPark parentData={dataParkSelected} />
+                                    <ParkMap parentData={dataParkSelected} />
                                 </div>
                             ) : (
                                 <div className={classes.mainContainerDesktop}>
-                                    <DataPark />
-                                    <ParkMap />
+                                    <DataPark parentData={dataParkSelected} />
+                                    <ParkMap parentData={dataParkSelected} />
                                 </div>
                             )
                         }
@@ -67,7 +65,7 @@ class dataParkContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return ({
-      selectedParkNameRedux: state.selectedPark.name
+    dataParkSelected: state.dataSelectedPark.data
   })
 }
 

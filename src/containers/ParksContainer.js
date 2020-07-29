@@ -79,7 +79,7 @@ class ParksContainer extends React.Component {
                         <div className={classes.mainContainer}>
                             <Header />
                             {
-                                dataParkSelected ? <DataParkContainer /> : <GardensList />
+                                dataParkSelected ? <DataParkContainer data={dataParkSelected}/> : <GardensList />
                             }
                             <div className={classes.devByContainer}>
                                 <MuiThemeProvider theme={theme}>
@@ -93,7 +93,7 @@ class ParksContainer extends React.Component {
                                     className={classes.typoDevBy}
                                     align='right'
                                     >
-                                        En cours de développement - Charlotte Dieleman
+                                        Section en cours de développement - Charlotte Dieleman
                                     </Typography>
                                     </Link>
                                 </WhiteTooltip>
@@ -118,7 +118,7 @@ class ParksContainer extends React.Component {
                                     className={classes.typoDevBy}
                                     align='right'
                                     >
-                                        En cours de développement - Charlotte Dieleman
+                                        Section en cours de développement - Charlotte Dieleman
                                     </Typography>
                                     </Link>
                                 </WhiteTooltip>
