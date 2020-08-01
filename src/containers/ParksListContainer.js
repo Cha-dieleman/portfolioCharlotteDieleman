@@ -35,7 +35,7 @@ const styles = () => ({
   }
 })
 
-class ParksContainer extends React.Component {
+class ParksListContainer extends React.Component {
     constructor(props) {
         super(props)
         this.state = {}
@@ -47,7 +47,8 @@ class ParksContainer extends React.Component {
         history.push('/parksList')
         setNav({
             firstLevel: 'home',
-            secondLevel: 'parksList'
+            secondLevel: 'parksList',
+            thirdLevel: null
         })
     }
     render() {
@@ -79,5 +80,5 @@ class ParksContainer extends React.Component {
     }
 }
 
-export default withStyles(styles)(withRouter(ParksContainer))
+export default withStyles(styles)(withRouter(ParksListContainer))
 

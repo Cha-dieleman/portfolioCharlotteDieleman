@@ -32,15 +32,14 @@ const styles = () => ({
   flexLogo: {
     display: 'flex',
     alignItems: 'center',
-    padding: '10px 0px 0px 10px',
+    padding: '10px 0px 0px 10px'
   },
   flexLogoDesktop: {
     padding: '20px 0px 20px 20px'
   },
   logoText: {
     color: 'white',
-    fontFamily: 'helvetica-regular',
-    fontWeight: 900
+    fontFamily: 'helvetica-regular'
   },
   logoImg: {
     width: 50,

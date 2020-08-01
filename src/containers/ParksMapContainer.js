@@ -4,8 +4,7 @@ import Media from 'react-media'
 
 import { withStyles } from '@material-ui/core/styles'
 
-import ParkData from '../globalComponents/ParkData'
-import ParkMap from '../globalComponents/ParkMap'
+import Map from '../globalComponents/Map'
 import EnConstruction from '../globalComponents/EnConstruction'
 import { dataMock } from '../back/dataMock'
 import Header from '../globalComponents/Header'
@@ -42,57 +41,40 @@ const styles = () => ({
     }
 })
 
-class Park extends React.Component {
+class ParksMapContainer extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            dataParkState: null
+            dataParks: null
         }
     }
 
 
     componentDidMount() {
-        //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-        const { match } = this.props
-        //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-        // console.log('match', match)
-        // console.log('uid', match.params.nom)
-        // console.log('dataM', dataMock.features[0])
-        dataMock.features.map(park => {
-            if(match.params.nom === park.properties.nom){
-                this.setState({ dataParkState: park })
-            }
+        this.setState({ dataParks:  dataMock})
+        setNav({
+            firstLevel: 'home',
+            secondLevel: 'parksMap',
+            thirdLevel: null
         })
-        
-    }
-
-    componentDidUpdate(prevProps, prevState) {
-        const { dataParkState } = this.state
-        if(prevState.dataParkState !== dataParkState){
-            setNav({
-                firstLevel: 'home',
-                secondLevel: 'parksList',
-                thirdLevel: dataParkState.properties.nom
-            })
-        }
-
     }
 
     render() {
         const { classes } = this.props
-        const { dataParkState } = this.state
+        const { dataParks } = this.state
+        
+
         return (
             <div>
                 {
-                    dataParkState ? (
+                    dataParks ? (
                         <Media query={{ maxWidth: 1024 }}>
                         {(matches) =>
                             matches ? (
                                 <div className={classes.mainContainer}>
                                     <Header />
                                     <div className={classes.containerBothViews}>
-                                        <ParkData parentData={dataParkState} />
-                                        <ParkMap parentData={dataParkState} />
+                                        <Map data={dataParks} />
                                     </div>
                                     <div style={{display: 'flex', justifyContent: 'center', width: '100%'}}>
                                         <Footer />
@@ -102,8 +84,7 @@ class Park extends React.Component {
                                 <div className={classes.mainContainer}>
                                     <Header />
                                     <div className={classes.containerBothViewsDesktop}>
-                                        <ParkData parentData={dataParkState} />
-                                        <ParkMap parentData={dataParkState} />
+                                        <Map data={dataParks} />
                                     </div>
                                     <div style={{display: 'flex', justifyContent: 'flex-end', width: '100%'}}>
                                         <Footer />
@@ -127,4 +108,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default withStyles(styles)(connect(mapStateToProps)(Park))
+export default withStyles(styles)(connect(mapStateToProps)(ParksMapContainer))

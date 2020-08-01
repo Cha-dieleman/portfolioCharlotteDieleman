@@ -138,7 +138,7 @@ class Home extends React.Component {
 
     goToInConstruction = () => {
       const { history } = this.props
-      history.push('/construction')
+      history.push('/parksMap')
     }
   
     render() {
@@ -154,7 +154,7 @@ class Home extends React.Component {
                 <div className={classes.flexLogo}>
                   <EcoIcon className={classes.logoImg}/>
                   <Typography
-                    variant="h5"
+                    variant="h4"
                     className={classes.logoText}
                   >
                     GreenCityKid
@@ -221,7 +221,7 @@ class Home extends React.Component {
                 <div className={classes.flexLogo}>
                   <EcoIcon className={classes.logoImg}/>
                   <Typography
-                    variant="h5"
+                    variant="h4"
                     className={classes.logoText}
                   >
                     GreenCityKid
