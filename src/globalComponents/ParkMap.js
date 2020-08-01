@@ -53,7 +53,7 @@ class ParkMap extends React.Component {
 
   render() {
     return (
-      <div style={{display:'flex', justifyContent:'center', alignItems:'center', width:'90%', height:'auto'}}>
+      <div style={{display:'flex', justifyContent:'center', alignItems:'center', width:'90%', height:'auto', boxSizing: 'border-box'}}>
         <Media query={{ maxWidth: 1024 }}>
           {(matches) =>
               matches ? (

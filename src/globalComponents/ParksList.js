@@ -5,10 +5,10 @@ import reactId from 'react-id-generator'
 
 import { withStyles } from '@material-ui/core/styles'
 
-import GardenCard from './GardenCard'
+import CardPark from './CardPark'
 import { dataMock } from '../back/dataMock'
 import AutoSuggest from './Autocomplete'
-import EnConstruction from '../globalComponents/EnConstruction'
+import EnConstruction from './EnConstruction'
 import { getSelectedPark } from '../actions'
 
 const styles = () => ({
@@ -26,15 +26,15 @@ const styles = () => ({
   },
 })
 
-class GardensList extends React.Component {
+class ParksList extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
         }
     }
 
-    componentWillUnmount() {
-        getSelectedPark(null)
+    componentDidMount() {
+        getSelectedPark(null) // PURGE
     }
 
     render() {
@@ -62,7 +62,7 @@ class GardensList extends React.Component {
                                         {data.map(data => {
                                             return (
                                                 <div key={reactId()}>
-                                                    <GardenCard data={data}/>
+                                                    <CardPark data={data}/>
                                                 </div>
                                             )
                                         })}
@@ -75,7 +75,7 @@ class GardensList extends React.Component {
                                         {data.map(park => {
                                             return (
                                                 <div key={reactId()}>
-                                                    <GardenCard data={park}/>
+                                                    <CardPark data={park}/>
                                                 </div>
                                             )
                                         })}
@@ -94,9 +94,10 @@ class GardensList extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log('state', state)
   return ({
       selectedParkNameRedux: state.selectedPark.name
   })
 }
 
-export default withStyles(styles)(connect(mapStateToProps)(GardensList))
+export default withStyles(styles)(connect(mapStateToProps)(ParksList))

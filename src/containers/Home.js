@@ -1,15 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import Media from 'react-media'
 import { withRouter } from 'react-router-dom'
 import Odometer from 'react-odometerjs'
 import 'odometer/themes/odometer-theme-default.css'
 
 import EcoIcon from '@material-ui/icons/Eco'
-import { MuiThemeProvider, createMuiTheme, withStyles } from '@material-ui/core/styles'
-import { Typography, Button, Tooltip } from '@material-ui/core'
+import { withStyles } from '@material-ui/core/styles'
+import { Typography, Button } from '@material-ui/core'
 
 import imgBreathe from '../static/images/imgBreathe.png'
+import Footer from '../globalComponents/Footer'
 
 const styles = () => ({
   mainContainer: {
@@ -21,7 +21,7 @@ const styles = () => ({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'stretch',
-    height: 'auto',
+    height: 'auto'
   },
   firstContainer: {
     backgroundImage: `url(${imgBreathe})`,
@@ -92,7 +92,8 @@ const styles = () => ({
     justifyContent: 'center',
     alignItems: 'flex-start',
     padding: '40px 0px 0px',
-    height: '40%'
+    height: '40%',
+    marginBottom: 20
   },
   thirdSecondContainer: {
     height: 'auto',
@@ -117,17 +118,6 @@ const styles = () => ({
   }
 })
 
-const theme = createMuiTheme()
-
-const WhiteTooltip = withStyles({
-  tooltip: {
-    color: '#818386',
-    backgroundColor: 'white',
-    border: 'solid .5px #AEB0B3',
-    boxShadow: '2px 2px 5px #AEB0B3'
-  }
-})(Tooltip)
-
 class Home extends React.Component {
     constructor(props) {
       super(props)
@@ -141,7 +131,7 @@ class Home extends React.Component {
       this.setState({ odometerValue: 295 })
     }
 
-    goToGardenListView = () => {
+    goToParksListView = () => {
       const { history } = this.props
       history.push('/parksList')
     }
@@ -216,27 +206,12 @@ class Home extends React.Component {
                   <Button variant="outlined" className={classes.button} onClick={() => this.goToInConstruction()}>
                     Accéder la carte
                   </Button>
-                  <Button variant="outlined" className={`${classes.button} ${classes.secondButton}`} onClick={() => this.goToGardenListView()}>
+                  <Button variant="outlined" className={`${classes.button} ${classes.secondButton}`} onClick={() => this.goToParksListView()}>
                     Accéder à la liste
                   </Button>
                 </div>
-                <div className={classes.thirdSecondContainer}>
-                  <MuiThemeProvider theme={theme}>
-                    <WhiteTooltip
-                      title='Revenir au portfolio'
-                      placement="top-end"
-                    >
-                    <Link to='/' style={{ textDecoration: 'none', color:'#B76E22' }}>
-                      <Typography
-                        variant="body2"
-                        className={`${classes.typoDevBy} ${classes.typoDevByMobile}`}
-                        align='right'
-                      >
-                        Section en cours de développement - Charlotte Dieleman
-                      </Typography>
-                      </Link>
-                    </WhiteTooltip>
-                  </MuiThemeProvider>
+                <div style={{display: 'flex', justifyContent: 'center', width: '100%'}}>
+                  <Footer />
                 </div>
               </div>
             </div>
@@ -299,27 +274,12 @@ class Home extends React.Component {
                   <Button variant="outlined" className={classes.button} onClick={() => this.goToInConstruction()}>
                     Accéder la carte
                   </Button>
-                  <Button variant="outlined" className={`${classes.button} ${classes.secondButton}`} onClick={() => this.goToGardenListView()}>
+                  <Button variant="outlined" className={`${classes.button} ${classes.secondButton}`} onClick={() => this.goToParksListView()}>
                     Accéder à la liste
                   </Button>
                 </div>
-                <div className={classes.thirdSecondContainer}>
-                  <MuiThemeProvider theme={theme}>
-                    <WhiteTooltip
-                      title='Revenir au portfolio'
-                      placement="top-end"
-                    >
-                    <Link to='/' style={{ textDecoration: 'none', color:'#B76E22' }}>
-                      <Typography
-                        variant="body2"
-                        className={classes.typoDevBy}
-                        align='right'
-                      >
-                        Section en cours de développement - Charlotte Dieleman
-                      </Typography>
-                      </Link>
-                    </WhiteTooltip>
-                  </MuiThemeProvider>
+                <div style={{display: 'flex', justifyContent: 'flex-end', width: '100%'}}>
+                  <Footer />
                 </div>
               </div>
             </div>

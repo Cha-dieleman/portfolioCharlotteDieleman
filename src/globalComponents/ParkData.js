@@ -4,9 +4,9 @@ import Media from 'react-media'
 import { withStyles } from '@material-ui/core/styles'
 import { Typography } from '@material-ui/core'
 
-import TableToCustomize from '../TableToCustomize'
-import { orderData } from './confDataPark'
-import dataParkImg from '../../static/images/dataParkImg.jpg'
+import TableToCustomize from './TableToCustomize'
+import { orderData } from './DataParkConf'
+import dataParkImg from '../static/images/dataParkImg.jpg'
 
 
 const styles = () => ({
@@ -15,6 +15,7 @@ const styles = () => ({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'flex-start',
+    boxSizing: 'border-box'
   },
   ParkName: {
     color: '#B76E22',
@@ -27,7 +28,7 @@ const styles = () => ({
   }
 })
 
-class DataPark extends React.Component {
+class ParkData extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -97,4 +98,4 @@ class DataPark extends React.Component {
   }
 }
   
-export default withStyles(styles)(DataPark)
+export default withStyles(styles)(ParkData)

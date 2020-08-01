@@ -12,9 +12,9 @@ import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 
-import { getDataSelectedPark } from '../actions'
+// import { getDataSelectedPark } from '../actions'
 
-import test from './test.jpg'
+import parkImg from '../static/images/parkImg.jpg'
 
 const useStyles = makeStyles({
   root: {
@@ -32,14 +32,14 @@ const useStyles = makeStyles({
   }
 })
 
-function GardenCard(props) {
+function CardPark(props) {
   const { data, selectedParkNameRedux } = props
   const classes = useStyles()
 
   const handleClick = (data) => {
     const { history } = props
-    getDataSelectedPark(data)
-    history.push(`/parksList/${data.properties.uid}`)
+    // getDataSelectedPark(data)
+    history.push(`/parksList/${data.properties.nom}`)
   }
 
   return (
@@ -48,7 +48,7 @@ function GardenCard(props) {
         matches ? (
     <Card className={classes.root}>
       <CardActionArea>
-      <CardMedia src={test} component="img" title="Some title" className={classes.imgCard} />
+      <CardMedia src={parkImg} component="img" title="Some title" className={classes.imgCard} />
         <CardContent style={{padding: 5}}>
           <Typography gutterBottom variant="h5" component="h2">
             {data.properties.nom}
@@ -69,7 +69,7 @@ function GardenCard(props) {
     ) : (
         <Card style={{maxWidth: 340, marginBottom: selectedParkNameRedux !== null ? 0 : 20, marginRight: selectedParkNameRedux !== null ? 0 : 20}}>
         <CardActionArea>
-        <CardMedia src={test} component="img" title="Some title" className={classes.imgCard} />
+        <CardMedia src={parkImg} component="img" title="Some title" className={classes.imgCard} />
           <CardContent style={{padding: 5}}>
             <Typography gutterBottom variant="h5" component="h2" noWrap>
             {data.properties.nom}
@@ -99,4 +99,4 @@ const mapStateToProps = (state) => {
     })
 }
 
-export default withRouter(connect(mapStateToProps)(GardenCard))
+export default withRouter(connect(mapStateToProps)(CardPark))
