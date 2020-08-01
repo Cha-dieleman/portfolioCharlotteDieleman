@@ -94,7 +94,6 @@ class ParksList extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log('state', state)
   return ({
       selectedParkNameRedux: state.selectedPark.name
   })

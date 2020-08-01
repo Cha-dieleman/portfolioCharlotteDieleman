@@ -10,7 +10,6 @@ class ParkMap extends React.Component {
 
   componentDidMount() {
     const { parentData } = this.props
-    console.log('parentData', parentData)
     const dataToSort = parentData.geometry.coordinates[0]
     const sortData = []
     dataToSort.map(coordinatesArray => {
