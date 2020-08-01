@@ -2,9 +2,10 @@ import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Portfolio from './containers/Portfolio'
 import Home from './containers/Home'
-import ParksContainer from './containers/ParksContainer'
-import EnConstructionRouter from './globalComponents/EnConstructionRouter'
-import Error from './globalComponents/Error'
+import ParksContainer from './containers/ParksListContainer'
+import EnConstructionRouter from './containers/EnConstructionRouter'
+import Error from './containers/Error'
+import Park from './containers/Park'
 
 const Routes = () => {
   
@@ -15,7 +16,8 @@ const Routes = () => {
             <Route exact path="/" component={Portfolio}/>
             <Route exact path="/home" component={Home}/>
             <Route exact path="/construction" component={EnConstructionRouter}/>
-            <Route path="/parksList" component={ParksContainer}/>
+            <Route exact path="/parksList" component={ParksContainer}/>
+            <Route exact path="/parksList/:nom" component={Park} />
             <Route component={Error}/>
           </Switch>
         </div>

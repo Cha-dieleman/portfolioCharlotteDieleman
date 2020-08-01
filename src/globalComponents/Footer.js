@@ -1,34 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Media from 'react-media'
-import { withRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
 
 import { Typography, Tooltip } from '@material-ui/core'
 import { MuiThemeProvider, createMuiTheme, withStyles } from '@material-ui/core/styles'
 
-import Header from '../globalComponents/Header'
-import GardensList from '../globalComponents/GardensList'
-import DataParkContainer from '../globalComponents/dataParkContainer'
-import { setNav, getSelectedPark, getDataSelectedPark } from '../actions'
-
-
 const styles = () => ({
-  mainContainer: {
-    width: '100vw',
-    height: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    alignItems: 'stretch'
-  },
   devByContainer: {
     height: 'auto',
-    padding: '0px 20px 20px 0px',
-    margin: `30px 0px`
+    margin: `30px 0px 30px 0px`
   },
   devByContainerDesktop: {
-    padding: '0px 40px 40px 0px'
+    paddingBottom: 20,
+    margin: `30px 20px 30px 0px`
   },
   typoDevBy: {
     width: 'auto',
@@ -47,40 +31,19 @@ const WhiteTooltip = withStyles({
   }
 })(Tooltip)
 
-class ParksContainer extends React.Component {
+class Footer extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-        }
-    }
-    componentDidMount() {
-        getSelectedPark(null)
-        getDataSelectedPark(null)
-        const { history } = this.props
-        history.push('/parksList')
-    }
-
-    handleClick = () => {
-        const { history } = this.props
-        history.push('/home')
+        this.state = {}
     }
 
     render() {
-        const { classes, dataParkSelected } = this.props
-        setNav({
-            firstLevel: 'home',
-            secondLevel: 'parksList'
-        })
-
+        const { classes } = this.props
+        
         return (
             <Media query={{ maxWidth: 1024 }}>
                 {(matches) =>
                     matches ? (
-                        <div className={classes.mainContainer}>
-                            <Header />
-                            {
-                                dataParkSelected ? <DataParkContainer /> : <GardensList />
-                            }
                             <div className={classes.devByContainer}>
                                 <MuiThemeProvider theme={theme}>
                                 <WhiteTooltip
@@ -98,14 +61,8 @@ class ParksContainer extends React.Component {
                                     </Link>
                                 </WhiteTooltip>
                                 </MuiThemeProvider>
-                            </div>
                         </div>
                     ) : (
-                        <div className={classes.mainContainer}>
-                            <Header />
-                            {
-                                dataParkSelected ? <DataParkContainer /> : <GardensList />
-                            }
                             <div className={`${classes.devByContainer} ${classes.devByContainerDesktop}`}>
                                 <MuiThemeProvider theme={theme}>
                                 <WhiteTooltip
@@ -124,7 +81,6 @@ class ParksContainer extends React.Component {
                                 </WhiteTooltip>
                                 </MuiThemeProvider>
                             </div>
-                        </div>
                     )
                 }
             </Media>
@@ -132,11 +88,5 @@ class ParksContainer extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return ({
-        dataParkSelected: state.dataSelectedPark.data
-    })
-}
-
-export default withStyles(styles)(withRouter(connect(mapStateToProps)(ParksContainer)))
+export default withStyles(styles)(Footer)
 

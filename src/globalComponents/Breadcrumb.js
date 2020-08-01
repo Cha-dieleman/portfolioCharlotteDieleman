@@ -11,6 +11,7 @@ const styles = () => ({
   mainContainer: {
     height: 'auto',
     display: 'flex',
+    wrap: 'noWrap',
     justifyContent: 'flex-end',
     alignItems: 'center',
     padding: '0px 20px 5px 0px'
@@ -18,23 +19,33 @@ const styles = () => ({
   mainContainerDesktop: {
     padding: '0px 40px 0px 0px'
   },
+  link: {
+    textDecoration: 'none',
+    opacity: .7,
+    '&:hover': {
+      opacity: 1
+    }
+  },
+  linkWithoutOpacity: {
+    textDecoration: 'none'
+  },
   text: {
     color: '#B76E22',
     fontFamily: 'helvetica-regular',
     fontStyle: 'italic',
     fontWeight: 900
   },
-  textSecondNav: {
-    color: '#B76E22',
-    fontFamily: 'helvetica-regular',
-    fontStyle: 'italic',
-    marginLeft: 5,
-    fontWeight: 900
+  textNav: {
+    marginLeft: 5
   },
-  cameraImg: {
+  cameraImgMobile: {
     width: 30,
     height: 'auto',
     color: '#B76E22',
+    marginRight: 2,
+    marginLeft: 5,
+  },
+  cameraImg: {
     marginRight: 20
   }
 })
@@ -54,26 +65,40 @@ class Breadcrumb extends React.Component {
             {(matches) =>
                 matches ? (
                     <div className={classes.mainContainer}>
-                      <CameraEnhanceIcon className={classes.cameraImg}/>
-                      <Link to='/home' style={{ textDecoration: 'none', color:'#B76E22' }}>
+                      <CameraEnhanceIcon className={classes.cameraImgMobile}/>
+                      <Link to='/home'  className={classes.link}>
                           <Typography
-                              variant="h6"
+                              variant="body1"
                               className={classes.text}
+                              noWrap
                           >
                               {`${navStateRedux.firstLevel} /`}
                           </Typography>
                       </Link>
-                      <Typography
-                          variant="h6"
-                          className={classes.textSecondNav}
-                      >
-                          {`${navStateRedux.secondLevel}`}
-                      </Typography>
+                      <Link to='/parksList' className={navStateRedux.thirdLevel ? classes.link : classes.linkWithoutOpacity}>
+                        <Typography
+                            variant="body1"
+                            className={`${classes.text} ${classes.textNav}`}
+                        >
+                            {`${navStateRedux.secondLevel}`}
+                        </Typography>
+                      </Link>
+                      {
+                        navStateRedux.thirdLevel ? (
+                          <Typography
+                              variant="body1"
+                              className={`${classes.text} ${classes.textNav}`}
+                              noWrap
+                          >
+                              {` / ${navStateRedux.thirdLevel}`}
+                          </Typography>
+                        ) : null
+                      }
                     </div>
                 ) : (
                     <div className={`${classes.mainContainer} ${classes.mainContainerDesktop}`}>
-                      <CameraEnhanceIcon className={classes.cameraImg}/>
-                      <Link to='/home' style={{ textDecoration: 'none', color:'#B76E22' }}>
+                      <CameraEnhanceIcon className={`${classes.cameraImgMobile} ${classes.cameraImg}`}/>
+                      <Link to='/home'  className={classes.link}>
                           <Typography
                               variant="h5"
                               className={classes.text}
@@ -81,12 +106,25 @@ class Breadcrumb extends React.Component {
                               {`${navStateRedux.firstLevel} /`}
                           </Typography>
                       </Link>
-                      <Typography
-                          variant="h5"
-                          className={classes.textSecondNav}
-                      >
-                          {`${navStateRedux.secondLevel}`}
-                      </Typography>
+                      <Link to='/parksList' className={navStateRedux.thirdLevel ? classes.link : classes.linkWithoutOpacity}>
+                        <Typography
+                            variant="h5"
+                            className={`${classes.text} ${classes.textNav}`}
+                        >
+                            {`${navStateRedux.secondLevel}`}
+                        </Typography>
+                      </Link>
+                      {
+                        navStateRedux.thirdLevel ? (
+                          <Typography
+                              variant="h5"
+                              className={`${classes.text} ${classes.textNav}`}
+                              noWrap
+                          >
+                              {` / ${navStateRedux.thirdLevel}`}
+                          </Typography>
+                        ) : null
+                      }
                     </div>
                 )
             }
