@@ -8,7 +8,11 @@ import { MuiThemeProvider, createMuiTheme, withStyles } from '@material-ui/core/
 const styles = () => ({
   devByContainer: {
     height: 'auto',
-    margin: `30px 0px 30px 0px`
+    margin: `30px 0px 30px 0px`,
+    opacity: .7,
+    '&:hover': {
+      opacity: 1
+    }
   },
   devByContainerDesktop: {
     paddingBottom: 20,

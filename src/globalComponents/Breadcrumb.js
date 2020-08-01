@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 
 import { Typography } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
-import CameraEnhanceIcon from '@material-ui/icons/CameraEnhance'
 
 const styles = () => ({
   mainContainer: {
@@ -37,16 +36,6 @@ const styles = () => ({
   },
   textNav: {
     marginLeft: 5
-  },
-  cameraImgMobile: {
-    width: 30,
-    height: 'auto',
-    color: '#B76E22',
-    marginRight: 2,
-    marginLeft: 5,
-  },
-  cameraImg: {
-    marginRight: 20
   }
 })
 
@@ -65,7 +54,6 @@ class Breadcrumb extends React.Component {
             {(matches) =>
                 matches ? (
                     <div className={classes.mainContainer}>
-                      <CameraEnhanceIcon className={classes.cameraImgMobile}/>
                       <Link to='/home'  className={classes.link}>
                           <Typography
                               variant="body1"
@@ -97,7 +85,6 @@ class Breadcrumb extends React.Component {
                     </div>
                 ) : (
                     <div className={`${classes.mainContainer} ${classes.mainContainerDesktop}`}>
-                      <CameraEnhanceIcon className={`${classes.cameraImgMobile} ${classes.cameraImg}`}/>
                       <Link to='/home'  className={classes.link}>
                           <Typography
                               variant="h5"

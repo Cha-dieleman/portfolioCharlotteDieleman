@@ -24,7 +24,8 @@ const styles = () => ({
     alignItems: 'center',
   },
   mainContainerMobile: {
-    padding: 0
+    padding: 0,
+    height: 'auto',
   },
   opacitySection: {
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
@@ -35,7 +36,7 @@ const styles = () => ({
   },
   opacitySectionMobile: {
     flexDirection: 'column',
-    padding: `10px 20px`
+    padding: `60px 20px`,
   },
   buttonContainer: {
     display: 'flex',
@@ -139,19 +140,35 @@ class Portfolio extends React.Component {
                       className={`${classes.text} ${classes.constructionText}`}
                       align='center'
                     >
-                    ( En cours de construction )
+                    ( Portfolio en cours de construction )
+                    <br/>
+                    <br/>
+                    Remerciements : Un grand merci à toute l'équipe Product de namR,
+                    <br/>
+                    pour votre accueil en stage et votre gentillesse,
+                    <br/>
+                    pour m'avoir transmis votre workflow et vos connaissances !
                     </Typography>
                   </div>
                   <div className={classes.buttonContainerMobile}>
                     <Button variant="outlined" color="secondary" onClick={() => this.handleClick()}>
                       GreenCityKid application
                     </Button>
-                    <Button variant="outlined" color="secondary" className={classes.button}>
-                      Téléchargez CV
-                    </Button>
-                    <Button variant="outlined" color="secondary" className={classes.button}>
-                      Contact
-                    </Button>
+                    <a
+                      href="https://drive.google.com/file/d/17xatdu44mwcVzHWSFCsfyCY1MAH_j7TS/view?usp=drivesdk"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      underline="always"
+                    >
+                      <Button variant="outlined" color="secondary" className={classes.button}>
+                        Téléchargez CV
+                      </Button>
+                    </a>
+                    <a href="mailto:chadieleman@gmail.com">
+                      <Button variant="outlined" color="secondary" className={classes.button}>
+                        Contact
+                      </Button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -162,12 +179,21 @@ class Portfolio extends React.Component {
                     <Button variant="outlined" color="secondary" onClick={() => this.handleClick()}>
                       GreenCityKid application
                     </Button>
-                    <Button variant="outlined" color="secondary" className={classes.button}>
-                      Téléchargez CV
-                    </Button>
-                    <Button variant="outlined" color="secondary" className={classes.button}>
-                      Contact
-                    </Button>
+                    <a
+                      href="https://drive.google.com/file/d/17xatdu44mwcVzHWSFCsfyCY1MAH_j7TS/view?usp=drivesdk"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      underline="always"
+                    >
+                      <Button variant="outlined" color="secondary" className={classes.button}>
+                        Téléchargez CV
+                      </Button>
+                    </a>
+                    <a href="mailto:chadieleman@gmail.com">
+                      <Button variant="outlined" color="secondary" className={classes.button}>
+                        Contact
+                      </Button>
+                    </a>
                   </div>
                   <div className={classes.presentationText}>
                     <Typography
@@ -197,7 +223,14 @@ class Portfolio extends React.Component {
                       className={`${classes.text} ${classes.constructionText}`}
                       align='right'
                     >
-                    ( En cours de construction )
+                    ( Portfolio en cours de construction )
+                    <br/>
+                    <br/>
+                    Remerciements : Un grand merci à toute l'équipe Product de namR,
+                    <br/>
+                    pour votre accueil en stage et votre gentillesse,
+                    <br/>
+                    pour m'avoir transmis votre workflow et vos connaissances !
                     </Typography>
                   </div>
                 </div>
