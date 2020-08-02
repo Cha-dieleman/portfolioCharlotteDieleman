@@ -12,8 +12,6 @@ import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 
-// import { getDataSelectedPark } from '../actions'
-
 import parkImg from '../static/images/parkImg.jpg'
 
 const useStyles = makeStyles({
@@ -21,14 +19,10 @@ const useStyles = makeStyles({
     maxWidth: 340,
     marginBottom: 20
   },
-  rootDesktop: {
-    maxWidth: 340,
-    marginBottom: 20,
-    marginRight: 20
-  },
   imgCard: {
       height: 100,
-      width: 340
+      width: 340,
+      marginBottom: 10
   }
 })
 
@@ -38,7 +32,6 @@ function CardPark(props) {
 
   const handleClick = (data) => {
     const { history } = props
-    // getDataSelectedPark(data)
     history.push(`/parksList/${data.properties.nom}`)
   }
 
@@ -60,7 +53,7 @@ function CardPark(props) {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions style={{padding: 5, display:'flex', justifyContent:'center', alignItems:'center'}}>
+      <CardActions style={{padding: 5, display:'flex', justifyContent:'center', alignItems:'center',  margin: `10px 0px`}}>
         <Button variant="outlined" style={{color: '#B76E22', marginBottom: 5}} onClick={() => handleClick(data)}>
           En savoir plus
         </Button>
@@ -70,8 +63,8 @@ function CardPark(props) {
         <Card style={{maxWidth: 340, marginBottom: selectedParkNameRedux !== null ? 0 : 20, marginRight: selectedParkNameRedux !== null ? 0 : 20}}>
         <CardActionArea>
         <CardMedia src={parkImg} component="img" title="Some title" className={classes.imgCard} />
-          <CardContent style={{padding: 5}}>
-            <Typography gutterBottom variant="h5" component="h2" noWrap>
+          <CardContent style={{padding: 10}}>
+            <Typography gutterBottom variant="h5" component="h2" noWrap={true}>
             {data.properties.nom}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
@@ -81,8 +74,8 @@ function CardPark(props) {
             </Typography>
           </CardContent>
         </CardActionArea>
-        <CardActions style={{padding: 5, display:'flex', justifyContent:'center', alignItems:'center'}}  onClick={() => handleClick(data)}>
-          <Button variant="outlined" style={{color: '#B76E22', marginBottom: 5}}>
+        <CardActions style={{padding: 5, display:'flex', justifyContent:'center', alignItems:'center', margin: `10px 0px`}}  onClick={() => handleClick(data)}>
+          <Button variant="outlined" style={{color: '#B76E22', margin: 5}}>
             En savoir plus
           </Button>
         </CardActions>

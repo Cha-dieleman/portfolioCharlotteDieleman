@@ -62,6 +62,7 @@ class Park extends React.Component {
             if(match.params.nom === park.properties.nom){
                 this.setState({ dataParkState: park })
             }
+            return null
         })
         
     }

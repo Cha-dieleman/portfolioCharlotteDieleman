@@ -10,7 +10,7 @@ const styles = () => ({
   mainContainer: {
     height: 'auto',
     display: 'flex',
-    wrap: 'noWrap',
+    wrap: 'nowrap',
     justifyContent: 'flex-end',
     alignItems: 'center',
     padding: '0px 20px 5px 0px'
@@ -32,7 +32,6 @@ const styles = () => ({
     color: '#B76E22',
     fontFamily: 'helvetica-regular',
     fontStyle: 'italic',
-    fontWeight: 900
   },
   textNav: {
     marginLeft: 5
@@ -58,7 +57,7 @@ class Breadcrumb extends React.Component {
                           <Typography
                               variant="body1"
                               className={classes.text}
-                              noWrap
+                              nowrap
                           >
                               {`${navStateRedux.firstLevel} /`}
                           </Typography>
@@ -76,7 +75,7 @@ class Breadcrumb extends React.Component {
                           <Typography
                               variant="body1"
                               className={`${classes.text} ${classes.textNav}`}
-                              noWrap
+                              nowrap
                           >
                               {` / ${navStateRedux.thirdLevel}`}
                           </Typography>
@@ -106,7 +105,7 @@ class Breadcrumb extends React.Component {
                           <Typography
                               variant="h5"
                               className={`${classes.text} ${classes.textNav}`}
-                              noWrap
+                              nowrap
                           >
                               {` / ${navStateRedux.thirdLevel}`}
                           </Typography>
