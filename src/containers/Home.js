@@ -68,6 +68,9 @@ const styles = () => ({
     marginTop: 40,
     color: '#B76E22'
   },
+  buttonMobile: {
+    color: '#B76E22'
+  },
   secondButton: {
     marginLeft: 20
   },
@@ -76,8 +79,8 @@ const styles = () => ({
     height: '100vh'
   },
   firstSecondContainer: {
-    padding: '0px 0px 60px',
-    height: '50%',
+    padding: '0px 0px 80px',
+    height: '60%',
     display: 'flex',
     justifyContent: 'flex-end',
     alignItems: 'center',
@@ -85,14 +88,15 @@ const styles = () => ({
     borderBottom: 'solid 2px #B76E22',
   },
   firstSecondContainerMobile: {
-    height: 'auto'
+    height: 'auto',
+    padding: '0px 0px 40px',
   },
   secondSecondContainer: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'flex-start',
     padding: '40px 0px 0px',
-    height: '40%',
+    height: '30%',
     marginBottom: 20
   },
   thirdSecondContainer: {
@@ -203,10 +207,10 @@ class Home extends React.Component {
                   </Typography>
                 </div>
                 <div className={`${classes.secondSecondContainer} ${classes.firstSecondContainerMobile}`}>
-                  <Button variant="outlined" className={classes.button} onClick={() => this.goToInConstruction()}>
+                  <Button variant="outlined" className={classes.buttonMobile} onClick={() => this.goToInConstruction()}>
                     Accéder la carte
                   </Button>
-                  <Button variant="outlined" className={`${classes.button} ${classes.secondButton}`} onClick={() => this.goToParksListView()}>
+                  <Button variant="outlined" className={`${classes.buttonMobile} ${classes.secondButton}`} onClick={() => this.goToParksListView()}>
                     Accéder à la liste
                   </Button>
                 </div>

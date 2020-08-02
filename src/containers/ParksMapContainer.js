@@ -15,29 +15,12 @@ import { setNav } from '../actions'
 const styles = () => ({
     mainContainer: {
         width: '100vw',
-        height: 'auto',
+        height: '100vh',
         boxSizing: 'border-box',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    containerBothViews: {
-        width: '100vw',
-        height: 'auto',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    containerBothViewsDesktop: {
-        width: '100vw',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center',
-        boxSizing: 'border-box'
+        alignItems: 'center'
     }
 })
 
@@ -73,9 +56,7 @@ class ParksMapContainer extends React.Component {
                             matches ? (
                                 <div className={classes.mainContainer}>
                                     <Header />
-                                    <div className={classes.containerBothViews}>
-                                        <Map data={dataParks} />
-                                    </div>
+                                    <Map data={dataParks} ref={(map) => {this.map = map}}/>
                                     <div style={{display: 'flex', justifyContent: 'center', width: '100%'}}>
                                         <Footer />
                                     </div>
@@ -83,9 +64,7 @@ class ParksMapContainer extends React.Component {
                             ) : (
                                 <div className={classes.mainContainer}>
                                     <Header />
-                                    <div className={classes.containerBothViewsDesktop}>
-                                        <Map data={dataParks} />
-                                    </div>
+                                    <Map data={dataParks} ref={(map) => {this.map = map}}/>
                                     <div style={{display: 'flex', justifyContent: 'flex-end', width: '100%'}}>
                                         <Footer />
                                     </div>

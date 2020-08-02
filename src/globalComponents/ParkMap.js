@@ -16,8 +16,10 @@ class ParkMap extends React.Component {
       const roundNumber = []
       coordinatesArray.map(coordinate => {
         roundNumber.push(Math.round(coordinate* 1000000)/1000000)
+        return null
       })
       sortData.push(roundNumber.reverse())
+      return null
     })
     const L = window.L
     const mymap = L.map('mapid').setView(sortData[0], 18)
