@@ -22,7 +22,8 @@ const useStyles = makeStyles({
   imgCard: {
       height: 100,
       width: 340,
-      marginBottom: 10
+      marginBottom: 10,
+      boxSizing: 'border-box'
   }
 })
 
@@ -47,9 +48,7 @@ function CardPark(props) {
             {data.properties.nom}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Lorem ipsum dolor sit amet,
-            <br/>
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            {data.properties.description}
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -60,21 +59,19 @@ function CardPark(props) {
       </CardActions>
     </Card>
     ) : (
-        <Card style={{maxWidth: 340, marginBottom: selectedParkNameRedux !== null ? 0 : 20, marginRight: selectedParkNameRedux !== null ? 0 : 20}}>
+        <Card style={{widt: 340, height: 400,marginTop:20, boxSizing: 'border-box', marginBottom: selectedParkNameRedux !== null ? 0 : 20, marginRight: selectedParkNameRedux !== null ? 0 : 20}}>
         <CardActionArea>
         <CardMedia src={parkImg} component="img" title="Some title" className={classes.imgCard} />
-          <CardContent style={{padding: 10}}>
+          <CardContent style={{padding: 10, height: 200, boxSizing: 'border-box'}}>
             <Typography gutterBottom variant="h5" component="h2" noWrap={true}>
             {data.properties.nom}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-                Lorem ipsum dolor sit amet,
-                <br/>
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              {data.properties.description}
             </Typography>
           </CardContent>
         </CardActionArea>
-        <CardActions style={{padding: 5, display:'flex', justifyContent:'center', alignItems:'center', margin: `10px 0px`}}  onClick={() => handleClick(data)}>
+        <CardActions style={{padding: 5, height: 50, display:'flex', justifyContent:'center', alignItems:'center', margin: `10px 0px`}}  onClick={() => handleClick(data)}>
           <Button variant="outlined" style={{color: '#B76E22', margin: 5}}>
             En savoir plus
           </Button>

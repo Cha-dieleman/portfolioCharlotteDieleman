@@ -125,3 +125,14 @@ export const dataMock = {
     ]
     }
     
+    dataMock.features.map(park => {
+        if(park.properties.nom === "Jardin Aquatique Jean Couty") {
+            park.properties.description = ` Fait d'un bassin en eau au nord et d'une zone de plantations au sud. Ce jardin dispose d'une grande pelouse donnant sur le centre commercial de Confluence.`
+        } else if(park.properties.nom.includes('Berge') || park.properties.nom.includes('Berges')){
+            park.properties.description = `Les berges sont devenues l'un des endroits préférés des Lyonnais·e·s. Les Berges du Rhône offrent des ambiances variées et de multiples usages : du foot au roller, du terrain de boules aux terrains de jeux… les Berges sont une invitation permanente aux loisirs, à la rencontre, à la détente.`
+        }
+        
+        else {
+            park.properties.description = ` Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`
+        }
+    })

@@ -18,9 +18,7 @@ function CustomPoPupMarker(props) {
                   {data.prop.nom}
                 </h2>
                 <p style={{margin: `10px 0px`}}>
-                  Lorem ipsum dolor sit amet,
-                  <br/>
-                  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  {data.prop.description}
                 </p>
                 <a href={`http://localhost:3000/${nav.secondLevel}/${nav.thirdLevel}`}>
                   <button style={{color: '#B76E22', borderRadius:'none', width: 100, height: 25, border: 'solid 1px #B76E22', backgroundColor: 'white'}} type="button">
@@ -36,9 +34,7 @@ function CustomPoPupMarker(props) {
                     {data.prop.nom}
                   </h2>
                   <p>
-                    Lorem ipsum dolor sit amet,
-                    <br/>
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    {data.prop.description}
                   </p>
                   <a href={`http://localhost:3000/${nav.secondLevel}/${nav.thirdLevel}`}>
                     <button style={{color: '#B76E22', borderRadius:'none', width: 100, height: 25, border: 'solid 1px #B76E22', backgroundColor: 'white'}} type="button">

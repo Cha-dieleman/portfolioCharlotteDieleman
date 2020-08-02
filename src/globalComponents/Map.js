@@ -15,13 +15,14 @@ class ParkMap extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-        dataMapState: null
+        zoom: null
     }
   }
 
   componentDidMount() {
     const { data } = this.props
-   
+    const { zoom } = this.state
+
     let sortData = []
     data.features.map(feature => {
         let objFeature = {}
@@ -46,10 +47,10 @@ class ParkMap extends React.Component {
         return null
     })
     
-    
-    
     const L = window.L
     const mymap = L.map('mapid').setView([45.757614, 4.831720], 14)
+    this.setState({ mymap })
+    console.log('map', mymap.getZoom())
     const layerPlan = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       attribution: '&copy;<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(mymap)
@@ -104,7 +105,7 @@ class ParkMap extends React.Component {
                 title : park.prop.nom,
                 draggable : 'true',
                 icon: getIconMarkerCustom(jardinLocationIcon)
-            })
+            }).addTo(mymap)
             .bindPopup(ReactDOMServer.renderToString(<CustomPoPupMarker data={park} nav={setNavRedirect(park.prop.nom)}/>))
             arrayLayerGroupGardens.push(markerGarden)
         }
@@ -121,7 +122,7 @@ class ParkMap extends React.Component {
             })
             polygoneGarden.on('click', function() {
                 mymap.fitBounds(polygoneGarden.getBounds())
-            })
+            }).addTo(mymap)
               arrayLayerGroupGardens.push(polygoneGarden)
         }
         return null
@@ -150,7 +151,7 @@ class ParkMap extends React.Component {
                 title : park.prop.nom,
                 draggable : 'true',
                 icon: getIconMarkerCustom(parksLocationIcon)
-            })
+            }).addTo(mymap)
             .bindPopup(ReactDOMServer.renderToString(<CustomPoPupMarker data={park} nav={setNavRedirect(park.prop.nom)}/>))
             arrayLayerGroupParks.push(markerParks)
         }
@@ -167,7 +168,7 @@ class ParkMap extends React.Component {
             })
             polygoneParks.on('click', function() {
                 mymap.fitBounds(polygoneParks.getBounds())
-            })
+            }).addTo(mymap)
             arrayLayerGroupParks.push(polygoneParks)
         }
         return null
@@ -200,7 +201,7 @@ class ParkMap extends React.Component {
                 title : park.prop.nom,
                 draggable : 'true',
                 icon: getIconMarkerCustom(squareLocationIcon)
-            })
+            }).addTo(mymap)
             .bindPopup(ReactDOMServer.renderToString(<CustomPoPupMarker data={park} nav={setNavRedirect(park.prop.nom)}/>))
             arrayLayerGroupSquares.push(markerSquares)
         }
@@ -217,7 +218,7 @@ class ParkMap extends React.Component {
             })
             polygoneSquares.on('click', function() {
                 mymap.fitBounds(polygoneSquares.getBounds())
-            })
+            }).addTo(mymap)
             arrayLayerGroupSquares.push(polygoneSquares)
         }
         return null
@@ -246,7 +247,7 @@ class ParkMap extends React.Component {
                 title : park.prop.nom,
                 draggable : 'true',
                 icon: getIconMarkerCustom(bergesLocationIcon)
-            })
+            }).addTo(mymap)
             .bindPopup(ReactDOMServer.renderToString(<CustomPoPupMarker data={park} nav={setNavRedirect(park.prop.nom)}/>))
             arrayLayerGroupWaterPark.push(markerBerges)
         }
@@ -264,7 +265,7 @@ class ParkMap extends React.Component {
             })
             polygoneBerges.on('click', function() {
                 mymap.fitBounds(polygoneBerges.getBounds())
-            })
+            }).addTo(mymap)
             arrayLayerGroupWaterPark.push(polygoneBerges)
         }
         return null
@@ -293,7 +294,7 @@ class ParkMap extends React.Component {
                 title : park.prop.nom,
                 draggable : 'true',
                 icon: getIconMarkerCustom(voieVerteLocationIcon)
-            })
+            }).addTo(mymap)
             .bindPopup(ReactDOMServer.renderToString(<CustomPoPupMarker data={park} nav={setNavRedirect(park.prop.nom)}/>))
             arrayLayerGroupVoieVerte.push(markerVoieVerte)
         }
@@ -310,7 +311,7 @@ class ParkMap extends React.Component {
               })
             polygoneVoieVerte.on('click', function() {
                 mymap.fitBounds(polygoneVoieVerte.getBounds())
-            })
+            }).addTo(mymap)
             arrayLayerGroupVoieVerte.push(polygoneVoieVerte)
         }
         return null
@@ -421,47 +422,66 @@ class ParkMap extends React.Component {
     //   })
 
 
-    L.control.layers({
+    const controlLayer = L.control.layers({
     'Plan' : layerPlan,
     'Satellite'  : layerSatellite
     },{
-    'Voir les parcs' : layerGroupParks,
-    'Voir les jardins' : layerGroupGardens,
-    'Voir les squares' : layerGroupSquares,
-    'Voir les chemins de rives / berges' : layerGroupBerges,
-    "Voir les aménagements de voies vertes" : layerGroupVoieVerte,
-    "Voir les zones autorisées aux chiens" : layerGroupDogs,
-    "Voir les parcs canins" : layerGroupDogsArea
+    'filtrer les parcs' : layerGroupParks,
+    'filtrer les jardins' : layerGroupGardens,
+    'filtrer les squares' : layerGroupSquares,
+    'filtrer les chemins de rives / berges' : layerGroupBerges,
+    "filtrer les aménagements de voies vertes" : layerGroupVoieVerte,
+    "voir les zones autorisées aux chiens" : layerGroupDogs,
+    "voir les parcs canins" : layerGroupDogsArea
     },{
         collapsed: false
     }).addTo(mymap)
     
+    // .addLayer(mymap)
+
+//    const checkBox = document.querySelectorAll('.leaflet-control-layers-selector')
+// //    checkBox.map(box => box.selected = true)
+// console.log('check', checkBox.Nodelist)
+// for (const [key, value] of Object.entries(checkBox)) {
+//     console.log(`${key}: ${value}`);
+//   }
+
     L.control.scale({
         imperial: false
     }).addTo(mymap)
     
-    // localisation.addEventListener('click', function() {
-    //     console.log('hello')
-    //     const onLocationFound = (e) => {
-    //         console.log('geo', e.latlng)
-    //     }
-    //     mymap.on('locationfound', onLocationFound(e))
-    //     mymap.locate({setView: true, maxZoom: 20})
-    // })
- 
+    
+    mymap.on('zoomend', () => {
+        const zoomLevel = mymap.getZoom()
+        console.log('zoomend', zoomLevel)
+        this.setState({zoom : zoomLevel})
+    })
 
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+      const { zoom } = this.state
+      console.log('ici', zoom)
+      if(zoom < 13){
+        //   const localisation = document.getElementById('mapid')
+        //   localisation.addEventListener('click', function() {
+              console.log('hello')
+        //   })
+
+      }
   }
   
   render() {
-   
+    const { zoom } = this.state
+console.log('zz', zoom)
     return (
       <div style={{display:'flex', flexDirection:'column' ,justifyContent:'center', alignItems:'center', width:'100%', height:'auto', boxSizing: 'border-box', padding: `0px 20px`}}>
         <Media query={{ maxWidth: 1024 }}>
           {(matches) =>
               matches ? (
-                    <div id="mapid" style={{width: '90vw', height: '70vh'}}></div>
+                    <div id="mapid" ref={(map) => {this.map = map}} style={{width: '90vw', height: '70vh'}}></div>
               ) : (
-                    <div id="mapid" style={{width: '100%', height: '70vh'}}></div>
+                    <div id="mapid" ref={(map) => {this.map = map}} style={{width: '100%', height: '70vh'}}></div>
               )
           }
         </Media>
