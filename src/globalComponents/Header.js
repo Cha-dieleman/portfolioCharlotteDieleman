@@ -22,12 +22,11 @@ const styles = () => ({
   },
   mainContainerDesktop: {
     width: '100vw',
-    height: 'auto',
+    height: '10vh',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    backgroundColor: '#8FA3B4',
-    marginBottom: 60
+    backgroundColor: '#8FA3B4'
   },
   flexLogo: {
     display: 'flex',

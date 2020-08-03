@@ -37,9 +37,9 @@ class ParkMap extends React.Component {
       style: 'normal'
     })
 
-    const marker = L.marker(sortData[0], {title : "Parc de la tête d'or", draggable : 'true'}).bindPopup("<div>La cancoillotte</div>").addTo(mymap)
+    L.marker(sortData[0], {title : "Parc de la tête d'or", draggable : 'true'}).bindPopup("<div>La cancoillotte</div>").addTo(mymap)
 
-    const polygone = L.polyline(sortData, {
+    L.polyline(sortData, {
       color: '#098c12',
       fill: true,
       fillColor: '#098c12',

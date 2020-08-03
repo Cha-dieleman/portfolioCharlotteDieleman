@@ -21,7 +21,6 @@ class ParkMap extends React.Component {
 
   componentDidMount() {
     const { data } = this.props
-    const { zoom } = this.state
 
     let sortData = []
     data.features.map(feature => {
@@ -50,7 +49,7 @@ class ParkMap extends React.Component {
     const L = window.L
     const mymap = L.map('mapid').setView([45.757614, 4.831720], 14)
     this.setState({ mymap })
-    console.log('map', mymap.getZoom())
+    // console.log('map', mymap.getZoom())
     const layerPlan = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       attribution: '&copy;<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(mymap)
@@ -86,7 +85,7 @@ class ParkMap extends React.Component {
     }
     
     let arrayLayerGroupGardens = []
-    const markersGardensGroup = sortData.map((park) =>{
+    sortData.map((park) =>{
         // center the marker if possible :
         let lat = 0
         park.coord.map(pos => {
@@ -112,7 +111,7 @@ class ParkMap extends React.Component {
         return null
     })
     
-    const polygonesGardensGroup = sortData.map(park =>{
+    sortData.map(park =>{
         if(park.prop.nom.includes('Jardin')){
             const polygoneGarden = L.polyline(park.coord, {
                 color: '#098c12',
@@ -132,7 +131,7 @@ class ParkMap extends React.Component {
 
 
     let arrayLayerGroupParks = []
-    const markersParksGroup = sortData.map((park) =>{
+    sortData.map((park) =>{
         // center the marker if possible :
         let lat = 0
         park.coord.map(pos => {
@@ -158,7 +157,7 @@ class ParkMap extends React.Component {
         return null
     })
     
-    const polygoneParksGroup = sortData.map(park =>{
+    sortData.map(park =>{
         if(park.prop.nom.includes('Parc')){
             const polygoneParks = L.polyline(park.coord, {
                 color: '#098c12',
@@ -177,7 +176,7 @@ class ParkMap extends React.Component {
     const layerGroupParks = L.layerGroup(arrayLayerGroupParks)
     
     let arrayLayerGroupSquares = []
-    const markersSquaresGroup = sortData.map((park) =>{
+    sortData.map((park) =>{
         // center the marker if possible :
         let lat = 0
         park.coord.map(pos => {
@@ -192,11 +191,6 @@ class ParkMap extends React.Component {
         })
         const AVGlng = lng / (park.coord.length)
         if(park.prop.nom.includes('Square')){
-            const navRedirect ={
-                firstLevel: 'home',
-                secondLevel: 'parksList',
-                thirdLevel: park.prop.nom
-            }
             const markerSquares = L.marker([AVGlat, AVGlng], {
                 title : park.prop.nom,
                 draggable : 'true',
@@ -208,7 +202,7 @@ class ParkMap extends React.Component {
         return null
     })
     
-    const polygoneSquaresGroup = sortData.map(park =>{
+    sortData.map(park =>{
         if(park.prop.nom.includes('Square')){
             const polygoneSquares = L.polyline(park.coord, {
                 color: '#098c12',
@@ -227,7 +221,7 @@ class ParkMap extends React.Component {
     const layerGroupSquares = L.layerGroup(arrayLayerGroupSquares)
     
     let arrayLayerGroupWaterPark = []
-    const markersBergesGroup = sortData.map((park) =>{
+    sortData.map((park) =>{
           // center the marker if possible :
           let lat = 0
           park.coord.map(pos => {
@@ -254,7 +248,7 @@ class ParkMap extends React.Component {
         return null
     })
     
-    const polygoneBergesGroup = sortData.map(park =>{
+    sortData.map(park =>{
         const str = park.prop.nom
         if(str.includes("Rives") || str.includes("Berges") || str.includes('Berge')){
             const polygoneBerges = L.polyline(park.coord, {
@@ -275,7 +269,7 @@ class ParkMap extends React.Component {
 
     
     let arrayLayerGroupVoieVerte = []
-    const markersVoieVerteGroup = sortData.map((park) =>{
+    sortData.map((park) =>{
           // center the marker if possible :
           let lat = 0
           park.coord.map(pos => {
@@ -301,7 +295,7 @@ class ParkMap extends React.Component {
         return null
     })
     
-    const polygoneVoieVerteGroup = sortData.map(park =>{
+    sortData.map(park =>{
         if(park.prop.nom.includes('Voie')){
             const polygoneVoieVerte = L.polyline(park.coord, {
                 color: '#098c12',
@@ -320,7 +314,7 @@ class ParkMap extends React.Component {
     const layerGroupVoieVerte = L.layerGroup(arrayLayerGroupVoieVerte)
 
     let arrayLayerGroupDogs = []
-    const markersDogsGroup = sortData.map((park) =>{
+    sortData.map((park) =>{
           // center the marker if possible :
           let lat = 0
           park.coord.map(pos => {
@@ -346,7 +340,7 @@ class ParkMap extends React.Component {
         return null
     })
 
-    const polygoneDogsGroup = sortData.map(park =>{
+    sortData.map(park =>{
         if(park.prop.chien === 'Oui'){
             const polygoneDogs = L.polyline(park.coord, {
                 color: '#098c12',
@@ -365,7 +359,7 @@ class ParkMap extends React.Component {
 
 
     let arrayLayerGroupDogsArea = []
-    const markersDogsAreaGroup = sortData.map((park) =>{
+    sortData.map((park) =>{
           // center the marker if possible :
           let lat = 0
           park.coord.map(pos => {
@@ -395,7 +389,7 @@ class ParkMap extends React.Component {
         return null
     })
 
-    const polygoneDogsAreaGroup = sortData.map(park =>{
+    sortData.map(park =>{
         if(park.prop.esp_can === 'Oui'){
             const polygoneDogsArea = L.polyline(park.coord, {
                 color: '#098c12',
@@ -422,7 +416,7 @@ class ParkMap extends React.Component {
     //   })
 
 
-    const controlLayer = L.control.layers({
+    L.control.layers({
     'Plan' : layerPlan,
     'Satellite'  : layerSatellite
     },{
@@ -453,7 +447,7 @@ class ParkMap extends React.Component {
     
     mymap.on('zoomend', () => {
         const zoomLevel = mymap.getZoom()
-        console.log('zoomend', zoomLevel)
+        // console.log('zoomend', zoomLevel)
         this.setState({zoom : zoomLevel})
     })
 
@@ -461,11 +455,11 @@ class ParkMap extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
       const { zoom } = this.state
-      console.log('ici', zoom)
+    //   console.log('ici', zoom)
       if(zoom < 13){
         //   const localisation = document.getElementById('mapid')
         //   localisation.addEventListener('click', function() {
-              console.log('hello')
+            //   console.log('hello')
         //   })
 
       }
@@ -473,7 +467,7 @@ class ParkMap extends React.Component {
   
   render() {
     const { zoom } = this.state
-console.log('zz', zoom)
+// console.log('zz', zoom)
     return (
       <div style={{display:'flex', flexDirection:'column' ,justifyContent:'center', alignItems:'center', width:'100%', height:'auto', boxSizing: 'border-box', padding: `0px 20px`}}>
         <Media query={{ maxWidth: 1024 }}>

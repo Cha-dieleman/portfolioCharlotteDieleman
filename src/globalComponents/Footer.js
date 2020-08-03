@@ -15,8 +15,13 @@ const styles = () => ({
     }
   },
   devByContainerDesktop: {
-    paddingBottom: 20,
-    margin: `30px 20px 30px 0px`
+    paddingRight: 20,
+    margin: 0,
+    height: '10vh',
+    width: '100vw',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end'
   },
   typoDevBy: {
     width: 'auto',
