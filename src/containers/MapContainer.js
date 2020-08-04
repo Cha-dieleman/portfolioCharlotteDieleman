@@ -12,6 +12,7 @@ import Footer from '../globalComponents/Footer'
 import { setNav } from '../actions'
 import CheckboxComponent from '../globalComponents/CheckboxComponent'
 import MapLeafletReact from '../globalComponents/MapLeafletReact'
+import MapLeafletReactMobile from '../globalComponents/MapLeafletReactMobile'
 
 const styles = () => ({
     mainContainer: {
@@ -163,7 +164,9 @@ class MapContainer extends React.Component {
     }
     
     render() {
-        const { dataParks,  statusCheckbox} = this.state
+        const { dataParks, statusCheckbox } = this.state
+    console.log('status', statusCheckbox)
+
         const { classes } = this.props
         return (
             <div>
@@ -175,8 +178,8 @@ class MapContainer extends React.Component {
                                 <div className={classes.mainContainer}>
                                     <Header />
                                     <div className={classes.containerBothViews}>
-                                        <div>hello</div>
-                                        <div>world</div>
+                                    <CheckboxComponent statusChecks={(status) => this.getStatusBoxChecked(status)}/>
+                                        <MapLeafletReactMobile dataParks={dataParks}/>
                                     </div>
                                     <div style={{display: 'flex', justifyContent: 'center', width: '100%'}}>
                                         <Footer />

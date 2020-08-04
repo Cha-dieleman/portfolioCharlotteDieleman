@@ -18,7 +18,7 @@ class MapLeafletReact extends Component {
         this.state = {
             dataToDisplayMarkers : null,
             centerMap: [45.765000, 4.835000],
-            zoom: 13
+            zoom: 12
         }
     }
 
@@ -92,7 +92,7 @@ class MapLeafletReact extends Component {
         if(prevProps.dataParks !== dataParks){
             this.setState({
                 centerMap: [45.765000, 4.835000],
-                zoom: 13
+                zoom: 12
             })
             const markersToDisplay = []
             dataParks.map((park) =>{
@@ -135,14 +135,13 @@ class MapLeafletReact extends Component {
         })
       }
 
-
   render() {
     const { dataToDisplayMarkers, centerMap, zoom } = this.state
     const { dataParks } = this.props
 
     
     return (
-      <Map center={centerMap} zoom={zoom} style={{width: '50vw', height: '100%'}}>
+      <Map center={centerMap} zoom={zoom} style={{width: '90vw', height: 300}}>
         <TileLayer
         attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
