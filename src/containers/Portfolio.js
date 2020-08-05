@@ -164,6 +164,16 @@ class Portfolio extends React.Component {
                         Téléchargez CV
                       </Button>
                     </a>
+                    <a
+                      href="https://drive.google.com/file/d/17xatdu44mwcVzHWSFCsfyCY1MAH_j7TS/view?usp=drivesdk"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      underline="always"
+                    >
+                      <Button variant="outlined" color="secondary" className={classes.button}>
+                        Recommandations
+                      </Button>
+                    </a>
                     <a href="mailto:chadieleman@gmail.com">
                       <Button variant="outlined" color="secondary" className={classes.button}>
                         Contact
@@ -187,6 +197,16 @@ class Portfolio extends React.Component {
                     >
                       <Button variant="outlined" color="secondary" className={classes.button}>
                         Téléchargez CV
+                      </Button>
+                    </a>
+                    <a
+                      href="https://drive.google.com/file/d/17xatdu44mwcVzHWSFCsfyCY1MAH_j7TS/view?usp=drivesdk"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      underline="always"
+                    >
+                      <Button variant="outlined" color="secondary" className={classes.button}>
+                        Recommandations
                       </Button>
                     </a>
                     <a href="mailto:chadieleman@gmail.com">
