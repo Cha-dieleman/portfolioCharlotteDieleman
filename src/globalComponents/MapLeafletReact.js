@@ -175,7 +175,7 @@ class MapLeafletReact extends Component {
         { 
             dataParks ? (
                 <div>
-                    {dataParks.map(park => <Polygon onClick={() => this.onClickChangePosCenter(park.prop.coordinateCenter)} key={reactId()} positions={park.coordinates} color="#3d7130"/>)}   
+                    {dataParks.map(park => <Polygon onClick={() => this.onClickChangePosCenter(park.properties.coordinateCenter)} key={reactId()} positions={park.coordinates} color="#3d7130"/>)}   
                     
                 </div>
             ) : null
