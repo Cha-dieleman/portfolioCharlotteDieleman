@@ -19,7 +19,7 @@ export const orderData = (data) => {
         let dataReady = [
             [
                 'PROPRIETES',
-                'RESULTATS'
+                ''
             ]
         ]
 
@@ -98,7 +98,7 @@ export const orderData = (data) => {
             [
                 [
                     `PROPRIETES`, // tableHead : champ de la colonne 1
-                    'RESULTATS' // tableHead : champ de la colonne 2
+                    '' // tableHead : champ de la colonne 2
                 ],
                 [
                     [`En cours de développement`,`En cours de développement`], // tableBody : ligne 1 du tableau

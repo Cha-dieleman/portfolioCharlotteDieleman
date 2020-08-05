@@ -39,17 +39,11 @@ const styles = () => ({
 })
 
 class Breadcrumb extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-    }
-  }
-
   setNavText = (text) => {
     if(text === 'parksMap'){
-      return 'carte des espaces verts'
+      return 'carte'
     } else if(text === 'parksList'){
-      return 'liste des espaces verts'
+      return 'liste'
     } else {
       return text
     }
@@ -72,12 +66,12 @@ class Breadcrumb extends React.Component {
                               {`${navStateRedux.firstLevel === 'home' ? 'Accueil' : navStateRedux.firstLevel} /`}
                           </Typography>
                       </Link>
-                      <Link to='/parksList' className={navStateRedux.thirdLevel ? classes.link : classes.linkWithoutOpacity}>
+                      <Link to={navStateRedux.thirdLevel === 'parksList' ? '/parksList' : '/parksMap'} className={navStateRedux.thirdLevel ? classes.link : classes.linkWithoutOpacity}>
                         <Typography
                             variant="body1"
                             className={`${classes.text} ${classes.textNav}`}
                         >
-                            {`${navStateRedux.secondLevel}`}
+                          {`${this.setNavText(navStateRedux.secondLevel)}`}
                         </Typography>
                       </Link>
                       {
@@ -102,7 +96,7 @@ class Breadcrumb extends React.Component {
                             {`${navStateRedux.firstLevel === 'home' ? 'Accueil' : navStateRedux.firstLevel} /`}
                           </Typography>
                       </Link>
-                      <Link to='/parksList' className={navStateRedux.thirdLevel ? classes.link : classes.linkWithoutOpacity}>
+                      <Link to={navStateRedux.secondLevel === 'parksList' ? '/parksList' : '/parksMap'} className={navStateRedux.thirdLevel ? classes.link : classes.linkWithoutOpacity}>
                         <Typography
                             variant="h5"
                             className={`${classes.text} ${classes.textNav}`}

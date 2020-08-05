@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles'
 import { Typography } from '@material-ui/core'
 
 import TableToCustomize from './TableToCustomize'
-import { orderData } from './DataParkConf'
+import { orderData } from './ParkDataConf'
 import dataParkImg from '../static/images/dataParkImg.jpg'
 
 
@@ -14,7 +14,7 @@ const styles = () => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'flex-start'
+    alignItems: 'center'
   },
   ParkName: {
     color: '#B76E22',
@@ -23,19 +23,19 @@ const styles = () => ({
     padding: `0px 0px 0px 20px`
   },
   ParkNameDesktop: {
-    padding: `0px 0px 0px 60px`
+    padding:0,
+    marginBottom : 10,
+    marginTop : 10,
   }
 })
 
 class ParkData extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-    }
+  componentDidMount(){
+    window.scrollTo(0, 0)
   }
 
   render() {
-    const { classes, parentData } = this.props
+    const { classes, parentData, locatedMapInPark } = this.props
     
     const dataForTableToCustomize = orderData(parentData.properties)
 
@@ -66,33 +66,27 @@ class ParkData extends React.Component {
                   />
                 </div>
               ) : (
-                <div className={classes.mainContainer} style={{width: '50vw', height: '80vh', overflowY: 'scroll'}}>
-                <div style={{width: '100%', height: '100%'}}>
-                <div style={{maxWidth: '100%', height: 275, overflow: 'hidden', display: 'flex', alignItems: 'flex-end'}}>
-                  <img 
-                      src={dataParkImg}
-                      alt='télécharger en pdf'
-                      style={{ width: '100%', height: 'auto', padding: 0, marginBottom: 20 }}
-                  />
+                <div className={classes.mainContainer} style={{width: '50vw', height: '85vh', paddingTop: 100}}>
+                    <div style={{width: '100%', height: '85vh', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', flexDirection: 'row', position: 'relative', paddingTop: 40}}>
+                      <div style={{width: '90%', height: '85vh', display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-start', flexDirection: 'column'}}>
+                        <Typography
+                            variant="h3"
+                            className={`${classes.ParkName} ${classes.ParkNameDesktop}`}
+                        >
+                            {`${parentData.properties.nom} :`}
+                        </Typography>
+                        <Typography
+                            variant="h4"
+                            className={`${classes.ParkName} ${classes.ParkNameDesktop}`}
+                        >
+                        {`${parentData.properties.numvoie} ${parentData.properties.voie}`}
+                        <br/>
+                        {`${parentData.properties.codepost} ${parentData.properties.commune}`}
+                        </Typography>
+                        <TableToCustomize data={dataForTableToCustomize}/>
+                      </div>
+                    </div>
                 </div>
-                  <Typography
-                      variant="h3"
-                      className={`${classes.ParkName} ${classes.ParkNameDesktop}`}
-                  >
-                      {`${parentData.properties.nom} :`}
-                  </Typography>
-                  <Typography
-                      variant="h4"
-                      className={`${classes.ParkName} ${classes.ParkNameDesktop}`}
-                  >
-                  {`${parentData.properties.numvoie} ${parentData.properties.voie}`}
-                  <br/>
-                  {`${parentData.properties.codepost} ${parentData.properties.commune}`}
-                  </Typography>
-                  <TableToCustomize data={dataForTableToCustomize}/>
-                  
-                  </div>
-              </div>
             )
           }
         </Media>

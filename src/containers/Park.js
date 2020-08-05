@@ -10,6 +10,8 @@ import { dataMock } from '../back/dataMock'
 import Header from '../globalComponents/Header'
 import Footer from '../globalComponents/Footer'
 import MapLeafletReact from '../globalComponents/MapLeafletReact'
+import dataParkImg from '../static/images/dataParkImg.jpg'
+
 
 import { setNav } from '../actions'
 
@@ -33,12 +35,13 @@ const styles = () => ({
     },
     containerBothViewsDesktop: {
         width: '100vw',
-        height: '80vh',
+        height: '85vh',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        boxSizing: 'border-box'
+        boxSizing: 'border-box',
+        position: 'relative'
     }
 })
 
@@ -117,7 +120,7 @@ class Park extends React.Component {
                                     <Header />
                                     <div className={classes.containerBothViews}>
                                         <ParkData parentData={dataParkState} />
-                                        <MapLeafletReact dataParks={dataToMap} dataParkCenterPos={dataToMap} navLocatedDataPark={true}/>
+                                        <MapLeafletReact dataParks={dataToMap} dataParkCenterPos={dataToMap} navLocatedDataPark={true} />
                                     </div>
                                     <div style={{display: 'flex', justifyContent: 'center', width: '100%'}}>
                                         <Footer />
@@ -127,8 +130,13 @@ class Park extends React.Component {
                                 <div className={classes.mainContainer}>
                                     <Header />
                                     <div className={classes.containerBothViewsDesktop}>
-                                        <ParkData parentData={dataParkState} />
-                                        <MapLeafletReact dataParks={dataToMap} dataParkCenterPos={dataToMap} navLocatedDataPark={true}/>
+                                        <img 
+                                            src={dataParkImg}
+                                            alt='télécharger en pdf'
+                                            style={{ width: '30%', height: 'auto', padding: 0, left: '35%', position: 'absolute', top: '20%', zIndex: 1000 }}
+                                        />
+                                        <ParkData parentData={dataParkState} locatedMapInPark={true} />
+                                        <MapLeafletReact dataParks={dataToMap} dataParkCenterPos={dataToMap} navLocatedDataPark={true} locatedMapInPark={true} />
                                     </div>
                                     <div style={{display: 'flex', justifyContent: 'flex-end', width: '100%'}}>
                                         <Footer />

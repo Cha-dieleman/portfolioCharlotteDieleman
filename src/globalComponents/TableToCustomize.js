@@ -14,13 +14,13 @@ import {
 
 const styles = () => ({
   tableContainer: {
-    width: '40vw',
+    width: '100%',
     height: 'auto',
     boxShadow: 'none',
     borderRadius: 0,
     fontFamily: 'helvetica-regular',
-    margin: `40px 0px 0px 0px`,
-    padding: `0px 0px 0px 60px`
+    margin: `90px 0px 0px 0px`,
+    padding: 0
   },
   mobileViewDesign: {
     width: '90vw',

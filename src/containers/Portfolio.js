@@ -147,7 +147,7 @@ class Portfolio extends React.Component {
                     <br/>
                     pour votre accueil en stage et votre gentillesse,
                     <br/>
-                    pour m'avoir transmis votre workflow et vos connaissances !
+                    pour m'avoir transmis votre workflow ainsi que vos connaissances !
                     </Typography>
                   </div>
                   <div className={classes.buttonContainerMobile}>
@@ -161,7 +161,7 @@ class Portfolio extends React.Component {
                       underline="always"
                     >
                       <Button variant="outlined" color="secondary" className={classes.button}>
-                        Téléchargez CV
+                        Télécharger CV
                       </Button>
                     </a>
                     <a
@@ -196,7 +196,7 @@ class Portfolio extends React.Component {
                       underline="always"
                     >
                       <Button variant="outlined" color="secondary" className={classes.button}>
-                        Téléchargez CV
+                        Télécharger CV
                       </Button>
                     </a>
                     <a
@@ -250,7 +250,7 @@ class Portfolio extends React.Component {
                     <br/>
                     pour votre accueil en stage et votre gentillesse,
                     <br/>
-                    pour m'avoir transmis votre workflow et vos connaissances !
+                    pour m'avoir transmis votre workflow ainsi que vos connaissances !
                     </Typography>
                   </div>
                 </div>

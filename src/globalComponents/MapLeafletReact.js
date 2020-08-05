@@ -46,7 +46,7 @@ class MapLeafletReact extends Component {
                 iconUrl: iconUrl,
                 iconSize: [30,35],
                 iconAnchor: [15,35],
-                popupAnchor: [0,-35],
+                popupAnchor: [0,-35]
             })
         )
     }
@@ -126,13 +126,8 @@ class MapLeafletReact extends Component {
 
 
   render() {
-    const { dataToDisplayMarkers, centerMap, zoom } = this.state
+    const { dataToDisplayMarkers, centerMap, zoom, locatedMapInPark } = this.state
     const { dataParks } = this.props
-    // if(dataParks){
-
-    //     console.log('ll', dataParks[0].coordinates)
-    // }
-    console.log('rr', dataParks)
     
     return (
         <Media query={{ maxWidth: 1024 }}>
@@ -160,7 +155,7 @@ class MapLeafletReact extends Component {
         }
       </Map>
     ) : (
-        <Map center={centerMap} zoom={zoom} style={{width: '50vw', height: '100%'}}>
+        <Map center={centerMap} zoom={zoom} style={{width: locatedMapInPark ? '50vw' : '50vw', height: '85vh'}}>
         <TileLayer
         attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -175,7 +170,7 @@ class MapLeafletReact extends Component {
         { 
             dataParks ? (
                 <div>
-                    {dataParks.map(park => <Polygon onClick={() => this.onClickChangePosCenter(park.properties.coordinateCenter)} key={reactId()} positions={park.coordinates} color="#3d7130"/>)}   
+                    {dataParks.map(park => <Polygon onClick={() => this.onClickChangePosCenter(park.properties.coordinateCenter)} key={reactId()} positions={park.coordinates} color="#558c44"/>)}   
                     
                 </div>
             ) : null

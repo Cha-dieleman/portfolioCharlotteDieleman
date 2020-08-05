@@ -16,7 +16,7 @@ export default function Autosuggest(props) {
   const [inputValue, setInputValue] = React.useState('');
 
   return (
-    <div style={{ marginBottom: 40, display:'flex', justifyContent:'center'}}>
+    <div style={{ marginBottom: 40, marginTop: 40, display:'flex', justifyContent:'center'}}>
       <Autocomplete
         value={value}
         onChange={(event, newValue) => {

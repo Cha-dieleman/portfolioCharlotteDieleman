@@ -209,7 +209,7 @@ class Home extends React.Component {
                 </div>
                 <div className={`${classes.secondSecondContainer} ${classes.firstSecondContainerMobile}`}>
                   <Button variant="outlined" className={classes.buttonMobile} onClick={() => this.goToInConstruction()}>
-                    Accéder la carte
+                    Accéder à la carte
                   </Button>
                   <Button variant="outlined" className={`${classes.buttonMobile} ${classes.secondButton}`} onClick={() => this.goToParksListView()}>
                     Accéder à la liste
@@ -277,7 +277,7 @@ class Home extends React.Component {
                 </div>
                 <div className={classes.secondSecondContainer}>
                   <Button variant="outlined" className={classes.button} onClick={() => this.goToInConstruction()}>
-                    Accéder la carte
+                    Accéder à la carte
                   </Button>
                   <Button variant="outlined" className={`${classes.button} ${classes.secondButton}`} onClick={() => this.goToParksListView()}>
                     Accéder à la liste

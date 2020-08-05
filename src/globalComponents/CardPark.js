@@ -59,7 +59,7 @@ function CardPark(props) {
       </CardActions>
     </Card>
     ) : (
-        <Card style={{widt: 340, height: 400,marginTop:20, boxSizing: 'border-box', marginBottom: selectedParkNameRedux !== null ? 0 : 20, marginRight: selectedParkNameRedux !== null ? 0 : 20}}>
+        <Card style={{width: 340, height: 400,marginTop:20, boxSizing: 'border-box', marginBottom: selectedParkNameRedux !== null ? 0 : 20, marginRight: selectedParkNameRedux !== null ? 0 : 20}}>
         <CardActionArea>
         <CardMedia src={parkImg} component="img" title="Some title" className={classes.imgCard} />
           <CardContent style={{padding: 10, height: 200, boxSizing: 'border-box'}}>
