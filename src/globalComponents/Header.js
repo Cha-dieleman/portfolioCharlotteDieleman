@@ -47,12 +47,6 @@ const styles = () => ({
 })
 
 class Header extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-    }
-  }
-
   render() {
     const { classes } = this.props
 
@@ -96,7 +90,6 @@ class Header extends React.Component {
   }
 }
 
-// export default withRouter(withStyles(styles)(connect(mapStateToProps)(Homepage)))
 export default withStyles(styles)(Header)
 
 

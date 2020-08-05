@@ -39,11 +39,11 @@ const useStyles = makeStyles(() => ({
       width: '50vw',
       maxWidth: '50vw',
       height: '100%',
-      backgroundImage: `url(${leaf})`,
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'top 0px right 70%',
-      padding: `60px 0px 2% 2%`,
+      // backgroundImage: `url(${leaf})`,
+      // backgroundSize: 'cover',
+      // backgroundRepeat: 'no-repeat',
+      // backgroundPosition: 'top 0px right 70%',
+      padding: `0px 0px 2% 2%`,
       boxSizing: 'border-box',
       overflow: 'hidden'
     },
@@ -63,11 +63,12 @@ const useStyles = makeStyles(() => ({
     formControlLabelText: {
       fontSize: 15,
       fontFamily: 'helvetica-regular',
-      fontWeight: 600
+      // fontWeight: 600
     },
     formControlLabelTextDesktop:{
       fontSize: 18,
-      padding: 10
+      padding: 10,
+      // fontWeight: 600
     }
   }))
 
@@ -278,8 +279,8 @@ export default function CheckboxComponent(props) {
     {(matches) =>
         matches ? (
     <Paper className={classes.container} elevation={3}>
-      <div style={{height: 200, width: '100%', textAlign: 'right', overflow: 'hidden'}}>
-        <img src={leafMobile} alt="Photographie du parc" style={{height: '100%', width: 'auto'}} />
+      <div style={{height: 150, width: '100%', textAlign: 'right', overflow: 'hidden'}}>
+        <img src={leafMobile} alt="Photographie du parc" style={{height: '100%', width: 'auto', filter: 'grayscale(.5)', opacity: .6}} />
       </div>
     <FormLabel component="legend" style={{color: '#B76E22', fontSize: 20, marginBottom: 20, fontFamily: 'helvetica-regular', fontWeight: 500, marginTop: 10}}>Filtrer l'affichage sur la carte des espaces verts :</FormLabel>
         <FormControlLabel
@@ -342,10 +343,13 @@ export default function CheckboxComponent(props) {
     </Paper>
     ) : (
     <Paper className={`${classes.container} ${classes.containerDesktop}`} elevation={3}>
+    <div style={{height: '100%', width: '100%', position: 'relative'}}>
+    <img src={leaf} alt="Photographie du parc" style={{height: 'auto', width: '100%', opacity: .6, position: 'absolute', filter: 'grayscale(.5)'}}/>
+      <div style={{height: '100%', width: '100%', position: 'absolute', top: '8%'}}>
       <FormLabel component="legend" style={{color: '#B76E22', fontSize: 22, marginBottom: 40, fontFamily: 'helvetica-regular', fontWeight: 600}}>Filtrer l'affichage sur la carte :</FormLabel>
           <FormControlLabel
               control={<GreenSwitch checked={state.checkedAll} onChange={handleChange} name="checkedAll" />}
-              label={<Typography className={classes.formControlLabelTexteDesktop}>Visualiser tous les espaces verts</Typography>}
+              label={<Typography className={`${classes.formControlLabelText} ${classes.formControlLabelTextDesktop}`}>Visualiser tous les espaces verts</Typography>}
               style={{
                 color: state.checkedAll === false ? '#8fa3b4' : 'green',
                 marginBottom: 5,
@@ -355,7 +359,7 @@ export default function CheckboxComponent(props) {
           />
           <FormControlLabel
               control={<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}><GreenCheckbox checked={state.checkedParcs} onChange={handleChange} name="checkedParcs" /><img src={icon_park} alt="logo" style={{height: 33, width: 28, marginRight: 10}} /></div>}
-              label={<Typography className={classes.formControlLabelTexteDesktop}>Visualiser les parcs</Typography>}
+              label={<Typography className={`${classes.formControlLabelText} ${classes.formControlLabelTextDesktop}`}>Visualiser les parcs</Typography>}
               className={classes.formControlLabel}
           />
           <FormControlLabel
@@ -398,6 +402,8 @@ export default function CheckboxComponent(props) {
               label={<Typography className={`${classes.formControlLabelText} ${classes.formControlLabelTextDesktop}`}>Visualiser les espaces verts labellisés 'Family Friendly</Typography>}
               className={classes.formControlLabel}
           />
+          </div>
+          </div>
       </Paper>
       )
     }

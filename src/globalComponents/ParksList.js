@@ -21,11 +21,14 @@ const styles = () => ({
     alignItems: 'center'
   },
   mainContainerDesktop: {
+    width: '100vw',
+    height: 'auto',
+    display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     alignItems: 'center',
-    boxSizing: 'border-box'
+    marginBottom :30
   }
 })
 
@@ -72,17 +75,18 @@ class ParksList extends React.Component {
                                     </div>
                                 </div>
                             ) : (
-                                <div>
-                                    <AutoSuggest data={data}/>
-                                    <div className={`${classes.mainContainer} ${classes.mainContainerDesktop}`}>
+                                <div style={{width: '100vw', height: '85vh', overflowY: 'scroll'}}  id="top">
+                                    <AutoSuggest data={data} />
+                                    <div className={classes.mainContainerDesktop} id="MainDesk">
                                         {data.map(park => {
                                             return (
-                                                <div key={reactId()} style={{width: 340, height: 400}}>
+                                                <div key={reactId()} style={{width: 340, height: 400, marginRight: 20, marginBottom: 20}}>
                                                     <CardPark data={park}/>
                                                 </div>
                                             )
                                         })}
                                     </div>
+                                    <a href="#top" style={{ color:'#8fa3b4', fontWeight: 900, marginLeft: 20}}>Revenir au début de la liste</a>
                                 </div>
                             )
                         }

@@ -147,7 +147,7 @@ class Portfolio extends React.Component {
                     <br/>
                     pour votre accueil en stage et votre gentillesse,
                     <br/>
-                    pour m'avoir transmis votre workflow et vos connaissances !
+                    pour m'avoir transmis votre workflow ainsi que vos connaissances !
                     </Typography>
                   </div>
                   <div className={classes.buttonContainerMobile}>
@@ -161,7 +161,17 @@ class Portfolio extends React.Component {
                       underline="always"
                     >
                       <Button variant="outlined" color="secondary" className={classes.button}>
-                        Téléchargez CV
+                        Télécharger CV
+                      </Button>
+                    </a>
+                    <a
+                      href="https://drive.google.com/file/d/17xatdu44mwcVzHWSFCsfyCY1MAH_j7TS/view?usp=drivesdk"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      underline="always"
+                    >
+                      <Button variant="outlined" color="secondary" className={classes.button}>
+                        Recommandations
                       </Button>
                     </a>
                     <a href="mailto:chadieleman@gmail.com">
@@ -186,7 +196,17 @@ class Portfolio extends React.Component {
                       underline="always"
                     >
                       <Button variant="outlined" color="secondary" className={classes.button}>
-                        Téléchargez CV
+                        Télécharger CV
+                      </Button>
+                    </a>
+                    <a
+                      href="https://drive.google.com/file/d/17xatdu44mwcVzHWSFCsfyCY1MAH_j7TS/view?usp=drivesdk"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      underline="always"
+                    >
+                      <Button variant="outlined" color="secondary" className={classes.button}>
+                        Recommandations
                       </Button>
                     </a>
                     <a href="mailto:chadieleman@gmail.com">
@@ -230,7 +250,7 @@ class Portfolio extends React.Component {
                     <br/>
                     pour votre accueil en stage et votre gentillesse,
                     <br/>
-                    pour m'avoir transmis votre workflow et vos connaissances !
+                    pour m'avoir transmis votre workflow ainsi que vos connaissances !
                     </Typography>
                   </div>
                 </div>

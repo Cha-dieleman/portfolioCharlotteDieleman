@@ -33,7 +33,7 @@ const styles = () => ({
     },
     containerBothViewsDesktop: {
         width: '100vw',
-        height: '80vh',
+        height: '85vh',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',

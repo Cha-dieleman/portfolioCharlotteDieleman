@@ -17,7 +17,7 @@ const styles = () => ({
   devByContainerDesktop: {
     paddingRight: 20,
     margin: 0,
-    height: '10vh',
+    height: '5vh',
     width: '100vw',
     display: 'flex',
     alignItems: 'center',
