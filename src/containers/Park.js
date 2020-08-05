@@ -5,11 +5,11 @@ import Media from 'react-media'
 import { withStyles } from '@material-ui/core/styles'
 
 import ParkData from '../globalComponents/ParkData'
-import ParkMap from '../globalComponents/ParkMap'
 import EnConstruction from '../globalComponents/EnConstruction'
 import { dataMock } from '../back/dataMock'
 import Header from '../globalComponents/Header'
 import Footer from '../globalComponents/Footer'
+import MapLeafletReact from '../globalComponents/MapLeafletReact'
 
 import { setNav } from '../actions'
 
@@ -33,7 +33,7 @@ const styles = () => ({
     },
     containerBothViewsDesktop: {
         width: '100vw',
-        height: '100%',
+        height: '80vh',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -46,7 +46,8 @@ class Park extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            dataParkState: null
+            dataParkState: null,
+            dataToMap: null
         }
     }
 
@@ -64,12 +65,34 @@ class Park extends React.Component {
             }
             return null
         })
-        
+        window.scrollTo(0, 0)
     }
 
     componentDidUpdate(prevProps, prevState) {
         const { dataParkState } = this.state
         if(prevState.dataParkState !== dataParkState){
+            const dataToMap = [
+                {
+                    coordinates: dataParkState.geometry.coordinates[0],
+                    properties: dataParkState.properties
+                }
+            ]
+            // tri des coordonnées:
+            let newValuesOfCoordinates = []
+            dataToMap[0].coordinates.map(dataset => {
+                // dataset = [ 4.824522066226018, 45.738152723960795 ]
+                console.log('set', dataset)
+                let roundNumbers = []
+                dataset.map(coord => {
+                     // coord = 4.824522066226018
+                    roundNumbers.push(Math.round(coord* 1000000)/1000000)
+                    return null
+                })
+                newValuesOfCoordinates.push(roundNumbers.reverse())
+                console.log('bb', newValuesOfCoordinates)
+            })
+            dataToMap[0].coordinates = newValuesOfCoordinates
+            this.setState({ dataToMap: dataToMap })
             setNav({
                 firstLevel: 'home',
                 secondLevel: 'parksList',
@@ -81,11 +104,12 @@ class Park extends React.Component {
 
     render() {
         const { classes } = this.props
-        const { dataParkState } = this.state
+        const { dataParkState, dataToMap } = this.state
+        
         return (
             <div>
                 {
-                    dataParkState ? (
+                    dataToMap ? (
                         <Media query={{ maxWidth: 1024 }}>
                         {(matches) =>
                             matches ? (
@@ -93,7 +117,7 @@ class Park extends React.Component {
                                     <Header />
                                     <div className={classes.containerBothViews}>
                                         <ParkData parentData={dataParkState} />
-                                        <ParkMap parentData={dataParkState} />
+                                        <MapLeafletReact dataParks={dataToMap} dataParkCenterPos={dataToMap} navLocatedDataPark={true}/>
                                     </div>
                                     <div style={{display: 'flex', justifyContent: 'center', width: '100%'}}>
                                         <Footer />
@@ -104,7 +128,7 @@ class Park extends React.Component {
                                     <Header />
                                     <div className={classes.containerBothViewsDesktop}>
                                         <ParkData parentData={dataParkState} />
-                                        <ParkMap parentData={dataParkState} />
+                                        <MapLeafletReact dataParks={dataToMap} dataParkCenterPos={dataToMap} navLocatedDataPark={true}/>
                                     </div>
                                     <div style={{display: 'flex', justifyContent: 'flex-end', width: '100%'}}>
                                         <Footer />

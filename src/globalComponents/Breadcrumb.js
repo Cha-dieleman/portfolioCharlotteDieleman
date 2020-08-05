@@ -29,7 +29,7 @@ const styles = () => ({
     textDecoration: 'none'
   },
   text: {
-    color: '#B76E22',
+    color: 'white',
     fontFamily: 'helvetica-regular',
     fontStyle: 'italic',
   },

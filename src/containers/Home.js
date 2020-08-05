@@ -133,6 +133,7 @@ class Home extends React.Component {
 
     componentDidMount() {
       this.setState({ odometerValue: 295 })
+      window.scrollTo(0, 0)
     }
 
     goToParksListView = () => {

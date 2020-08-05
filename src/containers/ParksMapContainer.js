@@ -40,6 +40,7 @@ class ParksMapContainer extends React.Component {
             secondLevel: 'parksMap',
             thirdLevel: null
         })
+        window.scrollTo(0, 0)
     }
 
     render() {
@@ -56,7 +57,7 @@ class ParksMapContainer extends React.Component {
                             matches ? (
                                 <div className={classes.mainContainer}>
                                     <Header />
-                                    <Map data={dataParks} ref={(map) => {this.map = map}}/>
+                                    <Map data={dataParks} />
                                     <div style={{display: 'flex', justifyContent: 'center', width: '100%'}}>
                                         <Footer />
                                     </div>
@@ -64,7 +65,7 @@ class ParksMapContainer extends React.Component {
                             ) : (
                                 <div className={classes.mainContainer}>
                                     <Header />
-                                    <Map data={dataParks} ref={(map) => {this.map = map}}/>
+                                    <Map data={dataParks} />
                                     <div style={{display: 'flex', justifyContent: 'flex-end', width: '100%'}}>
                                         <Footer />
                                     </div>

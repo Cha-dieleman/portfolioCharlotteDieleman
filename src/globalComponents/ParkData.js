@@ -14,8 +14,7 @@ const styles = () => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'flex-start',
-    boxSizing: 'border-box'
+    alignItems: 'flex-start'
   },
   ParkName: {
     color: '#B76E22',
@@ -41,7 +40,6 @@ class ParkData extends React.Component {
     const dataForTableToCustomize = orderData(parentData.properties)
 
     return (
-      <div style={{width: '100vw', height: 'auto'}}>
         <Media query={{ maxWidth: 1024 }}>
           {(matches) =>
               matches ? (
@@ -68,7 +66,15 @@ class ParkData extends React.Component {
                   />
                 </div>
               ) : (
-                <div className={classes.mainContainer} style={{width: '50vw', height: 'auto'}}>
+                <div className={classes.mainContainer} style={{width: '50vw', height: '80vh', overflowY: 'scroll'}}>
+                <div style={{width: '100%', height: '100%'}}>
+                <div style={{maxWidth: '100%', height: 275, overflow: 'hidden', display: 'flex', alignItems: 'flex-end'}}>
+                  <img 
+                      src={dataParkImg}
+                      alt='télécharger en pdf'
+                      style={{ width: '100%', height: 'auto', padding: 0, marginBottom: 20 }}
+                  />
+                </div>
                   <Typography
                       variant="h3"
                       className={`${classes.ParkName} ${classes.ParkNameDesktop}`}
@@ -84,16 +90,12 @@ class ParkData extends React.Component {
                   {`${parentData.properties.codepost} ${parentData.properties.commune}`}
                   </Typography>
                   <TableToCustomize data={dataForTableToCustomize}/>
-                  <img 
-                      src={dataParkImg}
-                      alt='télécharger en pdf'
-                      style={{ width: '80%', height: 'auto', padding:`0px 0px 0px 60px`, marginBottom: 20 }}
-                  />
+                  
+                  </div>
               </div>
             )
           }
         </Media>
-      </div>
     )
   }
 }

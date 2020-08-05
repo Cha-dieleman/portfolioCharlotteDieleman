@@ -28,7 +28,7 @@ const styles = () => ({
     height: 'auto',
   },
   opacitySection: {
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',

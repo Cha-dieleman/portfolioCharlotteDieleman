@@ -23,7 +23,10 @@ const styles = () => ({
   mainContainerDesktop: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-  },
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    boxSizing: 'border-box'
+  }
 })
 
 class ParksList extends React.Component {
@@ -74,7 +77,7 @@ class ParksList extends React.Component {
                                     <div className={`${classes.mainContainer} ${classes.mainContainerDesktop}`}>
                                         {data.map(park => {
                                             return (
-                                                <div key={reactId()}>
+                                                <div key={reactId()} style={{width: 340, height: 400}}>
                                                     <CardPark data={park}/>
                                                 </div>
                                             )
