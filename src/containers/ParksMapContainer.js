@@ -40,6 +40,7 @@ class ParksMapContainer extends React.Component {
             secondLevel: 'parksMap',
             thirdLevel: null
         })
+        window.scrollTo(0, 0)
     }
 
     render() {

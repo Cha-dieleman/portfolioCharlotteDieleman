@@ -12,7 +12,6 @@ import Footer from '../globalComponents/Footer'
 import { setNav } from '../actions'
 import CheckboxComponent from '../globalComponents/CheckboxComponent'
 import MapLeafletReact from '../globalComponents/MapLeafletReact'
-import MapLeafletReactMobile from '../globalComponents/MapLeafletReactMobile'
 
 const styles = () => ({
     mainContainer: {
@@ -65,20 +64,21 @@ class MapContainer extends React.Component {
 
     componentDidMount() {
         this.setState({ dataParks: dataMockSorted})
+        window.scrollTo(0, 0)
         setNav({
             firstLevel: 'home',
             secondLevel: 'parksMap',
             thirdLevel: null
         })
     }
-
+    
     componentDidUpdate(prevProps, prevState){
         const { statusCheckbox } = this.state
         let newDataParks = []
         if(prevState.statusCheckbox !== statusCheckbox){
             if(statusCheckbox.checkedParcs === true){
                 dataMockSorted.map(parc => {
-                    if(parc.prop.nom.includes('Parc')){
+                    if(parc.properties.nom.includes('Parc')){
                         newDataParks.push(parc)
                     }
                     return null
@@ -86,7 +86,7 @@ class MapContainer extends React.Component {
             }
             if(statusCheckbox.checkedJardins === true){
                 dataMockSorted.map(jardin => {
-                    if(jardin.prop.nom.includes('Jardin')){
+                    if(jardin.properties.nom.includes('Jardin')){
                         newDataParks.push(jardin)
                     }
                     return null
@@ -94,7 +94,7 @@ class MapContainer extends React.Component {
             }
             if(statusCheckbox.checkedSquares === true){
                 dataMockSorted.map(square => {
-                    if(square.prop.nom.includes('Square')){
+                    if(square.properties.nom.includes('Square')){
                         newDataParks.push(square)
                     }
                     return null
@@ -102,7 +102,7 @@ class MapContainer extends React.Component {
             }
             if(statusCheckbox.checkedBerges === true){
                 dataMockSorted.map(berge => {
-                    const str = berge.prop.nom
+                    const str = berge.properties.nom
                     if(str.includes("Rives") || str.includes("Berges") || str.includes('Berge')){
                         newDataParks.push(berge)
                     }
@@ -111,7 +111,7 @@ class MapContainer extends React.Component {
             }
             if(statusCheckbox.checkedVoiesVertes === true){
                 dataMockSorted.map(voie => {
-                    if(voie.prop.nom.includes('Voie')){
+                    if(voie.properties.nom.includes('Voie')){
                         newDataParks.push(voie)
                     }
                     return null
@@ -119,7 +119,7 @@ class MapContainer extends React.Component {
             }
             if(statusCheckbox.checkedDogs === true){
                 dataMockSorted.map(parc => {
-                    if(parc.prop.chien === 'Oui'){
+                    if(parc.properties.chien === 'Oui'){
                         newDataParks.push(parc)
                     }
                     return null
@@ -127,7 +127,7 @@ class MapContainer extends React.Component {
             }
             if(statusCheckbox.checkedEspaceDogs === true){
                 dataMockSorted.map(parc => {
-                    if(parc.prop.esp_can === 'Oui'){
+                    if(parc.properties.esp_can === 'Oui'){
                         newDataParks.push(parc)
                     }
                     return null
@@ -135,7 +135,7 @@ class MapContainer extends React.Component {
             }
             if(statusCheckbox.checkedAireDeJeux === true){
                 dataMockSorted.map(parc => {
-                    if(parc.prop.type_equip.includes('Aire') || parc.prop.type_equip.includes('ludique')){
+                    if(parc.properties.type_equip.includes('Aire') || parc.properties.type_equip.includes('ludique')){
                         newDataParks.push(parc)
                     }
                     return null
@@ -143,7 +143,7 @@ class MapContainer extends React.Component {
             }
             if(statusCheckbox.checkedLabelFamily === true){
                 dataMockSorted.map(parc => {
-                    if(parc.prop.labelFamille === 'Oui'){
+                    if(parc.properties.labelFamille === 'Oui'){
                         newDataParks.push(parc)
                     }
                     return null
@@ -178,8 +178,8 @@ class MapContainer extends React.Component {
                                 <div className={classes.mainContainer}>
                                     <Header />
                                     <div className={classes.containerBothViews}>
-                                    <CheckboxComponent statusChecks={(status) => this.getStatusBoxChecked(status)}/>
-                                        <MapLeafletReactMobile dataParks={dataParks}/>
+                                        <CheckboxComponent statusChecks={(status) => this.getStatusBoxChecked(status)}/>
+                                        <MapLeafletReact dataParks={dataParks}/>
                                     </div>
                                     <div style={{display: 'flex', justifyContent: 'center', width: '100%'}}>
                                         <Footer />

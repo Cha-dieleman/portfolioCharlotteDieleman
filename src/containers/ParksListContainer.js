@@ -50,6 +50,7 @@ class ParksListContainer extends React.Component {
             secondLevel: 'parksList',
             thirdLevel: null
         })
+        window.scrollTo(0, 0)
     }
     render() {
         const { classes } = this.props

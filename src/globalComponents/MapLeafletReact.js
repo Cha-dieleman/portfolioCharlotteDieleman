@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
 import { Map, TileLayer, Marker, Popup, Polygon } from 'react-leaflet'
+import Media from 'react-media'
 import reactId from 'react-id-generator'
 import L from 'leaflet'
 
-import jardinLocationIcon from '../static/images/jardin_location_icon.png'
-import parksLocationIcon from '../static/images/parks_location_icon.png'
-import squareLocationIcon from '../static/images/square_location_icon.png'
-import bergesLocationIcon from '../static/images/berges_location_icon.png'
-import voieVerteLocationIcon from '../static/images/voieVerte_location_icon.png'
-import parkImg from '../static/images/parkImg.jpg'
-
-// import CustomPoPupMarker from './CustomPoPupMarker'
+import CustomPoPupMarker from './CustomPoPupMarker'
+import icon_park  from '../static/images/icon_park.png'
+import icon_square from '../static/images/icon_square.png'
+import icon_garden from '../static/images/icon_garden.png'
+import icon_water from '../static/images/icon_water.png'
+import icon_green_cycle from '../static/images/icon_green_cycle.png'
 
 class MapLeafletReact extends Component {
     constructor(props) {
@@ -24,63 +23,61 @@ class MapLeafletReact extends Component {
 
     getIconMarkerCustom = (data) => {
         let iconUrl = null
-        const parkName = data.prop.nom
+        const parkName = data.properties.nom
         if(parkName.includes('Parc')){
-            iconUrl = parksLocationIcon
+            iconUrl = icon_park
         }
         if(parkName.includes('Square')){
-            iconUrl = squareLocationIcon
+            iconUrl = icon_square 
         }
         if(parkName.includes("Rives") || parkName.includes("Berges") || parkName.includes('Berge')){
-            iconUrl = bergesLocationIcon
+            iconUrl = icon_water
         }
         if(parkName.includes('Jardin')){
-            iconUrl = jardinLocationIcon
+            iconUrl = icon_garden
         }
         if(parkName.includes('Voie')){
-            iconUrl = voieVerteLocationIcon
+            iconUrl = icon_green_cycle
         }
        
         
         return(
             L.icon({
                 iconUrl: iconUrl,
-                iconSize: [30,41],
-                iconAnchor: [15,41],
-                popupAnchor: [0,-41],
+                iconSize: [30,35],
+                iconAnchor: [15,35],
+                popupAnchor: [0,-35],
             })
         )
     }
 
     componentDidMount(){
-    const { dataParks } = this.props
+    const { dataParks, dataParkCenterPos, navLocatedDataPark } = this.props
+    if(dataParkCenterPos){
+        this.setState({
+            centerMap: dataParkCenterPos[0].properties.coordinateCenter,
+            zoom: 16
+        })
+    }
     const markersToDisplay = []
     dataParks.map((park) =>{
         const navR ={
             firstLevel: 'home',
             secondLevel: 'parksList',
-            thirdLevel: park.prop.nom
+            thirdLevel: park.properties.nom
         }
-        const marker =  (
-            <Marker position={park.prop.coordinateCenter} icon={this.getIconMarkerCustom(park)}>
-                        <Popup style={{width: 'auto', height: 'auto'}}>
-                            <div style={{display:'flex', flexDirection:'column',justifyContent:'center', alignItems:'center', width:'100%', height:'auto', boxSizing: 'border-box'}}>
-                                <h2 style={{margin: `0px 0px 10px 0px`}}>
-                                {park.prop.nom}
-                                </h2>  
-                                <img src={parkImg} alt="Photographie du parc" style={{height: 'auto', width: '50%', margin: `0px 0px 10px 0px`}} />
-                                <p style={{height: 'auto', width: '100%', margin: `0px 0px 10px 0px`}}>
-                                {park.prop.description}
-                                </p>
-                                <a href={`http://localhost:3000/${navR.secondLevel}/${navR.thirdLevel}`}>
-                                <button style={{color: '#B76E22', borderRadius:'none', width: 100, height: 25, border: 'solid 1px #B76E22', backgroundColor: 'white', marginBottom: 10}} type="button">
-                                    En savoir plus
-                                </button>
-                                </a>
-                            </div>
-                        </Popup>
-                    </Marker>
-      )
+        let marker = null
+        if(navLocatedDataPark === true){
+            marker =  <Marker position={park.properties.coordinateCenter} icon={this.getIconMarkerCustom(park)} />
+        } else {
+            marker =  (
+                <Marker position={park.properties.coordinateCenter} icon={this.getIconMarkerCustom(park)}>
+                    <Popup style={{width: 200, height: 200}}>
+                        <CustomPoPupMarker data={park} nav={navR}/>
+                    </Popup>
+                </Marker>
+          )
+        }
       markersToDisplay.push(marker)
       return null
     })
@@ -88,7 +85,7 @@ class MapLeafletReact extends Component {
     }
 
     componentDidUpdate(prevProps){
-        const { dataParks } = this.props
+        const { dataParks, navLocatedDataPark } = this.props
         if(prevProps.dataParks !== dataParks){
             this.setState({
                 centerMap: [45.765000, 4.835000],
@@ -99,28 +96,20 @@ class MapLeafletReact extends Component {
                 const navR ={
                     firstLevel: 'home',
                     secondLevel: 'parksList',
-                    thirdLevel: park.prop.nom
+                    thirdLevel: park.properties.nom
                 }
-                const marker =  (
-                    <Marker position={park.prop.coordinateCenter} icon={this.getIconMarkerCustom(park)}>
-                        <Popup style={{width: 'auto', height: 'auto'}}>
-                            <div style={{display:'flex', flexDirection:'column',justifyContent:'center', alignItems:'center', width:'100%', height:'auto', boxSizing: 'border-box'}}>
-                                <h2 style={{margin: `0px 0px 10px 0px`}}>
-                                {park.prop.nom}
-                                </h2>  
-                                <img src={parkImg} alt="Photographie du parc" style={{height: 'auto', width: '50%', margin: `0px 0px 10px 0px`}} />
-                                <p style={{height: 'auto', width: '100%', margin: `0px 0px 10px 0px`}}>
-                                {park.prop.description}
-                                </p>
-                                <a href={`http://localhost:3000/${navR.secondLevel}/${navR.thirdLevel}`}>
-                                <button style={{color: '#B76E22', borderRadius:'none', width: 100, height: 25, border: 'solid 1px #B76E22', backgroundColor: 'white', marginBottom: 10}} type="button">
-                                    En savoir plus
-                                </button>
-                                </a>
-                            </div>
-                        </Popup>
-                    </Marker>
-              )
+                let marker = null
+                if(navLocatedDataPark === true){
+                    marker =  <Marker position={park.properties.coordinateCenter} icon={this.getIconMarkerCustom(park)} />
+                } else {
+                    marker =  (
+                        <Marker position={park.properties.coordinateCenter} icon={this.getIconMarkerCustom(park)}>
+                            <Popup style={{width: 200, height: 200}}>
+                                <CustomPoPupMarker data={park} nav={navR}/>
+                            </Popup>
+                        </Marker>
+                  )
+                }
               markersToDisplay.push(marker)
               return null
             })
@@ -139,10 +128,17 @@ class MapLeafletReact extends Component {
   render() {
     const { dataToDisplayMarkers, centerMap, zoom } = this.state
     const { dataParks } = this.props
+    // if(dataParks){
 
+    //     console.log('ll', dataParks[0].coordinates)
+    // }
+    console.log('rr', dataParks)
     
     return (
-      <Map center={centerMap} zoom={zoom} style={{width: '50vw', height: '100%'}}>
+        <Media query={{ maxWidth: 1024 }}>
+        {(matches) =>
+            matches ? (
+      <Map center={centerMap} zoom={zoom} style={{width: '85vw', height: 400, marginTop: 30}}>
         <TileLayer
         attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -157,14 +153,39 @@ class MapLeafletReact extends Component {
         { 
             dataParks ? (
                 <div>
-                    {dataParks.map(park => <Polygon onClick={() => this.onClickChangePosCenter(park.prop.coordinateCenter)} key={reactId()} positions={park.coord} color="green"/>)}   
+                    {dataParks.map(park => <Polygon onClick={() => this.onClickChangePosCenter(park.properties.coordinateCenter)} key={reactId()} positions={park.coordinates} color="#3d7130"/>)}   
                     
                 </div>
             ) : null
         }
       </Map>
+    ) : (
+        <Map center={centerMap} zoom={zoom} style={{width: '50vw', height: '100%'}}>
+        <TileLayer
+        attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        { 
+            dataToDisplayMarkers ? (
+                <div>
+                    {dataToDisplayMarkers.map(marker => <div key={reactId()}>{marker}</div>)}
+                </div>
+            ) : null
+        }
+        { 
+            dataParks ? (
+                <div>
+                    {dataParks.map(park => <Polygon onClick={() => this.onClickChangePosCenter(park.prop.coordinateCenter)} key={reactId()} positions={park.coordinates} color="#3d7130"/>)}   
+                    
+                </div>
+            ) : null
+        }
+      </Map>
+      )
+    }
+</Media>
     )
-  }
+}
 }
 
 export default MapLeafletReact

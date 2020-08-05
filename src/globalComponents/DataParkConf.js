@@ -27,10 +27,6 @@ export const orderData = (data) => {
         let secondPartOfDataReady = []
         const configData = [
             {
-                technicalName: 'adresse',
-                label: 'Adresse'
-            },
-            {
                 technicalName: 'horaires',
                 label: 'Horaires'
             },
@@ -71,9 +67,6 @@ export const orderData = (data) => {
         configData.map(line => {
             if (data[line.technicalName] === undefined){
                 switch (line.technicalName) {
-                    case 'adresse':
-                        value = [line.label, `${data.numvoie} ${data.voie} ${data.codepost} ${data.commune}`]
-                        break
                     default:
                         value = [line.label, `En cours d'ajout`]
                 }

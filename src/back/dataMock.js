@@ -133,16 +133,22 @@ export const dataMock = {
             park.properties.description = `Les berges sont devenues l'un des endroits préférés des Lyonnais·e·s. Les Berges du Rhône offrent des ambiances variées et de multiples usages : du foot au roller, du terrain de boules aux terrains de jeux… les Berges sont une invitation permanente aux loisirs, à la rencontre, à la détente.`
             park.properties.labelFamille = "Non"
         } else if(park.properties.nom.includes("Square Jussieu")){
+            park.properties.description = ` Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`
             park.properties.labelFamille = "Oui"
         } else if(park.properties.nom.includes("Jardin des Marronniers")){
+            park.properties.description = ` Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`
             park.properties.labelFamille = "Oui"
         } else if(park.properties.nom.includes("Jardin place Jean Mermoz")){
+            park.properties.description = ` Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`
             park.properties.labelFamille = "Oui"
         } else if(park.properties.nom.includes("Parc de la Tête d'Or")){
+            park.properties.description = ` Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`
             park.properties.labelFamille = "Oui"
         } else if(park.properties.nom.includes("Square Saint Vincent")){
+            park.properties.description = ` Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`
             park.properties.labelFamille = "Oui"
         } else if(park.properties.nom.includes("Parc Sergent Blandan")){
+            park.properties.description = ` Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`
             park.properties.labelFamille = "Oui"
         } else if(park.properties.nom.includes("Voie verte")){
             park.properties.description = ` Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`
@@ -194,14 +200,14 @@ export const dataMock = {
     let sortData = []
     dataMock.features.map(feature => {
         let objFeature = {}
-        objFeature.prop = feature.properties
+        objFeature.properties = feature.properties
         //tri des coord:
         const TableOfDatasetCoord = feature.geometry.coordinates
         let newTableOfDatasetCoord = []
         TableOfDatasetCoord.map(dataset => {
-            dataset.map(coord => {
+            dataset.map(coordinate => {
                 let roundNumbers = []
-                coord.map(number => {
+                coordinate.map(number => {
                     roundNumbers.push(Math.round(number* 1000000)/1000000)
                     return null
                 })
@@ -210,7 +216,7 @@ export const dataMock = {
             })
             return null
         })
-        objFeature.coord = newTableOfDatasetCoord
+        objFeature.coordinates = newTableOfDatasetCoord
         sortData.push(objFeature)
         return null
     })
