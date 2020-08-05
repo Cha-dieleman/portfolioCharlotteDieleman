@@ -45,6 +45,16 @@ class Breadcrumb extends React.Component {
     }
   }
 
+  setNavText = (text) => {
+    if(text === 'parksMap'){
+      return 'carte des espaces verts'
+    } else if(text === 'parksList'){
+      return 'liste des espaces verts'
+    } else {
+      return text
+    }
+  }
+
   render() {
     const { classes, navStateRedux } = this.props
 
@@ -59,7 +69,7 @@ class Breadcrumb extends React.Component {
                               className={classes.text}
                               nowrap
                           >
-                              {`${navStateRedux.firstLevel} /`}
+                              {`${navStateRedux.firstLevel === 'home' ? 'Accueil' : navStateRedux.firstLevel} /`}
                           </Typography>
                       </Link>
                       <Link to='/parksList' className={navStateRedux.thirdLevel ? classes.link : classes.linkWithoutOpacity}>
@@ -89,7 +99,7 @@ class Breadcrumb extends React.Component {
                               variant="h5"
                               className={classes.text}
                           >
-                              {`${navStateRedux.firstLevel} /`}
+                            {`${navStateRedux.firstLevel === 'home' ? 'Accueil' : navStateRedux.firstLevel} /`}
                           </Typography>
                       </Link>
                       <Link to='/parksList' className={navStateRedux.thirdLevel ? classes.link : classes.linkWithoutOpacity}>
@@ -97,7 +107,7 @@ class Breadcrumb extends React.Component {
                             variant="h5"
                             className={`${classes.text} ${classes.textNav}`}
                         >
-                            {`${navStateRedux.secondLevel}`}
+                            {`${this.setNavText(navStateRedux.secondLevel)}`}
                         </Typography>
                       </Link>
                       {

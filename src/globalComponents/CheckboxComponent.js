@@ -63,11 +63,12 @@ const useStyles = makeStyles(() => ({
     formControlLabelText: {
       fontSize: 15,
       fontFamily: 'helvetica-regular',
-      fontWeight: 600
+      fontWeight: 500
     },
     formControlLabelTextDesktop:{
       fontSize: 18,
-      padding: 10
+      padding: 10,
+      fontWeight: 500
     }
   }))
 
@@ -355,7 +356,7 @@ export default function CheckboxComponent(props) {
           />
           <FormControlLabel
               control={<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}><GreenCheckbox checked={state.checkedParcs} onChange={handleChange} name="checkedParcs" /><img src={icon_park} alt="logo" style={{height: 33, width: 28, marginRight: 10}} /></div>}
-              label={<Typography className={classes.formControlLabelTexteDesktop}>Visualiser les parcs</Typography>}
+              label={<Typography className={`${classes.formControlLabelText} ${classes.formControlLabelTextDesktop}`}>Visualiser les parcs</Typography>}
               className={classes.formControlLabel}
           />
           <FormControlLabel
