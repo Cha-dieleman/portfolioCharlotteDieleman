@@ -107,6 +107,7 @@ class Portfolio extends React.Component {
     const { classes } = this.props
 
     return (
+      <div>
         <Media query={{ maxWidth: 1024 }}>
           {(matches) =>
             matches ? (
@@ -258,6 +259,7 @@ class Portfolio extends React.Component {
             )
           }
         </Media>
+        </div>
     )
   }
 }

@@ -164,8 +164,7 @@ class MapContainer extends React.Component {
     }
     
     render() {
-        const { dataParks, statusCheckbox } = this.state
-    console.log('status', statusCheckbox)
+        const { dataParks } = this.state
 
         const { classes } = this.props
         return (

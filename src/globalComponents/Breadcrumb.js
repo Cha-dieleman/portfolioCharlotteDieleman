@@ -61,12 +61,12 @@ class Breadcrumb extends React.Component {
                           <Typography
                               variant="body1"
                               className={classes.text}
-                              nowrap
+                              noWrap
                           >
                               {`${navStateRedux.firstLevel === 'home' ? 'Accueil' : navStateRedux.firstLevel} /`}
                           </Typography>
                       </Link>
-                      <Link to={navStateRedux.thirdLevel === 'parksList' ? '/parksList' : '/parksMap'} className={navStateRedux.thirdLevel ? classes.link : classes.linkWithoutOpacity}>
+                      <Link to={navStateRedux.secondLevel === 'parksList' ? '/parksList' : '/parksMap'} className={navStateRedux.thirdLevel ? classes.link : classes.linkWithoutOpacity}>
                         <Typography
                             variant="body1"
                             className={`${classes.text} ${classes.textNav}`}
@@ -79,7 +79,7 @@ class Breadcrumb extends React.Component {
                           <Typography
                               variant="body1"
                               className={`${classes.text} ${classes.textNav}`}
-                              nowrap
+                              noWrap
                           >
                               {` / ${navStateRedux.thirdLevel}`}
                           </Typography>
@@ -109,7 +109,7 @@ class Breadcrumb extends React.Component {
                           <Typography
                               variant="h5"
                               className={`${classes.text} ${classes.textNav}`}
-                              nowrap
+                              noWrap
                           >
                               {` / ${navStateRedux.thirdLevel}`}
                           </Typography>
