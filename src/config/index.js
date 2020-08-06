@@ -1,1 +1,1 @@
-// export const ApiPath = 'https://api.datalibrary.namr.io'
+// export const ApiPath = 'https://api'
