@@ -12,7 +12,6 @@ import Footer from '../globalComponents/Footer'
 import MapLeafletReact from '../globalComponents/MapLeafletReact'
 import dataParkImg from '../static/images/dataParkImg.jpg'
 
-
 import { setNav } from '../actions'
 
 const styles = () => ({
@@ -84,7 +83,6 @@ class Park extends React.Component {
             let newValuesOfCoordinates = []
             dataToMap[0].coordinates.map(dataset => {
                 // dataset = [ 4.824522066226018, 45.738152723960795 ]
-                console.log('set', dataset)
                 let roundNumbers = []
                 dataset.map(coord => {
                      // coord = 4.824522066226018
@@ -92,7 +90,7 @@ class Park extends React.Component {
                     return null
                 })
                 newValuesOfCoordinates.push(roundNumbers.reverse())
-                console.log('bb', newValuesOfCoordinates)
+                return null
             })
             dataToMap[0].coordinates = newValuesOfCoordinates
             this.setState({ dataToMap: dataToMap })

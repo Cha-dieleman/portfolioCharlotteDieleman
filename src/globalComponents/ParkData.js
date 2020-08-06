@@ -35,7 +35,7 @@ class ParkData extends React.Component {
   }
 
   render() {
-    const { classes, parentData, locatedMapInPark } = this.props
+    const { classes, parentData } = this.props
     
     const dataForTableToCustomize = orderData(parentData.properties)
 

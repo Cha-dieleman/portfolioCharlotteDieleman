@@ -123,6 +123,7 @@ const styles = () => ({
 })
 
 class Home extends React.Component {
+  _isMounted = false
     constructor(props) {
       super(props)
       this.state = {
@@ -132,7 +133,8 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
-      this.setState({ odometerValue: 295 })
+      this._isMounted = true
+      // this.setState({ odometerValue: 295 })
       window.scrollTo(0, 0)
     }
 
@@ -145,12 +147,17 @@ class Home extends React.Component {
       const { history } = this.props
       history.push('/parksMap')
     }
-  
+
+    componentWillUnmount() {
+      this._isMounted = false
+    }
+
     render() {
       const { classes } = this.props
       const { odometerValue } = this.state
 
       return (
+        <div>
         <Media query={{ maxWidth: 1024 }}>
         {(matches) =>
           matches ? (
@@ -291,6 +298,7 @@ class Home extends React.Component {
           )
         }
       </Media>
+      </div>
       )
     }
   }
