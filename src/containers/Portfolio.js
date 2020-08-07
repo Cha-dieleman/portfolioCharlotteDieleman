@@ -143,7 +143,9 @@ class Portfolio extends React.Component {
                     >
                     ( Portfolio en cours de construction )
                     <br/>
+                    <br/>
                     Lettre de recommandation sur demande
+                    <br/>
                     <br/>
                     Remerciements : Un grand merci à toute l'équipe Product de namR,
                     <br/>
@@ -227,7 +229,9 @@ class Portfolio extends React.Component {
                     >
                     ( Portfolio en cours de construction )
                     <br/>
+                    <br/>
                     Lettre de recommandation sur demande
+                    <br/>
                     <br/>
                     Remerciements : Un grand merci à toute l'équipe Product de namR,
                     <br/>
