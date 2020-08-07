@@ -8,7 +8,7 @@ import EcoIcon from '@material-ui/icons/Eco'
 import { withStyles } from '@material-ui/core/styles'
 import { Typography, Button } from '@material-ui/core'
 
-import imgBreathe from '../static/images/imgBreathe.png'
+import imgBreathe from '../static/images/imgBreathe.jpg'
 import Footer from '../globalComponents/Footer'
 
 const styles = () => ({
