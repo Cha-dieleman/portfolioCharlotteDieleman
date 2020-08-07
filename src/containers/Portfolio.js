@@ -144,6 +144,9 @@ class Portfolio extends React.Component {
                     ( Portfolio en cours de construction )
                     <br/>
                     <br/>
+                    Lettre de recommandation sur demande
+                    <br/>
+                    <br/>
                     Remerciements : Un grand merci à toute l'équipe Product de namR,
                     <br/>
                     pour votre accueil en stage et votre gentillesse,
@@ -163,16 +166,6 @@ class Portfolio extends React.Component {
                     >
                       <Button variant="outlined" color="secondary" className={classes.button}>
                         Télécharger CV
-                      </Button>
-                    </a>
-                    <a
-                      href="https://drive.google.com/file/d/19vteN-WeqAQmbB67B397Eqfv5VNwJUwp/view?usp=drivesdk"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      underline="always"
-                    >
-                      <Button variant="outlined" color="secondary" className={classes.button}>
-                        Recommandations
                       </Button>
                     </a>
                     <a href="mailto:chadieleman@gmail.com">
@@ -198,16 +191,6 @@ class Portfolio extends React.Component {
                     >
                       <Button variant="outlined" color="secondary" className={classes.button}>
                         Télécharger CV
-                      </Button>
-                    </a>
-                    <a
-                      href="https://drive.google.com/file/d/19vteN-WeqAQmbB67B397Eqfv5VNwJUwp/view?usp=drivesdk"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      underline="always"
-                    >
-                      <Button variant="outlined" color="secondary" className={classes.button}>
-                        Recommandations
                       </Button>
                     </a>
                     <a href="mailto:chadieleman@gmail.com">
@@ -245,6 +228,9 @@ class Portfolio extends React.Component {
                       align='right'
                     >
                     ( Portfolio en cours de construction )
+                    <br/>
+                    <br/>
+                    Lettre de recommandation sur demande
                     <br/>
                     <br/>
                     Remerciements : Un grand merci à toute l'équipe Product de namR,
