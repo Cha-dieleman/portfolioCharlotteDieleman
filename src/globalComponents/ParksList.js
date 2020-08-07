@@ -86,7 +86,6 @@ class ParksList extends React.Component {
                                             )
                                         })}
                                     </div>
-                                    <a href="#top" style={{ color:'#8fa3b4', fontWeight: 900, marginLeft: 20}}>Revenir au début de la liste</a>
                                 </div>
                             )
                         }

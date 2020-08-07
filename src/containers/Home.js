@@ -134,7 +134,7 @@ class Home extends React.Component {
 
     componentDidMount() {
       this._isMounted = true
-      // this.setState({ odometerValue: 295 })
+      this.setState({ odometerValue: 295 })
       window.scrollTo(0, 0)
     }
 
