@@ -1,8 +1,14 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 
 function CustomPoPupMarker(props) {
   const { data, nav } = props
-  
+
+  const handleClick = (nav) => {
+    const { history } = props
+    history.push(`/${nav.secondLevel}/${nav.thirdLevel}`)
+  }
+
   return (
     <div >
     {
@@ -14,11 +20,9 @@ function CustomPoPupMarker(props) {
           <p style={{height: 'auto', width: '100%', margin: `0px 0px 10px 0px`}}>
           {data.properties.description}
           </p>
-          <a href={`http://localhost:3000/${nav.secondLevel}/${nav.thirdLevel}`}>
-          <button style={{color: '#B76E22', borderRadius:'none', width: 100, height: 25, border: 'solid 1px #B76E22', backgroundColor: 'white', marginBottom: 10, cursor: 'pointer'}} type="button" variant="outlined" >
+          <button style={{color: '#B76E22', borderRadius:'none', width: 100, height: 25, border: 'solid 1px #B76E22', backgroundColor: 'white', marginBottom: 10, cursor: 'pointer'}} type="button" variant="outlined" onClick={() => handleClick(nav)}>
               En savoir plus
           </button>
-          </a>
       </div>
       ) : null
     }
@@ -26,4 +30,4 @@ function CustomPoPupMarker(props) {
 )
 }
 
-export default CustomPoPupMarker
+export default withRouter(CustomPoPupMarker)
