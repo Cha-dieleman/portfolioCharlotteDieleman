@@ -71,6 +71,7 @@ class Park extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
+        const { match } = this.props
         const { dataParkState } = this.state
         if(prevState.dataParkState !== dataParkState){
             const dataToMap = [
@@ -94,9 +95,16 @@ class Park extends React.Component {
             })
             dataToMap[0].coordinates = newValuesOfCoordinates
             this.setState({ dataToMap: dataToMap })
+        console.log('match', match.path.split('/'))
+            let setSecondLevel = match.path.split('/')
+            if(setSecondLevel[1] === 'parksList'){
+                setSecondLevel = 'parksList'
+            } else {
+                setSecondLevel = 'parksMap'
+            }
             setNav({
                 firstLevel: 'home',
-                secondLevel: 'parksList',
+                secondLevel: setSecondLevel,
                 thirdLevel: dataParkState.properties.nom
             })
         }

@@ -32,11 +32,18 @@ const styles = () => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: `40px 100px`
+    padding: `40px 100px`,
+    width: '70vw',
+    height: 'auto'
   },
   opacitySectionMobile: {
     flexDirection: 'column',
     padding: `60px 20px`,
+    width: '70vw',
+    height: 'auto',
+    marginTop: 50,
+    marginBottom: 50,
+    padding: `20px 20px`
   },
   buttonContainer: {
     display: 'flex',
@@ -163,12 +170,13 @@ class Portfolio extends React.Component {
                       target="_blank"
                       rel="noopener noreferrer"
                       underline="always"
+                      style={{textDecoration: "none"}}
                     >
                       <Button variant="outlined" color="secondary" className={classes.button}>
                         Télécharger CV
                       </Button>
                     </a>
-                    <a href="mailto:chadieleman@gmail.com">
+                    <a href="mailto:chadieleman@gmail.com" style={{textDecoration: "none"}}>
                       <Button variant="outlined" color="secondary" className={classes.button}>
                         Contact
                       </Button>
@@ -188,12 +196,13 @@ class Portfolio extends React.Component {
                       target="_blank"
                       rel="noopener noreferrer"
                       underline="always"
+                      style={{textDecoration: "none"}}
                     >
                       <Button variant="outlined" color="secondary" className={classes.button}>
                         Télécharger CV
                       </Button>
                     </a>
-                    <a href="mailto:chadieleman@gmail.com">
+                    <a href="mailto:chadieleman@gmail.com" style={{textDecoration: "none"}}>
                       <Button variant="outlined" color="secondary" className={classes.button}>
                         Contact
                       </Button>
