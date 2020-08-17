@@ -38,12 +38,11 @@ const useStyles = makeStyles(() => ({
       width: '50vw',
       maxWidth: '50vw',
       height: '100%',
-      padding: `0px 0px 2% 2%`,
+      overflowY: 'hidden',
+      padding: `0px 0px 0% 2%`,
       boxSizing: 'border-box'
     },
     formControlLabel: {
-        marginBottom: 5,
-        paddingBottom: 10,
         width: '100%'
     },
     formControlLabelMobile: {
@@ -334,15 +333,13 @@ export default function CheckboxComponent(props) {
     <Paper className={`${classes.container} ${classes.containerDesktop}`} elevation={3}>
     <div style={{height: '100%', width: '100%', position: 'relative'}}>
     <img src={leaf} alt="Photographie du parc" style={{height: 'auto', width: '100%', opacity: .6, position: 'absolute', filter: 'grayscale(.5)'}}/>
-      <div style={{height: '100%', width: '100%', position: 'absolute', top: '8%'}}>
+      <div style={{height: 'auto', width: '100%', position: 'absolute', top: '8%'}}>
       <FormLabel component="legend" style={{color: '#B76E22', fontSize: 22, marginBottom: 40, fontFamily: 'helvetica-regular', fontWeight: 600}}>Filtrer l'affichage sur la carte :</FormLabel>
           <FormControlLabel
               control={<GreenSwitch checked={state.checkedAll} onChange={handleChange} name="checkedAll" />}
               label={<Typography className={`${classes.formControlLabelText} ${classes.formControlLabelTextDesktop}`}>Visualiser tous les espaces verts</Typography>}
               style={{
                 color: state.checkedAll === false ? '#8fa3b4' : 'green',
-                marginBottom: 5,
-                paddingBottom: 20,
                 width: '100%'
               }}
           />
