@@ -25,6 +25,7 @@ const styles = () => ({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     backgroundColor: '#8FA3B4'
   },
   flexLogo: {
@@ -33,7 +34,7 @@ const styles = () => ({
     padding: '10px 0px 0px 10px'
   },
   flexLogoDesktop: {
-    padding: '20px 0px 20px 20px'
+    padding: 0
   },
   logoText: {
     color: 'white',

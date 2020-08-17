@@ -38,10 +38,6 @@ const useStyles = makeStyles(() => ({
       width: '50vw',
       maxWidth: '50vw',
       height: '100%',
-      // backgroundImage: `url(${leaf})`,
-      // backgroundSize: 'cover',
-      // backgroundRepeat: 'no-repeat',
-      // backgroundPosition: 'top 0px right 70%',
       padding: `0px 0px 2% 2%`,
       boxSizing: 'border-box',
       overflow: 'hidden'
