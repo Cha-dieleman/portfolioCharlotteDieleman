@@ -12,7 +12,7 @@ function CustomPoPupMarker(props) {
       secondLevel: 'parksMap',
       thirdLevel: nav.thirdLevel
     })
-    history.push(`/${nav.secondLevel}/${nav.thirdLevel}`)
+    history.push(`/parksMap/${nav.thirdLevel}`)
   }
 
   return (

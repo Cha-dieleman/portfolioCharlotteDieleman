@@ -10,7 +10,6 @@ import { dataMock } from '../back/dataMock'
 import Header from '../globalComponents/Header'
 import Footer from '../globalComponents/Footer'
 import MapLeafletReact from '../globalComponents/MapLeafletReact'
-import dataParkImg from '../static/images/dataParkImg.jpg'
 
 import { setNav } from '../actions'
 
@@ -136,11 +135,6 @@ class Park extends React.Component {
                                 <div className={classes.mainContainer}>
                                     <Header />
                                     <div className={classes.containerBothViewsDesktop}>
-                                        <img 
-                                            src={dataParkImg}
-                                            alt='télécharger en pdf'
-                                            style={{ width: '30%', height: 'auto', padding: 0, left: '35%', position: 'absolute', top: '20%', zIndex: 1000 }}
-                                        />
                                         <ParkData parentData={dataParkState} locatedMapInPark={true} />
                                         <MapLeafletReact dataParks={dataToMap} dataParkCenterPos={dataToMap} navLocatedDataPark={true} locatedMapInPark={true} />
                                     </div>
