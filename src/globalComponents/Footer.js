@@ -7,8 +7,8 @@ import { MuiThemeProvider, createMuiTheme, withStyles } from '@material-ui/core/
 
 const styles = () => ({
   devByContainer: {
-    height: 'auto',
-    margin: `30px 0px 30px 0px`,
+    height: '5vh',
+    margin: `10px 0px 10px 0px`,
     opacity: .7,
     '&:hover': {
       opacity: 1
@@ -24,6 +24,7 @@ const styles = () => ({
     justifyContent: 'flex-end'
   },
   typoDevBy: {
+    fontSize: 13,
     width: 'auto',
     margin: 0
   }
@@ -50,27 +51,20 @@ class Footer extends React.Component {
         const { classes } = this.props
         
         return (
+          <div style={{display: 'flex', justifyContent: 'center', width: '100%'}}>
             <Media query={{ maxWidth: 1024 }}>
                 {(matches) =>
                     matches ? (
-                            <div className={classes.devByContainer}>
-                                <MuiThemeProvider theme={theme}>
-                                <WhiteTooltip
-                                    title='Revenir au portfolio'
-                                    placement="top-end"
-                                >
-                                <Link to='/' style={{ textDecoration: 'none', color:'#B76E22' }}>
-                                    <Typography
-                                    variant="body2"
-                                    className={classes.typoDevBy}
-                                    align='right'
-                                    >
-                                        En cours de développement - Charlotte Dieleman
-                                    </Typography>
-                                    </Link>
-                                </WhiteTooltip>
-                                </MuiThemeProvider>
-                        </div>
+                      <div className={classes.devByContainer}>
+                        <Link to='/' style={{ textDecoration: 'none', color:'#B76E22' }}>
+                          <Typography
+                          className={classes.typoDevBy}
+                          align='right'
+                          >
+                              En cours de développement - Charlotte Dieleman
+                          </Typography>
+                        </Link>
+                      </div>
                     ) : (
                             <div className={`${classes.devByContainer} ${classes.devByContainerDesktop}`}>
                                 <MuiThemeProvider theme={theme}>
@@ -93,6 +87,7 @@ class Footer extends React.Component {
                     )
                 }
             </Media>
+             </div>
         )
     }
 }

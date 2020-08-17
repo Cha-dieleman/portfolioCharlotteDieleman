@@ -18,7 +18,7 @@ const styles = () => ({
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'stretch',
-    padding: '0px 0px 20px 0px',
+    padding: 0,
     boxSizing: 'border-box'
   },
   devByContainer: {
@@ -63,17 +63,13 @@ class ParksListContainer extends React.Component {
                         <div className={classes.mainContainer}>
                             <Header />
                             <ParksList />
-                            <div style={{display: 'flex', justifyContent: 'center', width: '100%'}}>
                                 <Footer />
-                            </div>
                         </div>
                     ) : (
                         <div className={classes.mainContainer}>
                             <Header />
                             <ParksList />
-                            <div style={{display: 'flex', justifyContent: 'flex-end', width: '100%'}}>
                                 <Footer />
-                            </div>
                         </div>
                     )
                 }

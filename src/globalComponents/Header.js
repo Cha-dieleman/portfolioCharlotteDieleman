@@ -12,7 +12,7 @@ import Breadcrumb from './Breadcrumb'
 const styles = () => ({
   mainContainer: {
     width: '100vw',
-    height: 'auto',
+    height: '10vh',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -41,9 +41,12 @@ const styles = () => ({
     fontFamily: 'helvetica-regular'
   },
   logoImg: {
-    width: 50,
+    width: 30,
     height: 'auto',
     color: 'white'
+  },
+  logoImgDesktop: {
+    width: 50
   }
 })
 
@@ -60,7 +63,7 @@ class Header extends React.Component {
                         <div className={classes.flexLogo}>
                             <EcoIcon className={classes.logoImg}/>
                             <Typography
-                                variant="h4"
+                                variant="h5"
                                 className={classes.logoText}
                             >
                                 GreenCityKid
@@ -73,7 +76,7 @@ class Header extends React.Component {
                 <div className={classes.mainContainerDesktop}>
                     <Link to='/home' style={{ textDecoration: 'none', color:'#B76E22' }}>
                         <div className={`${classes.flexLogo} ${classes.flexLogoDesktop}`}>
-                            <EcoIcon className={classes.logoImg}/>
+                            <EcoIcon className={`${classes.logoImg} ${classes.logoImgDesktop}`}/>
                             <Typography
                                 variant="h4"
                                 className={classes.logoText}

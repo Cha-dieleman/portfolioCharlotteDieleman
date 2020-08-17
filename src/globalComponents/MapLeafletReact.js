@@ -133,7 +133,7 @@ class MapLeafletReact extends Component {
         <Media query={{ maxWidth: 1024 }}>
         {(matches) =>
             matches ? (
-      <Map center={centerMap} zoom={zoom} style={{width: '85vw', height: 400, marginTop: 30}}>
+      <Map center={centerMap} zoom={zoom} style={{width: '85vw', height: '40vh', marginTop: 20}}>
         <TileLayer
         attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

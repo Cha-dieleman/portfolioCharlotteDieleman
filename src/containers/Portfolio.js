@@ -24,8 +24,7 @@ const styles = () => ({
     alignItems: 'center',
   },
   mainContainerMobile: {
-    padding: 0,
-    height: 'auto',
+    padding: 0
   },
   opacitySection: {
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
@@ -33,15 +32,15 @@ const styles = () => ({
     justifyContent: 'center',
     alignItems: 'center',
     padding: `40px 100px`,
-    width: '70vw',
-    height: 'auto'
+    width: '70vw'
   },
   opacitySectionMobile: {
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
     flexDirection: 'column',
     width: '70vw',
     height: 'auto',
-    marginTop: 50,
-    marginBottom: 50,
+    marginTop: 30,
+    marginBottom: 30,
     padding: `20px 20px`
   },
   buttonContainer: {
@@ -55,7 +54,7 @@ const styles = () => ({
     flexDirection: 'column',
     alignItems: 'center',
     marginRight: 0,
-    marginTop: 40
+    marginTop: 20
   },
   presentationText: {
     borderLeft: 'solid 1px white',
@@ -65,7 +64,7 @@ const styles = () => ({
     borderLeft: 'solid 0px white',
     borderBottom: 'solid 1px white',
     paddingLeft: 0,
-    paddingBottom: 40,
+    paddingBottom: 20,
     textAlign: 'center'
   },
   button: {
@@ -82,18 +81,44 @@ const styles = () => ({
     fontSize: 50,
     fontStyle: 'italic'
   },
+  nameTextMobile: {
+    fontSize: 30,
+    fontStyle: 'italic'
+  },
   jobText: {
     marginTop: 20,
     fontSize: 30
   },
+  jobTextMobile: {
+    marginTop: 10,
+    fontSize: 18
+  },
   welcomeText: {
     marginTop: 20,
-    fontSize: 30
+    fontSize: 25
+  },
+  welcomeTextMobile: {
+    marginTop: 10,
+    fontSize: 18
   },
   constructionText: {
     marginTop: 20,
     fontSize: 18,
     fontStyle: 'italic'
+  },
+  constructionTextMobile: {
+    marginTop: 10,
+    fontSize: 13,
+    fontStyle: 'italic'
+  },
+  recoText: {
+    marginTop: 20,
+    fontSize: 13,
+    fontStyle: 'italic',
+    color: '#f50057'
+  },
+  recoTextDesktop: {
+    fontSize: 18
   }
 })
 
@@ -121,47 +146,43 @@ class Portfolio extends React.Component {
                 <div className={`${classes.opacitySection} ${classes.opacitySectionMobile}`}>
                   <div className={`${classes.presentationText} ${classes.presentationTextMobile}`}>
                     <Typography
-                      variant="h5"
-                      className={`${classes.text} ${classes.nameText}`}
+                      variant="body1"
+                      className={`${classes.text} ${classes.nameTextMobile}`}
                     >
-                      Charlotte
-                      <br/>
-                      Dieleman
+                      Charlotte Dieleman
                     </Typography>
                     <Typography
-                      variant="h5"
-                      className={`${classes.text} ${classes.jobText}`}
+                      variant="body1"
+                      className={`${classes.text} ${classes.jobTextMobile}`}
                     >
                       Développeuse Web Junior
                       <br/>
                       Front-end - React
                     </Typography>
                     <Typography
-                      variant="h5"
-                      className={`${classes.text} ${classes.welcomeText}`}
+                      variant="body1"
+                      className={`${classes.text} ${classes.welcomeTextMobile}`}
                     >
                     Bienvenue ! Voici mon portfolio.
                     </Typography>
                     <Typography
-                      variant="h6"
-                      className={`${classes.text} ${classes.constructionText}`}
+                      variant="body2"
+                      className={`${classes.text} ${classes.constructionTextMobile}`}
                       align='center'
                     >
-                    Lettre de recommandation sur demande
-                    <br/>
-                    <br/>
-                    ( Portfolio en cours de construction )
-                    <br/>
                     <br/>
                     Remerciements : Un grand merci à toute l'équipe Product de namR,
                     <br/>
                     pour votre accueil en stage et votre gentillesse,
                     <br/>
                     pour m'avoir transmis votre workflow ainsi que vos connaissances !
+                    <br/>
+                    <br/>
+                    ( Portfolio en cours de construction )
                     </Typography>
                   </div>
                   <div className={classes.buttonContainerMobile}>
-                    <Button variant="outlined" color="secondary" onClick={() => this.handleClick()}>
+                    <Button variant="outlined" color="secondary" onClick={() => this.handleClick()} size="small">
                       GreenCityKid application
                     </Button>
                     <a
@@ -171,15 +192,22 @@ class Portfolio extends React.Component {
                       underline="always"
                       style={{textDecoration: "none"}}
                     >
-                      <Button variant="outlined" color="secondary" className={classes.button}>
+                      <Button variant="outlined" color="secondary" className={classes.buttonMobile} size="small">
                         Télécharger CV
                       </Button>
                     </a>
                     <a href="mailto:chadieleman@gmail.com" style={{textDecoration: "none"}}>
-                      <Button variant="outlined" color="secondary" className={classes.button}>
+                      <Button variant="outlined" color="secondary" className={classes.buttonMobile} size="small">
                         Contact
                       </Button>
                     </a>
+                    <Typography
+                      variant="h6"
+                      className={`${classes.text} ${classes.recoText}`}
+                      align='center'
+                    >
+                    Lettre de recommandation sur demande
+                    </Typography>
                   </div>
                 </div>
               </div>
@@ -206,6 +234,14 @@ class Portfolio extends React.Component {
                         Contact
                       </Button>
                     </a>
+                    <br/>
+                    <Typography
+                      variant="h6"
+                      className={`${classes.text} ${classes.recoText} ${classes.recoTextDesktop}`}
+                      align='right'
+                    >
+                    Lettre de recommandation sur demande
+                    </Typography>
                   </div>
                   <div className={classes.presentationText}>
                     <Typography
@@ -233,19 +269,23 @@ class Portfolio extends React.Component {
                     <Typography
                       variant="h6"
                       className={`${classes.text} ${classes.constructionText}`}
-                      align='right'
+                      align='left'
                     >
-                    Lettre de recommandation sur demande
-                    <br/>
-                    <br/>
-                    ( Portfolio en cours de construction )
-                    <br/>
                     <br/>
                     Remerciements : Un grand merci à toute l'équipe Product de namR,
                     <br/>
                     pour votre accueil en stage et votre gentillesse,
                     <br/>
                     pour m'avoir transmis votre workflow ainsi que vos connaissances !
+                    </Typography>
+                    <Typography
+                      variant="h6"
+                      className={`${classes.text} ${classes.constructionText}`}
+                      align='right'
+                    >
+                    <br/>
+                    <br/>
+                    ( Portfolio en cours de construction )
                     </Typography>
                   </div>
                 </div>
