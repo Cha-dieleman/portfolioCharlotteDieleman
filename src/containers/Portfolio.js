@@ -38,7 +38,6 @@ const styles = () => ({
   },
   opacitySectionMobile: {
     flexDirection: 'column',
-    padding: `60px 20px`,
     width: '70vw',
     height: 'auto',
     marginTop: 50,
@@ -148,10 +147,10 @@ class Portfolio extends React.Component {
                       className={`${classes.text} ${classes.constructionText}`}
                       align='center'
                     >
-                    ( Portfolio en cours de construction )
-                    <br/>
-                    <br/>
                     Lettre de recommandation sur demande
+                    <br/>
+                    <br/>
+                    ( Portfolio en cours de construction )
                     <br/>
                     <br/>
                     Remerciements : Un grand merci à toute l'équipe Product de namR,
@@ -236,10 +235,10 @@ class Portfolio extends React.Component {
                       className={`${classes.text} ${classes.constructionText}`}
                       align='right'
                     >
-                    ( Portfolio en cours de construction )
-                    <br/>
-                    <br/>
                     Lettre de recommandation sur demande
+                    <br/>
+                    <br/>
+                    ( Portfolio en cours de construction )
                     <br/>
                     <br/>
                     Remerciements : Un grand merci à toute l'équipe Product de namR,
