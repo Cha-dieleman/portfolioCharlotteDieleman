@@ -18,6 +18,7 @@ const Routes = () => {
             <Route exact path="/parksList" component={ParksListContainer}/>
             <Route exact path="/parksList/:nom" component={Park} />
             <Route exact path="/parksMap" component={MapContainer}/>
+            <Route exact path="/parksMap/:nom" component={Park} />
             <Route exact path="/test" component={MapContainer}/>
             <Route component={Error}/>
           </Switch>

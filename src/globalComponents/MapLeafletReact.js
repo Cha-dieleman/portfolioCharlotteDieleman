@@ -63,7 +63,7 @@ class MapLeafletReact extends Component {
     dataParks.map((park) =>{
         const navR ={
             firstLevel: 'home',
-            secondLevel: 'parksList',
+            secondLevel: 'parksMap',
             thirdLevel: park.properties.nom
         }
         let marker = null
@@ -94,8 +94,8 @@ class MapLeafletReact extends Component {
             const markersToDisplay = []
             dataParks.map((park) =>{
                 const navR ={
-                    firstLevel: 'home',
-                    secondLevel: 'parksList',
+                   // firstLevel: 'home',
+                   // secondLevel: 'parksMap',
                     thirdLevel: park.properties.nom
                 }
                 let marker = null

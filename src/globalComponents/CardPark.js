@@ -13,6 +13,7 @@ import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 
 import parkImg from '../static/images/parkImg.jpg'
+import { setNav } from '../actions'
 
 const useStyles = makeStyles({
   root: {
@@ -33,6 +34,11 @@ function CardPark(props) {
 
   const handleClick = (data) => {
     const { history } = props
+    setNav({
+      firstLevel: 'home',
+      secondLevel: 'parksList',
+      thirdLevel: data.properties.nom
+    })
     history.push(`/parksList/${data.properties.nom}`)
   }
 

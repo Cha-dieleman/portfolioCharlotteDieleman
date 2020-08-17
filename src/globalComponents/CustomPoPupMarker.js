@@ -1,11 +1,17 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
+import { setNav } from '../actions'
 
 function CustomPoPupMarker(props) {
   const { data, nav } = props
 
   const handleClick = (nav) => {
     const { history } = props
+    setNav({
+      firstLevel: 'home',
+      secondLevel: 'parksMap',
+      thirdLevel: nav.thirdLevel
+    })
     history.push(`/${nav.secondLevel}/${nav.thirdLevel}`)
   }
 
