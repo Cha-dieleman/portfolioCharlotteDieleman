@@ -30,11 +30,11 @@ const styles = () => ({
     backgroundPosition: 'center'
   },
   firstContainerMobile: {
-    height: 500
+    height: '30vh'
   },
   containerMobile: {
     width: '100vw',
-    height:'auto',
+    height:'100vh',
     padding: '0px 0px 0px',
   },
   containerDesktop: {
@@ -45,10 +45,11 @@ const styles = () => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'stretch'
+    alignItems: 'space-between'
   },
   secondContainerMobile: {
-    padding: '40px 20px 0px'
+    height: '68vh',
+    padding: '10px 20px 0px'
   },
   flexLogo: {
     display: 'flex',
@@ -56,9 +57,12 @@ const styles = () => ({
     margin: '10px 0px 0px 10px'
   },
   logoImg: {
-    width: 50,
+    width: 30,
     height: 'auto',
     color: 'white'
+  },
+  logoImgDesktop: {
+    width: 50
   },
   logoText: {
     color: 'white',
@@ -79,29 +83,26 @@ const styles = () => ({
     height: '100vh'
   },
   firstSecondContainer: {
-    padding: '0px 0px 80px',
-    height: '60%',
+    padding: '0px 0px 0px',
+    height: '80%',
     display: 'flex',
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
-    borderBottom: 'solid 2px #B76E22',
+    borderBottom: 'solid 2px #B76E22'
   },
   firstSecondContainerMobile: {
-    height: 'auto',
-    padding: '0px 0px 40px',
+    height: '80%',
+    padding: '0px 0px 20px',
+    marginBottom: 0
   },
   secondSecondContainer: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'flex-start',
-    padding: '40px 0px 0px',
-    height: '30%',
-    marginBottom: 20
-  },
-  thirdSecondContainer: {
-    height: 'auto',
-    padding: '0px 0px 20px 0px',
+    padding: '20px 0px 0px',
+    height: '20%',
+    marginBottom: 0
   },
   typo: {
     fontStyle: 'italic',
@@ -114,7 +115,7 @@ const styles = () => ({
     marginTop: 100
   },
   secondTypo: {
-    marginTop: 40,
+    marginTop: 20,
     fontFamily: 'helvetica-regular'
   },
   odometerTypo: {
@@ -166,7 +167,7 @@ class Home extends React.Component {
                 <div className={classes.flexLogo}>
                   <EcoIcon className={classes.logoImg}/>
                   <Typography
-                    variant="h4"
+                    variant="h5"
                     className={classes.logoText}
                   >
                     GreenCityKid
@@ -176,13 +177,13 @@ class Home extends React.Component {
               <div className={`${classes.secondContainer} ${classes.secondContainerMobile}`}>
                 <div className={`${classes.firstSecondContainer} ${classes.firstSecondContainerMobile}`}>
                   <Typography
-                    variant="h4"
+                    variant="h5"
                     className={classes.typo}
                   >
                     1 répertoire de
                   </Typography>
                   <Typography
-                    variant="h4"
+                    variant="h5"
                     className={`${classes.typo} ${classes.odometerTypo}`}
                   >
                     <Odometer
@@ -192,7 +193,7 @@ class Home extends React.Component {
                     />
                     </Typography>
                     <Typography
-                    variant="h4"
+                    variant="h5"
                     className={classes.typo}
                     align='center'
                   >
@@ -203,7 +204,7 @@ class Home extends React.Component {
                     lyonnais.
                   </Typography>
                   <Typography
-                    variant="body1"
+                    variant="body2"
                     className={classes.secondTypo}
                     align='center'
                   >
@@ -215,10 +216,10 @@ class Home extends React.Component {
                   </Typography>
                 </div>
                 <div className={`${classes.secondSecondContainer} ${classes.firstSecondContainerMobile}`}>
-                  <Button variant="outlined" className={classes.buttonMobile} onClick={() => this.goToInConstruction()}>
+                  <Button variant="outlined" className={classes.buttonMobile} onClick={() => this.goToInConstruction()} size="small">
                     Accéder à la carte
                   </Button>
-                  <Button variant="outlined" className={`${classes.buttonMobile} ${classes.secondButton}`} onClick={() => this.goToParksListView()}>
+                  <Button variant="outlined" className={`${classes.buttonMobile} ${classes.secondButton}`} onClick={() => this.goToParksListView()} size="small">
                     Accéder à la liste
                   </Button>
                 </div>
@@ -231,7 +232,7 @@ class Home extends React.Component {
             <div className={classes.mainContainer}>
               <div className={`${classes.firstContainer} ${classes.containerDesktop}`}>
                 <div className={classes.flexLogo}>
-                  <EcoIcon className={classes.logoImg}/>
+                  <EcoIcon className={`${classes.logoImg} ${classes.logoImgDesktop}`}/>
                   <Typography
                     variant="h4"
                     className={classes.logoText}
@@ -241,7 +242,7 @@ class Home extends React.Component {
                 </div>
               </div>
               <div className={`${classes.secondContainer} ${classes.containerDesktop}`}>
-                <div className={classes.firstSecondContainer}>
+                <div className={`${classes.firstSecondContainer}`}>
                   <Typography
                     variant="h4"
                     className={classes.typo}

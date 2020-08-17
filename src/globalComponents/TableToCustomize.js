@@ -19,7 +19,7 @@ const styles = () => ({
     boxShadow: 'none',
     borderRadius: 0,
     fontFamily: 'helvetica-regular',
-    margin: `60px 0px 0px 0px`,
+    margin: `20px 0px 0px 0px`,
     padding: 0
   },
   mobileViewDesign: {

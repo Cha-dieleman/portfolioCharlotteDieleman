@@ -25,6 +25,11 @@ const styles = () => ({
     padding:0,
     marginBottom : 10,
     marginTop : 10
+  },
+  ParkNameMobile: {
+    padding:0,
+    marginBottom : 5,
+    marginTop : 5
   }
 })
 
@@ -43,32 +48,35 @@ class ParkData extends React.Component {
         {(matches) =>
           matches ? (
             <div className={classes.mainContainer} style={{width: '100vw', height: 'auto', paddingBottom: 10}}>
-              <Typography
-                  variant="h4"
-                  className={classes.ParkName}
+              <div 
+                style={{ width: '100%', height: 200, padding: 0, position: 'relative',zIndex: 1000, backgroundImage: `url(${dataParkImg})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}
               >
-                  {`${parentData.properties.nom} :`}
-              </Typography>
-              <Typography
-                  variant="h5"
-                  className={classes.ParkName}
-              >
-              {`${parentData.properties.numvoie} ${parentData.properties.voie}`}
-              <br/>
-              {`${parentData.properties.codepost} ${parentData.properties.commune}`}
-              </Typography>
-              <TableToCustomize data={dataForTableToCustomize} mobileViewDesign/>
-              <img 
-                  src={dataParkImg}
-                  alt='télécharger en pdf'
-                  style={{ width: '90vw', height: 'auto', marginBottom: 20, padding: `0px 0px 0px 20px` }}
-              />
+                  <div style={{width: '100%', height: 'auto', backgroundColor: 'rgba(255, 255, 255, .9', position: 'absolute', top: 0, left: 0, zIndex: 2000, padding: '0px 20px', boxSizing: 'border-box'}}>
+                  <Typography
+                      variant="h6"
+                      className={`${classes.ParkName} ${classes.ParkNameMobile}`}
+                  >
+                      {`${parentData.properties.nom} :`}
+                  </Typography>
+                  <Typography
+                      variant="body2"
+                      className={`${classes.ParkName} ${classes.ParkNameMobile}`}
+                  >
+                  {`${parentData.properties.numvoie} ${parentData.properties.voie}`}
+                  <br/>
+                  {`${parentData.properties.codepost} ${parentData.properties.commune}`}
+                  </Typography>
+                </div>
+              </div>
+              <div style={{padding:0}}>
+                <TableToCustomize data={dataForTableToCustomize}/>
+              </div>
             </div>
           ) : (
             <div style={{width: '50vw', height: '85vh', overflowY: 'scroll',  boxSizing: 'border-box', padding: 40}}>
-                <div 
-                  style={{ width: '100%', height: 400, padding: 0, position: 'relative',zIndex: 1000, backgroundImage: `url(${dataParkImg})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}
-                >
+              <div 
+                style={{ width: '100%', height: 400, padding: 0, position: 'relative',zIndex: 1000, backgroundImage: `url(${dataParkImg})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}
+              >
                   <div style={{width: '100%', height: 'auto', backgroundColor: 'rgba(255, 255, 255, .9', position: 'absolute', top: 0, left: 0, zIndex: 2000, padding: '0px 20px', boxSizing: 'border-box'}}>
                   <Typography
                       variant="h3"

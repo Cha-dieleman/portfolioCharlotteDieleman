@@ -23,28 +23,26 @@ import icon_dog_brown from '../static/images/icon_dog_brown.png'
 import icon_water from '../static/images/icon_water.png'
 import icon_green_cycle from '../static/images/icon_green_cycle.png'
 import leaf from '../static/images/leaf.jpg'
-import leafMobile from '../static/images/leafMobile.jpg'
 
 const useStyles = makeStyles(() => ({
     container: {
       width: '100vw',
       height: 'auto',
-      padding: `0px 0px 10px 20px`,
+      padding: `0px 0px 0px 15px`,
       boxSizing: 'border-box',
-      overflow: 'scroll',
+      overflowY: 'scroll',
+      overflowX: 'hidden',
       backgroundColor: '#f9f8f6'
     },
     containerDesktop: {
       width: '50vw',
       maxWidth: '50vw',
       height: '100%',
-      padding: `0px 0px 2% 2%`,
-      boxSizing: 'border-box',
-      overflow: 'hidden'
+      overflowY: 'hidden',
+      padding: `0px 0px 0% 2%`,
+      boxSizing: 'border-box'
     },
     formControlLabel: {
-        marginBottom: 5,
-        paddingBottom: 10,
         width: '100%'
     },
     formControlLabelMobile: {
@@ -52,18 +50,16 @@ const useStyles = makeStyles(() => ({
       marginBottom: 5
   },
   formControlLabelMobileRow:{
-      marginRight: 10,
+      marginRight: 8,
       marginBottom: 5
   },
     formControlLabelText: {
-      fontSize: 15,
-      fontFamily: 'helvetica-regular',
-      // fontWeight: 600
+      fontSize: 13,
+      fontFamily: 'helvetica-regular'
     },
     formControlLabelTextDesktop:{
       fontSize: 18,
-      padding: 10,
-      // fontWeight: 600
+      padding: 10
     }
   }))
 
@@ -83,15 +79,15 @@ const useStyles = makeStyles(() => ({
 
 const GreenCheckbox = withStyles({
   root: {
-    width: 12,
-    height: 12,
+    width: 10,
+    height: 10,
     color: green[400],
     '&$checked': {
       color: green[600],
     },
   },
   checked: {},
-})((props) => <Checkbox color="default" icon={<RadioButtonUncheckedIcon style={{width: 18, height: 18}}/>} checkedIcon={<CheckCircleIcon style={{width: 18, height: 18}}/>} {...props} />)
+})((props) => <Checkbox color="default" icon={<RadioButtonUncheckedIcon style={{width: 15, height: 15}}/>} checkedIcon={<CheckCircleIcon style={{width: 15, height: 15}}/>} {...props} />)
 
 export default function CheckboxComponent(props) {
   const { statusChecks } = props
@@ -274,63 +270,60 @@ export default function CheckboxComponent(props) {
     {(matches) =>
         matches ? (
     <Paper className={classes.container} elevation={3}>
-      <div style={{height: 150, width: '100%', textAlign: 'right', overflow: 'hidden'}}>
-        <img src={leafMobile} alt="Photographie du parc" style={{height: '100%', width: 'auto', filter: 'grayscale(.5)', opacity: .6}} />
-      </div>
-    <FormLabel component="legend" style={{color: '#B76E22', fontSize: 20, marginBottom: 20, fontFamily: 'helvetica-regular', fontWeight: 500, marginTop: 10}}>Filtrer l'affichage sur la carte des espaces verts :</FormLabel>
+    <FormLabel component="legend" style={{color: '#B76E22', fontSize: 16, marginTop: 10, fontFamily: 'helvetica-regular'}}>Filtrer l'affichage sur la carte des espaces verts :</FormLabel>
         <FormControlLabel
             control={<GreenSwitch checked={state.checkedAll} onChange={handleChange} name="checkedAll" />}
             label={<Typography className={classes.formControlLabelText}>Visualiser tous les espaces verts</Typography>}
             style={{
               color: state.checkedAll === false ? '#8fa3b4' : 'green',
-              paddingBottom: 10,
+              paddingBottom: 0,
               marginRight: 0,
               width: '100%'
             }}
         />
         <div style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center', width: '100%', flexWrap: 'wrap'}}>
           <FormControlLabel
-              control={<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}><GreenCheckbox checked={state.checkedParcs} onChange={handleChange} name="checkedParcs" /><img src={icon_park} alt="logo" style={{height: 33, width: 28, marginRight: 5}} /></div>}
+              control={<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}><GreenCheckbox checked={state.checkedParcs} onChange={handleChange} name="checkedParcs" /><img src={icon_park} alt="logo" style={{height: 28, width: 23, marginRight: 5}} /></div>}
               label={<Typography className={classes.formControlLabelText}>Parcs</Typography>}
               className={classes.formControlLabelMobileRow}
           />
           <FormControlLabel
-              control={<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}><GreenCheckbox checked={state.checkedJardins} onChange={handleChange} name="checkedJardins" /><img src={icon_garden} alt="logo" style={{height: 33, width: 28, marginRight: 5}} /></div>}
+              control={<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}><GreenCheckbox checked={state.checkedJardins} onChange={handleChange} name="checkedJardins" /><img src={icon_garden} alt="logo" style={{height: 28, width: 23, marginRight: 5}} /></div>}
               label={<Typography className={classes.formControlLabelText}>Jardins</Typography>}
               className={classes.formControlLabelMobileRow}
           />
           <FormControlLabel
-              control={<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}><GreenCheckbox checked={state.checkedSquares} onChange={handleChange} name="checkedSquares" /><img src={icon_square} alt="logo" style={{height: 33, width: 28, marginRight: 5}} /></div>}
+              control={<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}><GreenCheckbox checked={state.checkedSquares} onChange={handleChange} name="checkedSquares" /><img src={icon_square} alt="logo" style={{height: 28, width: 23, marginRight: 5}} /></div>}
               label={<Typography className={classes.formControlLabelText}>Squares</Typography>}
               className={classes.formControlLabelMobileRow}
           />
           <FormControlLabel
-              control={<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}><GreenCheckbox checked={state.checkedBerges} onChange={handleChange} name="checkedBerges" /><img src={icon_water} alt="logo" style={{height: 33, width: 28, marginRight: 5}} /></div>}
-              label={<Typography className={classes.formControlLabelText}>Rives / berges</Typography>}
+              control={<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}><GreenCheckbox checked={state.checkedBerges} onChange={handleChange} name="checkedBerges" /><img src={icon_water} alt="logo" style={{height: 28, width: 23, marginRight: 5}} /></div>}
+              label={<Typography className={classes.formControlLabelText}>Rives/berges</Typography>}
               className={classes.formControlLabelMobileRow}
           />
           <FormControlLabel
-              control={<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}><GreenCheckbox checked={state.checkedVoiesVertes} onChange={handleChange} name="checkedVoiesVertes" /><img src={icon_green_cycle} alt="logo" style={{height: 33, width: 28, marginRight: 5}} /></div>}
+              control={<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}><GreenCheckbox checked={state.checkedVoiesVertes} onChange={handleChange} name="checkedVoiesVertes" /><img src={icon_green_cycle} alt="logo" style={{height: 28, width: 23, marginRight: 5}} /></div>}
               label={<Typography className={classes.formControlLabelText}>Voies vertes</Typography>}
               className={classes.formControlLabelMobileRow}
           />
         <FormControlLabel
-            control={<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}><GreenCheckbox checked={state.checkedDogs} onChange={handleChange} name="checkedDogs" /><img src={icon_dog} alt="logo" style={{height: 33, width: 28, marginRight: 5}} /></div>}
-            label={<Typography className={classes.formControlLabelText}>Espaces verts où les chiens sont autorisés</Typography>}
+            control={<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}><GreenCheckbox checked={state.checkedDogs} onChange={handleChange} name="checkedDogs" /><img src={icon_dog} alt="logo" style={{height: 28, width: 23, marginRight: 5}} /></div>}
+            label={<Typography className={classes.formControlLabelText}>Espaces verts - Chiens autorisés</Typography>}
             className={classes.formControlLabelMobileRow}
         />
         <FormControlLabel
-            control={<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}><GreenCheckbox checked={state.checkedEspaceDogs} onChange={handleChange} name="checkedEspaceDogs" /><img src={icon_dog_brown} alt="logo" style={{height: 33, width: 28, marginRight: 5}} /></div>}
-            label={<Typography className={classes.formControlLabelText}>Espaces verts avec un espace canin</Typography>}
+            control={<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}><GreenCheckbox checked={state.checkedEspaceDogs} onChange={handleChange} name="checkedEspaceDogs" /><img src={icon_dog_brown} alt="logo" style={{height: 28, width: 23, marginRight: 5}} /></div>}
+            label={<Typography className={classes.formControlLabelText}>Espaces verts - Espace canin</Typography>}
             className={classes.formControlLabelMobileRow}
         />
         <FormControlLabel
-            control={<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}><GreenCheckbox checked={state.checkedAireDeJeux} onChange={handleChange} name="checkedAireDeJeux"/><img src={icon_playground} alt="logo" style={{height: 33, width: 28, marginRight: 5}} /></div>}
+            control={<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}><GreenCheckbox checked={state.checkedAireDeJeux} onChange={handleChange} name="checkedAireDeJeux"/><img src={icon_playground} alt="logo" style={{height: 28, width: 23, marginRight: 5}} /></div>}
             label={<Typography className={classes.formControlLabelText}>Espaces verts avec des aires de jeux</Typography>}
             className={classes.formControlLabelMobileRow}
         />
         <FormControlLabel
-            control={<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}><GreenCheckbox checked={state.checkedLabelFamily} onChange={handleChange} name="checkedLabelFamily" /><img src={icon_family} alt="logo" style={{height: 33, width: 28, marginRight: 5}} /></div>}
+            control={<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}><GreenCheckbox checked={state.checkedLabelFamily} onChange={handleChange} name="checkedLabelFamily" /><img src={icon_family} alt="logo" style={{height: 28, width: 23, marginRight: 5}} /></div>}
             label={<Typography className={classes.formControlLabelText}>Espaces verts labellisés 'Family Friendly</Typography>}
             className={classes.formControlLabelMobileRow}
         />
@@ -340,15 +333,13 @@ export default function CheckboxComponent(props) {
     <Paper className={`${classes.container} ${classes.containerDesktop}`} elevation={3}>
     <div style={{height: '100%', width: '100%', position: 'relative'}}>
     <img src={leaf} alt="Photographie du parc" style={{height: 'auto', width: '100%', opacity: .6, position: 'absolute', filter: 'grayscale(.5)'}}/>
-      <div style={{height: '100%', width: '100%', position: 'absolute', top: '8%'}}>
+      <div style={{height: 'auto', width: '100%', position: 'absolute', top: '8%'}}>
       <FormLabel component="legend" style={{color: '#B76E22', fontSize: 22, marginBottom: 40, fontFamily: 'helvetica-regular', fontWeight: 600}}>Filtrer l'affichage sur la carte :</FormLabel>
           <FormControlLabel
               control={<GreenSwitch checked={state.checkedAll} onChange={handleChange} name="checkedAll" />}
               label={<Typography className={`${classes.formControlLabelText} ${classes.formControlLabelTextDesktop}`}>Visualiser tous les espaces verts</Typography>}
               style={{
                 color: state.checkedAll === false ? '#8fa3b4' : 'green',
-                marginBottom: 5,
-                paddingBottom: 20,
                 width: '100%'
               }}
           />

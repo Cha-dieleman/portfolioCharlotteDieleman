@@ -75,7 +75,7 @@ class ParksList extends React.Component {
                                     </div>
                                 </div>
                             ) : (
-                                <div style={{width: '100vw', height: '85vh', overflowY: 'scroll'}}  id="top">
+                                <div style={{width: '100vw', height: '85vh',  overflowY: 'scroll', overflowX: 'hidden'}}  id="top">
                                     <AutoSuggest data={data} />
                                     <div className={classes.mainContainerDesktop} id="MainDesk">
                                         {data.map(park => {

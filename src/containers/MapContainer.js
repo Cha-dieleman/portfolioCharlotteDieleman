@@ -16,6 +16,15 @@ import MapLeafletReact from '../globalComponents/MapLeafletReact'
 const styles = () => ({
     mainContainer: {
         width: '100vw',
+        height: '100vh',
+        boxSizing: 'border-box',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    mainContainerDesktop: {
+        width: '100vw',
         height: 'auto',
         boxSizing: 'border-box',
         display: 'flex',
@@ -25,10 +34,10 @@ const styles = () => ({
     },
     containerBothViews: {
         width: '100vw',
-        height: 'auto',
+        height: '85vh',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         alignItems: 'center',
     },
     containerBothViewsDesktop: {
@@ -185,7 +194,7 @@ class MapContainer extends React.Component {
                                     </div>
                                 </div>
                             ) : (
-                                <div className={classes.mainContainer}>
+                                <div className={classes.mainContainerDesktop}>
                                     <Header />
                                     <div className={classes.containerBothViewsDesktop}>
                                         <CheckboxComponent statusChecks={(status) => this.getStatusBoxChecked(status)}/>
