@@ -22,7 +22,6 @@ import icon_dog from '../static/images/icon_dog.png'
 import icon_dog_brown from '../static/images/icon_dog_brown.png'
 import icon_water from '../static/images/icon_water.png'
 import icon_green_cycle from '../static/images/icon_green_cycle.png'
-import leaf from '../static/images/leaf.jpg'
 
 const useStyles = makeStyles(() => ({
     container: {
@@ -31,8 +30,7 @@ const useStyles = makeStyles(() => ({
       padding: `0px 0px 0px 15px`,
       boxSizing: 'border-box',
       overflowY: 'scroll',
-      overflowX: 'hidden',
-      backgroundColor: '#f9f8f6'
+      overflowX: 'hidden'
     },
     containerDesktop: {
       width: '50vw',
@@ -332,7 +330,6 @@ export default function CheckboxComponent(props) {
     ) : (
     <Paper className={`${classes.container} ${classes.containerDesktop}`} elevation={3}>
     <div style={{height: '100%', width: '100%', position: 'relative'}}>
-    <img src={leaf} alt="Photographie du parc" style={{height: 'auto', width: '100%', opacity: .6, position: 'absolute', filter: 'grayscale(.5)'}}/>
       <div style={{height: 'auto', width: '100%', position: 'absolute', top: '8%'}}>
       <FormLabel component="legend" style={{color: '#B76E22', fontSize: 22, marginBottom: 40, fontFamily: 'helvetica-regular', fontWeight: 600}}>Filtrer l'affichage sur la carte :</FormLabel>
           <FormControlLabel

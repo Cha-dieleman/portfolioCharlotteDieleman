@@ -35,7 +35,7 @@ const styles = () => ({
     width: '70vw'
   },
   opacitySectionMobile: {
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
     flexDirection: 'column',
     width: '70vw',
     height: 'auto',
